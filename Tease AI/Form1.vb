@@ -358,7 +358,7 @@ Public Class Form1
     Dim AssImage As Boolean
     Dim BoobImage As Boolean
 
-  
+
 
     Dim FoundTag As String = "Null"
     Dim TagGarment As String = "NULL"
@@ -555,21 +555,21 @@ Public Class Form1
     'flag True when resizing being processed
     Private bResize As Boolean
 
-   
 
-    <DllImport("urlmon.dll")> _
-    Public Shared Function CoInternetSetFeatureEnabled( _
+
+    <DllImport("urlmon.dll")>
+    Public Shared Function CoInternetSetFeatureEnabled(
     ByVal FeatureEntry As Integer, <MarshalAs(UnmanagedType.U4)> ByVal dwFlags As Integer, ByVal fEnable As Boolean) As Integer
 
     End Function
 
-    Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String, _
+    Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String,
 ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCallback As Integer) As Integer
 
-  
 
-    
-           
+
+
+
 
 
 
@@ -581,7 +581,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
         mainPictureBox.Image = Nothing
         Debug.Print("Here?")
 
-        
+
         'If BeforeTease = False And My.Settings.Sys_SubLeftEarly <> 0 Then My.Settings.Sys_SubLeftEarlyTotal += 1
 
         If BeforeTease = False And Val(GetVariable("SYS_SubLeftEarly")) <> 0 Then SetVariable("SYS_SubLeftEarlyTotal", Val(GetVariable("SYS_SubLeftEarlyTotal")) + 1)
@@ -605,8 +605,8 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
             My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\System\Metronome")
         End If
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Temp\Temp.gif") Then
-            My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Temp\Temp.gif")
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif") Then
+            My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif")
         End If
 
 
@@ -667,7 +667,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 
     End Sub
 
-  
+
 
 
 
@@ -676,7 +676,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 
         Debug.Print("Form 2 Opened")
 
-      
+
 
         FormLoading = True
 
@@ -690,7 +690,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
         My.Settings.Save()
         Debug.Print("OrgasmLockDate = " & My.Settings.OrgasmLockDate)
 
-   
+
 
         FrmSplash.PBSplash.Value += 1
         FrmSplash.LBLSplash.Text = "Clearing Metronome settings..."
@@ -1672,15 +1672,15 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 
         StrokePace = 0
 
-        If Directory.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\") Then
-            My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\", FileIO.DeleteDirectoryOption.DeleteAllContents)
+        If Directory.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\") Then
+            My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\", FileIO.DeleteDirectoryOption.DeleteAllContents)
         End If
 
-        System.IO.Directory.CreateDirectory(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\")
+        System.IO.Directory.CreateDirectory(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\")
 
         StopMetronome = True
 
-        
+
 
         CBTBallsFirst = True
         CBTCockFirst = True
@@ -1746,13 +1746,13 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 
     End Sub
 
-    
+
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sendButton.Click
 
 
 
-        
+
 
         Dim CheckSpace As String = chatBox.Text
 
@@ -1763,7 +1763,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 
         If TimeoutTimer.Enabled = True Then TimeoutTimer.Stop()
 
-        If dompersonalityComboBox.Items.Count < 1 Then
+        If dompersonalitycombobox.Items.Count < 1 Then
             MessageBox.Show(Me, "No domme Personalities were found! Please install at least one Personality directory in the Scripts folder before using this part of the program.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
             Return
         End If
@@ -1840,7 +1840,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 
         Else
 
-            Chat = "<body style=""word-wrap:break-word;"">" & Chat & "<font face=""Cambria"" size=""3"" font color=""" & _
+            Chat = "<body style=""word-wrap:break-word;"">" & Chat & "<font face=""Cambria"" size=""3"" font color=""" &
                 SubColor & """><b>" & subName.Text & ": </b></font><font face=""" & FrmSettings.FontComboBox.Text & """ size=""" & FrmSettings.NBFontSize.Value & """ color=""" & TextColor & """>" & ChatString & "<br></font></body>"
             Chat = "<body bgcolor=""" & Color2Html(My.Settings.ChatWindowColor) & """>" & Chat & "</body>"
             ChatText.DocumentText = Chat
@@ -1881,7 +1881,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
             If UCase(ChatString).Contains("TASK") Then
                 Dim TaskList As New List(Of String)
 
-                For Each TaskFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Start Tasks\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                For Each TaskFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Tasks\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                     TaskList.Add(TaskFile)
                 Next
                 If TaskList.Count > 0 Then
@@ -1896,7 +1896,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
                     ScriptTimer.Start()
                     ShowModule = False
                 Else
-                    MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Start Tasks!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                    MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Tasks!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
                 End If
                 Return
             End If
@@ -1994,7 +1994,7 @@ NoPlaylistStartFile:
                             ChastityStartCheck = "*.txt"
                         End If
 
-                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\Start\", FileIO.SearchOption.SearchTopLevelOnly, ChastityStartCheck)
+                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\Start\", FileIO.SearchOption.SearchTopLevelOnly, ChastityStartCheck)
                             Dim TempStart As String = foundFile
                             TempStart = TempStart.Replace(".txt", "")
                             Do Until Not TempStart.Contains("\")
@@ -2016,9 +2016,9 @@ NoPlaylistStartFile:
 
                         If StartList.Count < 1 Then
                             If My.Settings.Chastity = True Then
-                                FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\Start_CHASTITY.txt"
+                                FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Start_CHASTITY.txt"
                             Else
-                                FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\Start.txt"
+                                FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Start.txt"
                             End If
                         Else
                             FileText = StartList(randomizer.Next(0, StartList.Count))
@@ -2027,11 +2027,11 @@ NoPlaylistStartFile:
                     Else
                         Debug.Print("Start situation found")
                         If PlaylistFile(0).Contains("Regular-TeaseAI-Script") Then
-                            FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\Start\" & PlaylistFile(0)
+                            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\Start\" & PlaylistFile(0)
                             FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
                             FileText = FileText & ".txt"
                         Else
-                            FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Playlist\Start\" & PlaylistFile(0) & ".txt"
+                            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Start\" & PlaylistFile(0) & ".txt"
                         End If
                     End If
 
@@ -2065,7 +2065,7 @@ NoPlaylistStartFile:
 
             Dim SafeList As New List(Of String)
 
-            For Each SafeFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Safeword\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+            For Each SafeFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Safeword\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                 SafeList.Add(SafeFile)
             Next
 
@@ -2077,7 +2077,7 @@ NoPlaylistStartFile:
                 ScriptTick = 2
                 ScriptTimer.Start()
             Else
-                MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Safeword!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Safeword!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
             End If
             Return
         End If
@@ -2113,7 +2113,7 @@ WritingTaskLine:
 
                 Else
                     Chat = "<body bgcolor=""" & Color2Html(My.Settings.ChatWindowColor) & """>" & Chat & "</body>"
-                    Chat = Chat & "<font face=""Cambria"" size=""3"" font color=""" & _
+                    Chat = Chat & "<font face=""Cambria"" size=""3"" font color=""" &
                 SubColor & """><b>" & subName.Text & ": </b></font><font face=""" & FrmSettings.FontComboBox.Text & """ size=""" & FrmSettings.NBFontSize.Value & """ color=""#000000"">" & ChatString & "<br></font>"
 
                     ChatText.DocumentText = Chat
@@ -2163,7 +2163,7 @@ WritingTaskLine:
 
                 Else
 
-                    Chat = Chat & "<font face=""Cambria"" size=""3"" font color=""" & _
+                    Chat = Chat & "<font face=""Cambria"" size=""3"" font color=""" &
                 SubColor & """><b>" & subName.Text & ": </b></font><font face=""" & FrmSettings.FontComboBox.Text & """ size=""" & FrmSettings.NBFontSize.Value & """ color=""#FF0000"">" & ChatString & "<br></font>"
                     Chat = "<body bgcolor=""" & Color2Html(My.Settings.ChatWindowColor) & """>" & Chat & "</body>"
                     ChatText.DocumentText = Chat
@@ -2217,10 +2217,10 @@ WritingTaskLine:
 
 
 
-        Dim EdgeList As New List(Of String) 
-        EdgeList = Txt2List(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\System\EdgeKEY.txt")
+        Dim EdgeList As New List(Of String)
+        EdgeList = Txt2List(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\EdgeKEY.txt")
 
-       
+
 
         Dim EdgeCheck As String = ChatString
 
@@ -2286,7 +2286,7 @@ WritingTaskLine:
 
                 Dim ATEList As New List(Of String)
 
-                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Avoid The Edge\Scripts\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Avoid The Edge\Scripts\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                     ATEList.Add(foundFile)
                 Next
 
@@ -2411,10 +2411,10 @@ WritingTaskLine:
 
                     Else
 
-                            HoldEdgeTick = EdgeHoldSeconds
-                            EdgeHoldFlag = False
+                        HoldEdgeTick = EdgeHoldSeconds
+                        EdgeHoldFlag = False
 
-                        End If
+                    End If
 
                     HoldEdgeTime = 0
 
@@ -2442,7 +2442,7 @@ WritingTaskLine:
 
                                 Dim RepeatList As New List(Of String)
 
-                                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Denial Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Denial Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                                     RepeatList.Add(foundFile)
                                 Next
 
@@ -2520,7 +2520,7 @@ RuinedOrgasm:
 
                         Dim RepeatList As New List(Of String)
 
-                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Ruin Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Ruin Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                             RepeatList.Add(foundFile)
                         Next
 
@@ -2586,7 +2586,7 @@ AllowedOrgasm:
 
                         Dim NoCumList As New List(Of String)
 
-                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Out of Orgasms\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Out of Orgasms\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                             NoCumList.Add(foundFile)
                         Next
 
@@ -2630,7 +2630,7 @@ NoNoCumFiles:
 
                         Dim RepeatList As New List(Of String)
 
-                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Orgasm Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Orgasm Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                             RepeatList.Add(foundFile)
                         Next
 
@@ -2748,7 +2748,7 @@ NoPlaylistModuleFile:
                     Dim ModuleList As New List(Of String)
                     ModuleList.Clear()
 
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & _
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text &
                                                                                     "\Modules\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         Dim TempModule As String = foundFile
                         TempModule = TempModule.Replace(".txt", "")
@@ -2764,18 +2764,18 @@ NoPlaylistModuleFile:
 
 
                     If ModuleList.Count < 1 Then
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\Module_EDGING.txt"
+                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_EDGING.txt"
                     Else
                         FileText = ModuleList(randomizer.Next(0, ModuleList.Count))
                     End If
 
                 Else
                     If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
+                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
                         FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
                         FileText = FileText & ".txt"
                     Else
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
+                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
                     End If
 
                 End If
@@ -2807,7 +2807,7 @@ NoPlaylistModuleFile:
 DebugAwareness:
 
         If InputFlag = True And DomTypeCheck = False Then
-            My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & InputString, ChatString, False)
+            My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & InputString, ChatString, False)
             InputFlag = False
         End If
 
@@ -2833,13 +2833,13 @@ EdgeSkip:
 
         Debug.Print("DomResponse Called")
 
-   
+
         If EdgeNOT = True Then
             EdgeNOT = False
-            ResponseFile = (Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\System\EdgeNOT.txt")
+            ResponseFile = (Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\EdgeNOT.txt")
             GoTo FoundResponse
         End If
-        
+
 
         'If BeforeTease = True And CBDebugAwareness.Checked = False Then Return
 
@@ -2880,7 +2880,7 @@ EdgeSkip:
         If BeforeTease = False Then
             If UCase(CheckResponse).Contains(UCase("I need to cum")) Or UCase(CheckResponse).Contains(UCase("let me cum")) Or UCase(CheckResponse).Contains(UCase("I want to cum")) Then
                 If TeaseTick > 0 Then
-                    ResponseFile = (Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\System\BegToCum.txt")
+                    ResponseFile = (Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\BegToCum.txt")
                     If My.Settings.Chastity = False Then TeaseTick = TeaseTick / 2
                     Debug.Print("LastScriptCountdown = " & LastScriptCountdown)
                     If TeaseTick < 1 And Playlist = False Then
@@ -2899,16 +2899,16 @@ EdgeSkip:
         End If
 
 
-     
+
         CheckResponse = CheckResponse.Replace("  ", " ")
 
 
-        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\System\", FileIO.SearchOption.SearchTopLevelOnly, "*KEY.txt")
-            If Not foundFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\System\EdgeKEY.txt" Then
+        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\", FileIO.SearchOption.SearchTopLevelOnly, "*KEY.txt")
+            If Not foundFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\EdgeKEY.txt" Then
 
                 Dim SysKeyList As New List(Of String)
                 SysKeyList = Txt2List(foundFile)
-           
+
 
                 DebugAwarenessLine = "Domme does not recognize this statement"
 
@@ -2933,14 +2933,14 @@ EdgeSkip:
                         GoTo FoundResponse
                         Exit For
                     End If
-        Next
+                Next
             End If
 
         Next
 
         ' If frmApps.CBDebugAwareness.Checked = True Then GoTo DebugAwarenessStep2
 
-        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
 
 
             Dim SplitReader As New StreamReader(foundFile)
@@ -2974,14 +2974,14 @@ EdgeSkip:
 
 DebugAwarenessStep2:
 
-        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\System\", FileIO.SearchOption.SearchTopLevelOnly, "*KEY.txt")
-            If Not foundFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\System\EdgeKEY.txt" Then
+        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\", FileIO.SearchOption.SearchTopLevelOnly, "*KEY.txt")
+            If Not foundFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\EdgeKEY.txt" Then
 
 
 
                 Dim SysKeyList As New List(Of String)
                 SysKeyList = Txt2List(foundFile)
-               
+
 
                 For i As Integer = 0 To SysKeyList.Count - 1
 
@@ -3011,7 +3011,7 @@ DebugAwarenessStep2:
 
         'If frmApps.CBDebugAwareness.Checked = True Then GoTo FoundResponse
 
-        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
 
 
             Dim SplitReader As New StreamReader(foundFile)
@@ -3045,7 +3045,7 @@ DebugAwarenessStep2:
 
 
 
-        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\Responses\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
 
 
             Dim SplitReader As New StreamReader(foundFile)
@@ -3569,7 +3569,7 @@ NullSkip:
             Dim SplitParts As String() = Splits(0).Split(New Char() {","c})
 
             For i As Integer = 0 To SplitParts.Length - 1
-           
+
                 If UCase(TempChatString) = (UCase(SplitParts(i))) Then
 
                     If CheckYes = True Or CheckNo = True Then
@@ -3644,7 +3644,7 @@ NullSkip:
             Dim SplitParts As String() = Splits(0).Split(New Char() {","c})
 
             For i As Integer = 0 To SplitParts.Length - 1
-              
+
 
                 If UCase(TempChatString).Contains(UCase(SplitParts(i))) Then
 
@@ -3779,7 +3779,7 @@ AcceptAnswer:
                 Dim GotoTemp As Integer = randomizer.Next(0, GotoSplit.Count)
                 FileGoto = GotoSplit(GotoTemp)
             End If
-        
+
 
             If File.Exists(FileText) Then
                 Dim ioFile2 As New StreamReader(FileText)
@@ -3879,10 +3879,10 @@ AcceptAnswer:
 
     Public Sub CBTBalls()
 
-        Dim BallReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBTBalls_First.txt")
+        Dim BallReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBTBalls_First.txt")
 
         If CBTBallsFirst = False Then
-            BallReader = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBTBalls.txt")
+            BallReader = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBTBalls.txt")
         Else
             CBTBallsCount += 1
         End If
@@ -3910,10 +3910,10 @@ AcceptAnswer:
 
     Public Sub CBTCock()
 
-        Dim CockReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBTCock_First.txt")
+        Dim CockReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBTCock_First.txt")
 
         If CBTCockFirst = False Then
-            CockReader = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBTCock.txt")
+            CockReader = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBTCock.txt")
         Else
 
             CBTCockCount += 1
@@ -3926,7 +3926,7 @@ AcceptAnswer:
         CockReader.Close()
         CockReader.Dispose()
 
-        
+
 
         Try
             CockList = FilterList(CockList)
@@ -3943,10 +3943,10 @@ AcceptAnswer:
 
     Public Sub CBTBoth()
 
-        Dim BallReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBTBalls_First.txt")
+        Dim BallReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBTBalls_First.txt")
 
         If CBTBothFirst = False Then
-            BallReader = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBTBalls.txt")
+            BallReader = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBTBalls.txt")
         Else
             CBTBallsCount += 1
             CBTCockCount += 1
@@ -3960,10 +3960,10 @@ AcceptAnswer:
         BallReader.Close()
         BallReader.Dispose()
 
-        Dim CockReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBTCock_First.txt")
+        Dim CockReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBTCock_First.txt")
 
         If CBTBothFirst = False Then
-            CockReader = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBTCock.txt")
+            CockReader = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBTCock.txt")
         Else
             CBTBallsCount += 1
             CBTCockCount += 1
@@ -4351,8 +4351,8 @@ ReturnCalled:
                 WriteFlag = WriteFlag.Substring(WriteStart, WriteFlag.Length - WriteStart)
                 WriteFlag = WriteFlag.Split(")")(0)
                 WriteFlag = WriteFlag.Replace("@Flag(", "")
-                If Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & WriteFlag) And _
-                    Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & WriteFlag) Then
+                If Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & WriteFlag) And
+                    Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & WriteFlag) Then
                     InvalidFilter = True
                 End If
             End If
@@ -4364,8 +4364,8 @@ ReturnCalled:
                 WriteFlag = WriteFlag.Substring(WriteStart, WriteFlag.Length - WriteStart)
                 WriteFlag = WriteFlag.Split(")")(0)
                 WriteFlag = WriteFlag.Replace("@NotFlag(", "")
-                If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & WriteFlag) Or _
-                    File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & WriteFlag) Then
+                If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & WriteFlag) Or
+                    File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & WriteFlag) Then
                     InvalidFilter = True
                 End If
             End If
@@ -4486,7 +4486,7 @@ ReturnCalled:
                 ScriptTimer.Stop()
             End If
 
-          
+
 
             Debug.Print("CHeck")
 
@@ -4825,7 +4825,7 @@ ReturnCalled:
 
 
         StripGoto = FileGoto
-        
+
 
 
 
@@ -5000,7 +5000,7 @@ SkipGotoSearch:
                         TypeDelay = 0
                     End If
 
-                   
+
                 End If
                 TypeToggle = 1
                 StringLength = DomTask.Length
@@ -5026,7 +5026,7 @@ SkipGotoSearch:
                 IsTyping = False
                 If RiskyDeal = True Then FrmCardList.LblRiskType.Visible = False
 
-              
+
 
                 ' If PreCleanString.Contains("#") Then GoTo PoundLoop
 
@@ -5054,7 +5054,7 @@ SkipGotoSearch:
                 If DomTask.Contains("@SlideshowPrevious") Then JustShowedSlideshowImage = True
                 If DomTask.Contains("@SlideshowLast") Then JustShowedSlideshowImage = True
 
-                
+
 
                 'Debug.Print("TeaseRadio = " & FrmSettings.teaseRadio.Checked)
                 'Debug.Print("JustShowedBlogImage = " & JustShowedBlogImage)
@@ -5481,7 +5481,7 @@ NullResponse:
                     End If
 
                     If EmoMes = True Then
-                        Chat = "<body style=""word-wrap:break-word;"">" & "<font face=""" & "Cambria" & """ size=""" & "3" & """ color=""#000000"">" & Chat & "<font color=""" & _
+                        Chat = "<body style=""word-wrap:break-word;"">" & "<font face=""" & "Cambria" & """ size=""" & "3" & """ color=""#000000"">" & Chat & "<font color=""" &
            TypeColor & """><b><i>" & DomTask & "</i></b><br></font></body>"
                         EmoMes = False
                         ChatText.DocumentText = Chat
@@ -5508,7 +5508,7 @@ NullResponse:
                         End While
                         ScrollChatDown()
 
-                        If RiskyDeal = True Then FrmCardList.WBRiskyChat.DocumentText = "<body style=""word-wrap:break-word;""><font face=""Cambria"" size=""3"" font color=""" & _
+                        If RiskyDeal = True Then FrmCardList.WBRiskyChat.DocumentText = "<body style=""word-wrap:break-word;""><font face=""Cambria"" size=""3"" font color=""" &
                 TypeColor & """><b>" & TypeName & ": </b></font><font face=""" & TypeFont & """ size=""" & TypeSize & """ color=""" & TextColor & """>" & DomTask & "<br></font></body>"
 
 
@@ -5519,7 +5519,7 @@ NullResponse:
 
 
 
-                        Chat = "<body style=""word-wrap:break-word;"">" & Chat & "<font face=""Cambria"" size=""3"" font color=""" & _
+                        Chat = "<body style=""word-wrap:break-word;"">" & Chat & "<font face=""Cambria"" size=""3"" font color=""" &
                 TypeColor & """><b>" & TypeName & ": </b></font><font face=""" & TypeFont & """ size=""" & TypeSize & """ color=""" & TextColor & """>" & DomTask & "<br></font></body>"
 
                         TypeToggle = 0
@@ -5529,14 +5529,14 @@ NullResponse:
                         End While
                         ScrollChatDown()
 
-                        If RiskyDeal = True Then FrmCardList.WBRiskyChat.DocumentText = "<body style=""word-wrap:break-word;""><font face=""Cambria"" size=""3"" font color=""" & _
+                        If RiskyDeal = True Then FrmCardList.WBRiskyChat.DocumentText = "<body style=""word-wrap:break-word;""><font face=""Cambria"" size=""3"" font color=""" &
                 TypeColor & """><b>" & TypeName & ": </b></font><font face=""" & TypeFont & """ size=""" & TypeSize & """ color=""" & TextColor & """>" & DomTask & "<br></font></body>"
 
                     End If
 
 EndSysMes:
 
-                   
+
 
                     ScrollChatDown()
 
@@ -5609,7 +5609,7 @@ EndSysMes:
                     ShowPicture = False
                 End If
 
-            
+
 
 HypNoResponse:
 
@@ -5620,7 +5620,7 @@ HypNoResponse:
                     mciSendString("CLOSE Speech1", String.Empty, 0, 0)
                     mciSendString("CLOSE Echo1", String.Empty, 0, 0)
 
-                    Dim SpeechDir As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Apps\Hypnotic Guide\TempWav.wav"
+                    Dim SpeechDir As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Hypnotic Guide\TempWav.wav"
                     Dim Speech1 As String = "Speech1"
                     Dim Echo1 As String = "Echo1"
 
@@ -5819,7 +5819,7 @@ NoResponse:
         Dim retval As Integer
         Dim returnData As String = Space(128)
 
-        retVal = mciSendString("status Speech1 mode", returnData, 128, 0)
+        retval = mciSendString("status Speech1 mode", returnData, 128, 0)
 
         If returnData.Substring(0, 7) = "playing" Then
 
@@ -5841,9 +5841,9 @@ NoResponse:
         Return sb.ToString()
     End Function
 
-    <System.Runtime.InteropServices.DllImport("kernel32.dll", CharSet:=System.Runtime.InteropServices.CharSet.Ansi, EntryPoint:="GetShortPathNameA")> _
-    Public Shared Function GetShortPathName(ByVal lpszLongPath As String, _
-                                        <System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPStr)> ByVal lpszShortPath As System.Text.StringBuilder, _
+    <System.Runtime.InteropServices.DllImport("kernel32.dll", CharSet:=System.Runtime.InteropServices.CharSet.Ansi, EntryPoint:="GetShortPathNameA")>
+    Public Shared Function GetShortPathName(ByVal lpszLongPath As String,
+                                        <System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPStr)> ByVal lpszShortPath As System.Text.StringBuilder,
                                         ByVal cchBuffer As Int32) As Int32
     End Function
 
@@ -5930,7 +5930,7 @@ NoResponse:
 
 NullResponseLine:
 
-         
+
 
                 If GlitterTease = True And JustShowedBlogImage = False Then GoTo TryNextWithTease
 
@@ -6245,7 +6245,7 @@ TryNextWithTease:
                 End If
 
                 If EmoMes = True Then
-                    Chat = "<body style=""word-wrap:break-word;"">" & "<font face=""" & "Cambria" & """ size=""" & "3" & """ color=""#000000"">" & Chat & "<font color=""" & _
+                    Chat = "<body style=""word-wrap:break-word;"">" & "<font face=""" & "Cambria" & """ size=""" & "3" & """ color=""#000000"">" & Chat & "<font color=""" &
               TypeColor & """><b><i>" & DomChat & "</i></b><br></font></body>"
                     EmoMes = False
                     ChatText.DocumentText = Chat
@@ -6272,13 +6272,13 @@ TryNextWithTease:
                     End While
                     ScrollChatDown()
 
-                    If RiskyDeal = True Then FrmCardList.WBRiskyChat.DocumentText = "<body style=""word-wrap:break-word;""><font face=""Cambria"" size=""3"" font color=""" & _
+                    If RiskyDeal = True Then FrmCardList.WBRiskyChat.DocumentText = "<body style=""word-wrap:break-word;""><font face=""Cambria"" size=""3"" font color=""" &
               TypeColor & """><b>" & TypeName & ": </b></font><font face=""" & TypeFont & """ size=""" & TypeSize & """ color=""" & TextColor & """>" & DomChat & "<br></font></body>"
 
                 Else
 
 
-                    Chat = "<body style=""word-wrap:break-word;"">" & Chat & "<font face=""Cambria"" size=""3"" font color=""" & _
+                    Chat = "<body style=""word-wrap:break-word;"">" & Chat & "<font face=""Cambria"" size=""3"" font color=""" &
                 TypeColor & """><b>" & TypeName & ": </b></font><font face=""" & TypeFont & """ size=""" & TypeSize & """ color=""" & TextColor & """>" & DomChat & "<br></font></body>"
                     TypeToggle = 0
                     ChatText.DocumentText = Chat
@@ -6287,14 +6287,14 @@ TryNextWithTease:
                     End While
                     ScrollChatDown()
 
-                    If RiskyDeal = True Then FrmCardList.WBRiskyChat.DocumentText = "<body style=""word-wrap:break-word;""><font face=""Cambria"" size=""3"" font color=""" & _
+                    If RiskyDeal = True Then FrmCardList.WBRiskyChat.DocumentText = "<body style=""word-wrap:break-word;""><font face=""Cambria"" size=""3"" font color=""" &
               TypeColor & """><b>" & TypeName & ": </b></font><font face=""" & TypeFont & """ size=""" & TypeSize & """ color=""" & TextColor & """>" & DomChat & "<br></font></body>"
 
                 End If
 
 EndSysMes:
 
-           
+
 
                 ScrollChatDown()
 
@@ -6390,7 +6390,7 @@ NullResponseLine2:
                 StrokeSpeedCheck()
 
                 If SubStroking = False Then
-                     StrokePace = 0
+                    StrokePace = 0
                     If FrmSettings.TBWebStop.Text <> "" Then
                         Try
                             FrmSettings.WebToy.Navigate(FrmSettings.TBWebStop.Text)
@@ -6400,7 +6400,7 @@ NullResponseLine2:
                 End If
 
                 If SubHoldingEdge = True Then
-                     StrokePace = 0
+                    StrokePace = 0
                 End If
 
                 'Debug.Print("NullResponse = " & NullResponse)
@@ -6497,12 +6497,12 @@ NullResponseLine2:
 
                 End If
 
-                End If
+            End If
         End If
 
     End Sub
 
-   
+
 
 
 #Region " Images "
@@ -6829,7 +6829,7 @@ TryPrevious:
             ' If FrmSettings.VLC169Radio.Checked = True Then domVLC.video.crop = "16:9"
 
             DomWMP.URL = OpenFileDialog2.FileName
-         
+
         End If
     End Sub
 
@@ -6879,22 +6879,22 @@ TryPrevious:
 
         If StrokeTick = 0 Then
 
-                FirstRound = False
+            FirstRound = False
 
-                StrokeTimer.Stop()
+            StrokeTimer.Stop()
             StrokeTauntTimer.Stop()
 
-                If RunningScript = True Then
+            If RunningScript = True Then
                 ScriptTick = 3
                 ScriptTimer.Start()
-                Else
+            Else
 
-                    ShowModule = True
+                ShowModule = True
 
-                    Dim ModuleList As New List(Of String)
-                    ModuleList.Clear()
+                Dim ModuleList As New List(Of String)
+                ModuleList.Clear()
 
-                    Dim ChastityModuleCheck As String
+                Dim ChastityModuleCheck As String
                 If My.Settings.Chastity = True Then
                     AskedToSpeedUp = False
                     AskedToSlowDown = False
@@ -6916,7 +6916,7 @@ TryPrevious:
 
 NoPlaylistModuleFile:
 
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & _
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text &
                                                                                     "\Modules\", FileIO.SearchOption.SearchTopLevelOnly, ChastityModuleCheck)
                         Dim TempModule As String = foundFile
                         TempModule = Path.GetFileName(TempModule).Replace(".txt", "")
@@ -6936,9 +6936,9 @@ NoPlaylistModuleFile:
 
                     If ModuleList.Count < 1 Then
                         If My.Settings.Chastity = True Then
-                            FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\Module_CHASTITY.txt"
+                            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_CHASTITY.txt"
                         Else
-                            FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\Module.txt"
+                            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module.txt"
                         End If
                     Else
                         FileText = ModuleList(randomizer.Next(0, ModuleList.Count))
@@ -6946,11 +6946,11 @@ NoPlaylistModuleFile:
 
                 Else
                     If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
+                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
                         FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
                         FileText = FileText & ".txt"
                     Else
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
+                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
                     End If
 
                 End If
@@ -7045,7 +7045,7 @@ SkipTick:
 
 NoPlaylistModuleFile:
 
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & _
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text &
                                                                                     "\Modules\", FileIO.SearchOption.SearchTopLevelOnly, ChastityModuleCheck)
                         Dim TempModule As String = foundFile
                         TempModule = Path.GetFileName(TempModule).Replace(".txt", "")
@@ -7191,7 +7191,7 @@ TryNextWithTease:
 
                 TauntTextCount = 0
                 ScriptCount = 0
-                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\", FileIO.SearchOption.SearchTopLevelOnly, TauntFile & "_*.txt")
+                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\", FileIO.SearchOption.SearchTopLevelOnly, TauntFile & "_*.txt")
                     ScriptCount += 1
                 Next
 
@@ -7212,7 +7212,7 @@ TryNextWithTease:
 
 
                 ScriptCount = 0
-                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\", FileIO.SearchOption.SearchTopLevelOnly, TauntFile & "_*.txt")
+                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\", FileIO.SearchOption.SearchTopLevelOnly, TauntFile & "_*.txt")
                     ScriptCount += 1
                     If TauntTempVal = ScriptCount Then TauntText = foundFile
                 Next
@@ -7344,7 +7344,7 @@ TryNextWithTease:
         YesOrNo = True
         Dim CBTCount As Integer
 
-        Dim ioFile3 As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\CBT\CBT.txt")
+        Dim ioFile3 As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\CBT\CBT.txt")
         Dim lines As New List(Of String)
         While ioFile3.Peek <> -1
             lines.Add(ioFile3.ReadLine())
@@ -7387,7 +7387,7 @@ TryNextWithTease:
 
     End Sub
 
-   
+
 
     Public Sub RandomVideo()
 
@@ -8278,7 +8278,7 @@ GetAnotherRandomVideo:
                     Return
                 End If
 
-                CensorVideo = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Censorship Sucks\CensorBarOff.txt"
+                CensorVideo = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Censorship Sucks\CensorBarOff.txt"
 
             Else
 
@@ -8312,7 +8312,7 @@ CensorConstant:
                     Return
                 End If
 
-                CensorVideo = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Censorship Sucks\CensorBarOn.txt"
+                CensorVideo = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Censorship Sucks\CensorBarOn.txt"
 
             End If
 
@@ -8325,7 +8325,7 @@ CensorConstant:
             Dim CensorLine As Integer
 
 
-            
+
 
 
             Try
@@ -8365,7 +8365,7 @@ CensorConstant:
 
                 RedLight = True
 
-                Dim RedReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Red Light Green Light\Red Light.txt")
+                Dim RedReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Red Light Green Light\Red Light.txt")
                 Dim RedList As New List(Of String)
 
                 While RedReader.Peek <> -1
@@ -8397,7 +8397,7 @@ CensorConstant:
                 RedLight = False
 
 
-                Dim GreenReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Red Light Green Light\Green Light.txt")
+                Dim GreenReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Red Light Green Light\Green Light.txt")
                 Dim GreenList As New List(Of String)
 
                 While GreenReader.Peek <> -1
@@ -8515,7 +8515,7 @@ CensorConstant:
         'Debug.Print(GlitterImageAV)
         Debug.Print("Clear Stage 2")
 
-    
+
 
 
         Dim StatusLines1 As New List(Of String)
@@ -8579,7 +8579,7 @@ CensorConstant:
         ''Debug.Print("StatusLine = " & StatusLine)
 
 
-   
+
 
         StatusText1 = StatusText1.Replace("#ShortName", FrmSettings.TBGlitterShortName.Text)
         StatusText2 = StatusText2.Replace("#ShortName", FrmSettings.TBGlitterShortName.Text)
@@ -8879,7 +8879,7 @@ StatusUpdateEnd:
             End Try
             domAvatar.Image = Nothing
             GC.Collect()
-           
+
 
             domAvatar.Image = Image.FromFile(OpenFileDialog1.FileName)
             My.Settings.DomAvatarSave = OpenFileDialog1.FileName
@@ -8919,37 +8919,37 @@ StatusUpdateEnd:
                 UpdateList.Clear()
 
                 If FrmSettings.CBTease.Checked = True Then
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Apps\Glitter\Tease\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Tease\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         UpdateList.Add(foundFile)
                     Next
                 End If
 
                 If FrmSettings.CBEgotist.Checked = True Then
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Apps\Glitter\Egotist\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Egotist\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         UpdateList.Add(foundFile)
                     Next
                 End If
 
                 If FrmSettings.CBTrivia.Checked = True Then
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Apps\Glitter\Trivia\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Trivia\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         UpdateList.Add(foundFile)
                     Next
                 End If
 
                 If FrmSettings.CBDaily.Checked = True Then
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Apps\Glitter\Daily\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Daily\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         UpdateList.Add(foundFile)
                     Next
                 End If
 
                 If FrmSettings.CBCustom1.Checked = True Then
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Apps\Glitter\Custom 1\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Custom 1\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         UpdateList.Add(foundFile)
                     Next
                 End If
 
                 If FrmSettings.CBCustom2.Checked = True Then
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Apps\Glitter\Custom 2\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Custom 2\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         UpdateList.Add(foundFile)
                     Next
                 End If
@@ -8973,9 +8973,9 @@ StatusUpdateEnd:
         End If
     End Sub
 
-  
 
-   
+
+
 
     Private Sub Button18_Click_1(sender As System.Object, e As System.EventArgs) Handles MediaButton.Click
 
@@ -9009,7 +9009,7 @@ StatusUpdateEnd:
 
         AdjustWindow()
 
-       ScrollChatDown()
+        ScrollChatDown()
 
     End Sub
 
@@ -9132,7 +9132,7 @@ StatusUpdateEnd:
         End If
 
         If StringClean.Contains("#RandomRound10(") Then
-          
+
 
             Dim RandomFlag As String = GetParentheses(StringClean, "#RandomRound10(")
             Dim OriginalFlag As String = RandomFlag
@@ -9148,7 +9148,7 @@ StatusUpdateEnd:
 
 
         If StringClean.Contains("#RandomRound5(") Then
-           
+
 
             Dim RandomFlag As String = GetParentheses(StringClean, "#RandomRound5(")
             Dim OriginalFlag As String = RandomFlag
@@ -9356,10 +9356,10 @@ StatusUpdateEnd:
 
 
         StringClean = SysKeywordClean(StringClean)
-       
+
         Debug.Print("PoundClean System Keyword Checkpoint")
 
-       
+
 
         FoundTag = "NULL"
 
@@ -9471,9 +9471,9 @@ StatusUpdateEnd:
                     PoundArray(i) = PoundArray(i).Replace(";", "")
                     PoundArray(i) = PoundArray(i).Replace("'s", "")
 
-                    If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\" & PoundArray(i) & ".txt") Then
+                    If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\" & PoundArray(i) & ".txt") Then
 
-                        Dim ioFile As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\" & PoundArray(i) & ".txt")
+                        Dim ioFile As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\" & PoundArray(i) & ".txt")
                         Dim lines As New List(Of String)
                         Dim Vocab As New List(Of String)
                         Dim PoundLine As Integer
@@ -9493,7 +9493,7 @@ StatusUpdateEnd:
                         ioFile.Dispose()
 
 
-                        
+
 
                         Try
                             lines = FilterList(lines)
@@ -9529,7 +9529,7 @@ StatusUpdateEnd:
 
                     Else
 
-                        MsgBox("""" & PoundArray(i) & ".txt"" was not found in """ & Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Vocabulary\. Please verify the file is in the correct folder and that " _
+                        MsgBox("""" & PoundArray(i) & ".txt"" was not found in """ & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\. Please verify the file is in the correct folder and that " _
                                & "the Vocabulary word is spelled correctly in the script.", , "Error!")
 
                         StringClean = StringClean.Replace(PoundArray(i), PoundArray(i).Replace("#", ""))
@@ -9653,8 +9653,8 @@ RinseLatherRepeat:
 
                         Dim FlagArray() As String = CheckFlag.Split(",")
 
-                        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & FlagArray(0)) Or _
-                                File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & FlagArray(0)) Then
+                        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & FlagArray(0)) Or
+                                File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & FlagArray(0)) Then
                             SkipGotoLine = True
                             FileGoto = FlagArray(1)
                             GetGoto()
@@ -9662,8 +9662,8 @@ RinseLatherRepeat:
 
                     Else
 
-                        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & CheckFlag) Or _
-                            File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & CheckFlag) Then
+                        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & CheckFlag) Or
+                            File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & CheckFlag) Then
                             SkipGotoLine = True
                             FileGoto = CheckFlag
                             GetGoto()
@@ -9792,7 +9792,7 @@ RinseLatherRepeat:
 
                     If DFlag.Contains(",") Then
 
-                      DFlag = FixCommas(DFlag)
+                        DFlag = FixCommas(DFlag)
 
                         Dim FlagArray() As String = DFlag.Split(",")
 
@@ -9848,7 +9848,7 @@ RinseLatherRepeat:
                     SCGotVar = SCGotVar.Replace("=[", "")
                     SCGotVar = SCGotVar.Replace(" ", "")
 
-                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & VarName, SCGotVar, False)
+                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & VarName, SCGotVar, False)
 
                 End If
 
@@ -9899,7 +9899,7 @@ RinseLatherRepeat:
                         And Not UCase(FlagArray(1)).Contains(UCase("DAY")) And Not UCase(FlagArray(1)).Contains(UCase("WEEK")) And Not UCase(FlagArray(1)).Contains(UCase("MONTH")) _
                         And Not UCase(FlagArray(1)).Contains(UCase("YEAR")) Then SetDate = DateAdd(DateInterval.Day, Val(FlagArray(1)), SetDate)
 
-                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & FlagArray(0), FormatDateTime(SetDate, DateFormat.GeneralDate), False)
+                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & FlagArray(0), FormatDateTime(SetDate, DateFormat.GeneralDate), False)
 
                     Debug.Print("CheckArray(i) = " & CheckArray(i))
 
@@ -10043,7 +10043,7 @@ RinseLatherRepeat:
                 Dim VarName As String = SCGotVarSplit(0)
                 Dim Val1 As Integer
 
-                Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & VarName
+                Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & VarName
 
                 If File.Exists(VarCheck) Then
 
@@ -10063,7 +10063,7 @@ RinseLatherRepeat:
 
                     Val1 = VarValue * Math.Round(Val1 / VarValue)
 
-                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & VarName, Val1, False)
+                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & VarName, Val1, False)
 
                 End If
 
@@ -10117,8 +10117,8 @@ RinseLatherRepeat:
                     '@ChangeVar[TB_EdgeHoldingOwed   ]    =[TB_EdgeHoldingOwed    ]     -[1       ]
 
                     If IsNumeric(ChangeVal1) = False Then
-                        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVal1) Then
-                            Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVal1)
+                        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVal1) Then
+                            Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVal1)
                             Val1 = Val(VarReader.ReadLine())
                             VarReader.Close()
                             VarReader.Dispose()
@@ -10130,8 +10130,8 @@ RinseLatherRepeat:
                     End If
 
                     If IsNumeric(ChangeVal2) = False Then
-                        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVal2) Then
-                            Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVal2)
+                        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVal2) Then
+                            Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVal2)
                             Val2 = Val(VarReader.ReadLine())
                             VarReader.Close()
                             VarReader.Dispose()
@@ -10155,7 +10155,7 @@ RinseLatherRepeat:
                     If ScriptOperator = "Multiply" Then ChangeVal = Val1 * Val2
                     If ScriptOperator = "Divide" Then ChangeVal = Val1 / Val2
 
-                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVar, ChangeVal, False)
+                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVar, ChangeVal, False)
 
                 End If
 
@@ -10213,7 +10213,7 @@ RinseLatherRepeat:
 
                 Else
 
-                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & SCGotVarSplit(0)
+                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & SCGotVarSplit(0)
                     'Debug.Print("VarCheck = " & VarCheck)
                     If File.Exists(VarCheck) Then
                         'Debug.Print("VarCheck Exists")
@@ -10291,7 +10291,7 @@ RinseLatherRepeat:
 
                 Else
 
-                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & SCGotVarSplit(0)
+                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & SCGotVarSplit(0)
                     'Debug.Print("VarCheck = " & VarCheck)
                     If File.Exists(VarCheck) Then
                         'Debug.Print("VarCheck Exists")
@@ -10394,7 +10394,7 @@ RinseLatherRepeat:
                     CheckFlag = VarSplit(i).Substring(CFIndex, VarSplit(i).Length - CFIndex).Replace("@ShowVar[", "")
 
                     Dim VarValue As String
-                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & CheckFlag
+                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & CheckFlag
                     Debug.Print("VarCheck = " & VarCheck)
                     If File.Exists(VarCheck) Then
                         Dim VarReader As New StreamReader(VarCheck)
@@ -10535,7 +10535,7 @@ RinseLatherRepeat:
                     ShowImage(ImageList(randomizer.Next(0, ImageList.Count)))
                     JustShowedBlogImage = True
                 Else
-                    MessageBox.Show(Me, "No images matching " & Path.GetFileName(ImageClean) & " were found in " & Path.GetDirectoryName(ImageClean) & "!" & Environment.NewLine & Environment.NewLine & _
+                    MessageBox.Show(Me, "No images matching " & Path.GetFileName(ImageClean) & " were found in " & Path.GetDirectoryName(ImageClean) & "!" & Environment.NewLine & Environment.NewLine &
                                "Please make sure that valid files exist and that the wildcards are applied correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
                 End If
 
@@ -10555,1585 +10555,1654 @@ RinseLatherRepeat:
         End If
 
 
-            If StringClean.Contains("@ShowImage") Then
-                TempVal = randomizer.Next(1, 101)
-                If TempVal < 51 Then
-                    GetBlogImage()
-                Else
-                    GetLocalImage()
-                End If
-                StringClean = StringClean.Replace("@ShowImage", "")
+        If StringClean.Contains("@ShowImage") Then
+            TempVal = randomizer.Next(1, 101)
+            If TempVal < 51 Then
+                GetBlogImage()
+            Else
+                GetLocalImage()
+            End If
+            StringClean = StringClean.Replace("@ShowImage", "")
+        End If
+
+        Debug.Print("SubStroking = " & SubStroking)
+        Debug.Print("SubEdging = " & SubEdging)
+        Debug.Print("SubHoldingEdge = " & SubHoldingEdge)
+
+        '  ╔═╗┌┬┐┬─┐┌─┐┬┌─┌─┐╔═╗┌─┐┌─┐┌┬┐┌─┐┬─┐
+        '  ╚═╗ │ ├┬┘│ │├┴┐├┤ ╠╣ ├─┤└─┐ │ ├┤ ├┬┘
+        '  ╚═╝ ┴ ┴└─└─┘┴ ┴└─┘╚  ┴ ┴└─┘ ┴ └─┘┴└─
+
+        If StringClean.Contains("@StrokeFaster") Then
+            StrokeFaster = True
+            StringClean = StringClean.Replace("@StrokeFaster", "")
+        End If
+
+        '  ╔═╗┌┬┐┬─┐┌─┐┬┌─┌─┐╔═╗┬  ┌─┐┬ ┬┌─┐┬─┐
+        '  ╚═╗ │ ├┬┘│ │├┴┐├┤ ╚═╗│  │ ││││├┤ ├┬┘
+        '  ╚═╝ ┴ ┴└─└─┘┴ ┴└─┘╚═╝┴─┘└─┘└┴┘└─┘┴└─
+
+        If StringClean.Contains("@StrokeSlower") Then
+            StrokeSlower = True
+            StringClean = StringClean.Replace("@StrokeSlower", "")
+        End If
+
+        '  ╔═╗┌┬┐┬─┐┌─┐┬┌─┌─┐╔═╗┌─┐┌─┐┌┬┐┌─┐┌─┐┌┬┐
+        '  ╚═╗ │ ├┬┘│ │├┴┐├┤ ╠╣ ├─┤└─┐ │ ├┤ └─┐ │ 
+        '  ╚═╝ ┴ ┴└─└─┘┴ ┴└─┘╚  ┴ ┴└─┘ ┴ └─┘└─┘ ┴ 
+
+        If StringClean.Contains("@StrokeFastest") Then
+            StrokeFastest = True
+            StringClean = StringClean.Replace("@StrokeFastest", "")
+        End If
+
+        '  ╔═╗┌┬┐┬─┐┌─┐┬┌─┌─┐╔═╗┬  ┌─┐┬ ┬┌─┐┌─┐┌┬┐
+        '  ╚═╗ │ ├┬┘│ │├┴┐├┤ ╚═╗│  │ ││││├┤ └─┐ │ 
+        '  ╚═╝ ┴ ┴└─└─┘┴ ┴└─┘╚═╝┴─┘└─┘└┴┘└─┘└─┘ ┴ 
+
+        If StringClean.Contains("@StrokeSlowest") Then
+            StrokeSlowest = True
+            StringClean = StringClean.Replace("@StrokeSlowest", "")
+        End If
+
+
+        If StringClean.Contains("@StartStroking") Then
+
+            If Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\SYS_FirstRun") Then
+                Dim SetDate As Date = FormatDateTime(Now, DateFormat.GeneralDate)
+                My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\SYS_FirstRun", SetDate, False)
             End If
 
-            Debug.Print("SubStroking = " & SubStroking)
-            Debug.Print("SubEdging = " & SubEdging)
-            Debug.Print("SubHoldingEdge = " & SubHoldingEdge)
+            SetVariable("SYS_StrokeRound", Val(GetVariable("SYS_StrokeRound")) + 1)
 
-            '  ╔═╗┌┬┐┬─┐┌─┐┬┌─┌─┐╔═╗┌─┐┌─┐┌┬┐┌─┐┬─┐
-            '  ╚═╗ │ ├┬┘│ │├┴┐├┤ ╠╣ ├─┤└─┐ │ ├┤ ├┬┘
-            '  ╚═╝ ┴ ┴└─└─┘┴ ┴└─┘╚  ┴ ┴└─┘ ┴ └─┘┴└─
-
-            If StringClean.Contains("@StrokeFaster") Then
-                StrokeFaster = True
-                StringClean = StringClean.Replace("@StrokeFaster", "")
+            If FrmSettings.TBWebStart.Text <> "" Then
+                Try
+                    FrmSettings.WebToy.Navigate(FrmSettings.TBWebStart.Text)
+                Catch
+                End Try
             End If
+            If StringClean.Contains("@Contact1") Then Contact1Stroke = True
+            If StringClean.Contains("@Contact2") Then Contact2Stroke = True
+            If StringClean.Contains("@Contact3") Then Contact3Stroke = True
+            AskedToGiveUpSection = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            BeforeTease = False
+            SubStroking = True
+            ShowModule = False
+            'StrokeCycle = -1
+            If StartStrokingCount = 0 Then FirstRound = True
+            'If FirstRound = True Then My.Settings.Sys_SubLeftEarly += 1
+            If FirstRound = True Then SetVariable("SYS_SubLeftEarly", Val(GetVariable("SYS_SubLeftEarly")) + 1)
+            My.Settings.Save()
+            StartStrokingCount += 1
+            StopMetronome = False
+            StrokePace = randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
+            StrokePace = 50 * Math.Round(StrokePace / 50)
 
-            '  ╔═╗┌┬┐┬─┐┌─┐┬┌─┌─┐╔═╗┬  ┌─┐┬ ┬┌─┐┬─┐
-            '  ╚═╗ │ ├┬┘│ │├┴┐├┤ ╚═╗│  │ ││││├┤ ├┬┘
-            '  ╚═╝ ┴ ┴└─└─┘┴ ┴└─┘╚═╝┴─┘└─┘└┴┘└─┘┴└─
-
-            If StringClean.Contains("@StrokeSlower") Then
-                StrokeSlower = True
-                StringClean = StringClean.Replace("@StrokeSlower", "")
-            End If
-
-            '  ╔═╗┌┬┐┬─┐┌─┐┬┌─┌─┐╔═╗┌─┐┌─┐┌┬┐┌─┐┌─┐┌┬┐
-            '  ╚═╗ │ ├┬┘│ │├┴┐├┤ ╠╣ ├─┤└─┐ │ ├┤ └─┐ │ 
-            '  ╚═╝ ┴ ┴└─└─┘┴ ┴└─┘╚  ┴ ┴└─┘ ┴ └─┘└─┘ ┴ 
-
-            If StringClean.Contains("@StrokeFastest") Then
-                StrokeFastest = True
-                StringClean = StringClean.Replace("@StrokeFastest", "")
-            End If
-
-            '  ╔═╗┌┬┐┬─┐┌─┐┬┌─┌─┐╔═╗┬  ┌─┐┬ ┬┌─┐┌─┐┌┬┐
-            '  ╚═╗ │ ├┬┘│ │├┴┐├┤ ╚═╗│  │ ││││├┤ └─┐ │ 
-            '  ╚═╝ ┴ ┴└─└─┘┴ ┴└─┘╚═╝┴─┘└─┘└┴┘└─┘└─┘ ┴ 
-
-            If StringClean.Contains("@StrokeSlowest") Then
-                StrokeSlowest = True
-                StringClean = StringClean.Replace("@StrokeSlowest", "")
-            End If
-
-
-            If StringClean.Contains("@StartStroking") Then
-
-                If Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\SYS_FirstRun") Then
-                    Dim SetDate As Date = FormatDateTime(Now, DateFormat.GeneralDate)
-                    My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\SYS_FirstRun", SetDate, False)
-                End If
-
-                SetVariable("SYS_StrokeRound", Val(GetVariable("SYS_StrokeRound")) + 1)
-
-                If FrmSettings.TBWebStart.Text <> "" Then
-                    Try
-                        FrmSettings.WebToy.Navigate(FrmSettings.TBWebStart.Text)
-                    Catch
-                    End Try
-                End If
-                If StringClean.Contains("@Contact1") Then Contact1Stroke = True
-                If StringClean.Contains("@Contact2") Then Contact2Stroke = True
-                If StringClean.Contains("@Contact3") Then Contact3Stroke = True
-                AskedToGiveUpSection = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                BeforeTease = False
-                SubStroking = True
-                ShowModule = False
-                'StrokeCycle = -1
-                If StartStrokingCount = 0 Then FirstRound = True
-                'If FirstRound = True Then My.Settings.Sys_SubLeftEarly += 1
-                If FirstRound = True Then SetVariable("SYS_SubLeftEarly", Val(GetVariable("SYS_SubLeftEarly")) + 1)
-                My.Settings.Save()
-                StartStrokingCount += 1
-                StopMetronome = False
-                StrokePace = randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
-                StrokePace = 50 * Math.Round(StrokePace / 50)
-
-                If FrmSettings.CBTauntCycleDD.Checked = True Then
-                    If FrmSettings.domlevelNumBox.Value = 1 Then StrokeTick = randomizer.Next(1, 3) * 60
-                    If FrmSettings.domlevelNumBox.Value = 2 Then StrokeTick = randomizer.Next(1, 4) * 60
-                    If FrmSettings.domlevelNumBox.Value = 3 Then StrokeTick = randomizer.Next(3, 6) * 60
-                    If FrmSettings.domlevelNumBox.Value = 4 Then StrokeTick = randomizer.Next(4, 8) * 60
-                    If FrmSettings.domlevelNumBox.Value = 5 Then StrokeTick = randomizer.Next(5, 11) * 60
-                Else
-                    StrokeTick = randomizer.Next(FrmSettings.NBTauntCycleMin.Value * 60, FrmSettings.NBTauntCycleMax.Value * 60)
-                End If
-
-
-
-                StrokeTauntTick = randomizer.Next(11, 21)
-                'StrokeThread = New Thread(AddressOf StrokeLoop)
-                'StrokeThread.IsBackground = True
-                'StrokeThread.SetApartmentState(ApartmentState.STA)
-                'StrokeThread.Start()
-                StrokeTimer.Start()
-                StrokeTauntTimer.Start()
-                StringClean = StringClean.Replace("@StartStroking", "")
-            End If
-
-            If StringClean.Contains("@StartTaunts") Then
-                AskedToGiveUpSection = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                BeforeTease = False
-                SubStroking = True
-                ShowModule = False
-                'StrokeCycle = -1
-                If StartStrokingCount = 0 Then FirstRound = True
-                StartStrokingCount += 1
-                StrokePace = 0
-                StrokePaceTimer.Interval = StrokePace
-                StopMetronome = False
-                If FrmSettings.CBTauntCycleDD.Checked = True Then
-                    If FrmSettings.domlevelNumBox.Value = 1 Then StrokeTick = randomizer.Next(1, 3) * 60
-                    If FrmSettings.domlevelNumBox.Value = 2 Then StrokeTick = randomizer.Next(1, 4) * 60
-                    If FrmSettings.domlevelNumBox.Value = 3 Then StrokeTick = randomizer.Next(3, 6) * 60
-                    If FrmSettings.domlevelNumBox.Value = 4 Then StrokeTick = randomizer.Next(4, 8) * 60
-                    If FrmSettings.domlevelNumBox.Value = 5 Then StrokeTick = randomizer.Next(5, 11) * 60
-                Else
-                    StrokeTick = randomizer.Next(FrmSettings.NBTauntCycleMin.Value * 60, FrmSettings.NBTauntCycleMax.Value * 60)
-                End If
-                StrokeTauntTick = randomizer.Next(11, 21)
-                StrokeTimer.Start()
-                StrokeTauntTimer.Start()
-                StringClean = StringClean.Replace("@StartTaunts", "")
-            End If
-
-            If StringClean.Contains("@StopStroking") Then
-                If FrmSettings.TBWebStop.Text <> "" Then
-                    Try
-                        FrmSettings.WebToy.Navigate(FrmSettings.TBWebStop.Text)
-                    Catch
-                    End Try
-                End If
-                If Contact1Stroke = True Then
-                    StringClean = StringClean & "@Contact1"
-                    Contact1Stroke = False
-                End If
-                If Contact2Stroke = True Then
-                    StringClean = StringClean & "@Contact2"
-                    Contact2Stroke = False
-                End If
-                If Contact3Stroke = True Then
-                    StringClean = StringClean & "@Contact3"
-                    Contact3Stroke = False
-                End If
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                SubStroking = False
-                SubEdging = False
-                SubHoldingEdge = False
-                StrokeTimer.Stop()
-                StrokeTauntTimer.Stop()
-                StrokePace = 0
-                EdgeTauntTimer.Stop()
-                HoldEdgeTauntTimer.Stop()
-                StringClean = StringClean.Replace("@StopStroking", "")
-            End If
-
-            If StringClean.Contains("@StopTaunts") Then
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                SubStroking = False
-                SubEdging = False
-                SubHoldingEdge = False
-                StrokeTimer.Stop()
-                StrokeTauntTimer.Stop()
-                EdgeTauntTimer.Stop()
-                HoldEdgeTauntTimer.Stop()
-                StringClean = StringClean.Replace("@StopTaunts", "")
-            End If
-
-            If StringClean.Contains("@EdgeToRuinNoHoldNoSecret") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeNoHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeToRuin = True
-                EdgeToRuinSecret = False
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeToRuinNoHoldNoSecret", "")
+            If FrmSettings.CBTauntCycleDD.Checked = True Then
+                If FrmSettings.domlevelNumBox.Value = 1 Then StrokeTick = randomizer.Next(1, 3) * 60
+                If FrmSettings.domlevelNumBox.Value = 2 Then StrokeTick = randomizer.Next(1, 4) * 60
+                If FrmSettings.domlevelNumBox.Value = 3 Then StrokeTick = randomizer.Next(3, 6) * 60
+                If FrmSettings.domlevelNumBox.Value = 4 Then StrokeTick = randomizer.Next(4, 8) * 60
+                If FrmSettings.domlevelNumBox.Value = 5 Then StrokeTick = randomizer.Next(5, 11) * 60
+            Else
+                StrokeTick = randomizer.Next(FrmSettings.NBTauntCycleMin.Value * 60, FrmSettings.NBTauntCycleMax.Value * 60)
             End If
 
 
 
+            StrokeTauntTick = randomizer.Next(11, 21)
+            'StrokeThread = New Thread(AddressOf StrokeLoop)
+            'StrokeThread.IsBackground = True
+            'StrokeThread.SetApartmentState(ApartmentState.STA)
+            'StrokeThread.Start()
+            StrokeTimer.Start()
+            StrokeTauntTimer.Start()
+            StringClean = StringClean.Replace("@StartStroking", "")
+        End If
 
-
-            If StringClean.Contains("@EdgeToRuinHoldNoSecret(") Then
-
-                Dim EdgeHoldFlag As String = GetParentheses(StringClean, "@EdgeToRuinHoldNoSecret(")
-
-                If EdgeHoldFlag.Contains(",") Then
-
-                    EdgeHoldFlag = FixCommas(EdgeHoldFlag)
-
-                    Dim EdgeFlagArray As String() = EdgeHoldFlag.Split(",")
-
-                    Dim Edge1 As Integer = Val(EdgeFlagArray(0))
-                    Dim Edge2 As Integer = Val(EdgeFlagArray(1))
-
-                    If UCase(EdgeFlagArray(0)).Contains("M") Then Edge1 *= 60
-                    If UCase(EdgeFlagArray(1)).Contains("M") Then Edge2 *= 60
-
-                    If UCase(EdgeFlagArray(0)).Contains("H") Then Edge1 *= 3600
-                    If UCase(EdgeFlagArray(1)).Contains("H") Then Edge2 *= 3600
-
-                    EdgeHoldSeconds = randomizer.Next(Edge1, Edge2 + 1)
-
-                Else
-
-                    EdgeHoldSeconds = Val(EdgeHoldFlag)
-                    If UCase(GetParentheses(StringClean, "@EdgeToRuinHoldNoSecret(")).Contains("M") Then EdgeHoldSeconds *= 60
-                    If UCase(GetParentheses(StringClean, "@EdgeToRuinHoldNoSecret(")).Contains("H") Then EdgeHoldSeconds *= 3600
-
-                End If
-
-                EdgeHoldFlag = True
-
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeToRuin = True
-                EdgeToRuinSecret = False
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeToRuinHoldNoSecret(" & GetParentheses(StringClean, "@EdgeToRuinHoldNoSecret(") & ")", "")
+        If StringClean.Contains("@StartTaunts") Then
+            AskedToGiveUpSection = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            BeforeTease = False
+            SubStroking = True
+            ShowModule = False
+            'StrokeCycle = -1
+            If StartStrokingCount = 0 Then FirstRound = True
+            StartStrokingCount += 1
+            StrokePace = 0
+            StrokePaceTimer.Interval = StrokePace
+            StopMetronome = False
+            If FrmSettings.CBTauntCycleDD.Checked = True Then
+                If FrmSettings.domlevelNumBox.Value = 1 Then StrokeTick = randomizer.Next(1, 3) * 60
+                If FrmSettings.domlevelNumBox.Value = 2 Then StrokeTick = randomizer.Next(1, 4) * 60
+                If FrmSettings.domlevelNumBox.Value = 3 Then StrokeTick = randomizer.Next(3, 6) * 60
+                If FrmSettings.domlevelNumBox.Value = 4 Then StrokeTick = randomizer.Next(4, 8) * 60
+                If FrmSettings.domlevelNumBox.Value = 5 Then StrokeTick = randomizer.Next(5, 11) * 60
+            Else
+                StrokeTick = randomizer.Next(FrmSettings.NBTauntCycleMin.Value * 60, FrmSettings.NBTauntCycleMax.Value * 60)
             End If
+            StrokeTauntTick = randomizer.Next(11, 21)
+            StrokeTimer.Start()
+            StrokeTauntTimer.Start()
+            StringClean = StringClean.Replace("@StartTaunts", "")
+        End If
 
-
-
-            If StringClean.Contains("@EdgeToRuinHoldNoSecret") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeToRuin = True
-                EdgeToRuinSecret = False
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeToRuinHoldNoSecret", "")
+        If StringClean.Contains("@StopStroking") Then
+            If FrmSettings.TBWebStop.Text <> "" Then
+                Try
+                    FrmSettings.WebToy.Navigate(FrmSettings.TBWebStop.Text)
+                Catch
+                End Try
             End If
-
-            If StringClean.Contains("@EdgeToRuinNoSecret") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeToRuinSecret = False
-                EdgeToRuin = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeToRuinNoSecret", "")
+            If Contact1Stroke = True Then
+                StringClean = StringClean & "@Contact1"
+                Contact1Stroke = False
             End If
-
-            If StringClean.Contains("@EdgeToRuinNoHold") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeNoHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeToRuin = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeToRuinNoHold", "")
+            If Contact2Stroke = True Then
+                StringClean = StringClean & "@Contact2"
+                Contact2Stroke = False
             End If
-
-
-
-
-
-            If StringClean.Contains("@EdgeToRuinHold(") Then
-
-                Dim EdgeHoldFlag As String = GetParentheses(StringClean, "@EdgeToRuinHold(")
-
-                If EdgeHoldFlag.Contains(",") Then
-
-                    EdgeHoldFlag = FixCommas(EdgeHoldFlag)
-
-                    Dim EdgeFlagArray As String() = EdgeHoldFlag.Split(",")
-
-                    Dim Edge1 As Integer = Val(EdgeFlagArray(0))
-                    Dim Edge2 As Integer = Val(EdgeFlagArray(1))
-
-                    If UCase(EdgeFlagArray(0)).Contains("M") Then Edge1 *= 60
-                    If UCase(EdgeFlagArray(1)).Contains("M") Then Edge2 *= 60
-
-                    If UCase(EdgeFlagArray(0)).Contains("H") Then Edge1 *= 3600
-                    If UCase(EdgeFlagArray(1)).Contains("H") Then Edge2 *= 3600
-
-                    EdgeHoldSeconds = randomizer.Next(Edge1, Edge2 + 1)
-
-                Else
-
-                    EdgeHoldSeconds = Val(EdgeHoldFlag)
-                    If UCase(GetParentheses(StringClean, "@EdgeToRuinHold(")).Contains("M") Then EdgeHoldSeconds *= 60
-                    If UCase(GetParentheses(StringClean, "@EdgeToRuinHold(")).Contains("H") Then EdgeHoldSeconds *= 3600
-
-                End If
-
-                EdgeHoldFlag = True
-
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeToRuin = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeToRuinHold(" & GetParentheses(StringClean, "@EdgeToRuinHold(") & ")", "")
+            If Contact3Stroke = True Then
+                StringClean = StringClean & "@Contact3"
+                Contact3Stroke = False
             End If
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            SubStroking = False
+            SubEdging = False
+            SubHoldingEdge = False
+            StrokeTimer.Stop()
+            StrokeTauntTimer.Stop()
+            StrokePace = 0
+            EdgeTauntTimer.Stop()
+            HoldEdgeTauntTimer.Stop()
+            StringClean = StringClean.Replace("@StopStroking", "")
+        End If
 
-            If StringClean.Contains("@EdgeToRuinHold") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeToRuin = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeToRuinHold", "")
-            End If
+        If StringClean.Contains("@StopTaunts") Then
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            SubStroking = False
+            SubEdging = False
+            SubHoldingEdge = False
+            StrokeTimer.Stop()
+            StrokeTauntTimer.Stop()
+            EdgeTauntTimer.Stop()
+            HoldEdgeTauntTimer.Stop()
+            StringClean = StringClean.Replace("@StopTaunts", "")
+        End If
 
-            If StringClean.Contains("@EdgeToRuin") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeToRuin = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeToRuin", "")
-            End If
-
-            If StringClean.Contains("@EdgeNoHold") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeNoHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeNoHold", "")
-            End If
+        If StringClean.Contains("@EdgeToRuinNoHoldNoSecret") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeNoHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeToRuin = True
+            EdgeToRuinSecret = False
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeToRuinNoHoldNoSecret", "")
+        End If
 
 
-            ' The Commands @EdgeHold(), @EdgeToRuinHold() and @EdgeToRuinHoldNoSecret() allow you to specify the amount of time the edge is held. The defualt is in seconds, but you can use Minutes and Hours as well
-            ' For example: @EdgeHold(60) would have the domme make you hold the edge for 60 seconds
-            ' @EdgeHold(3 Minutes) or @EdgeHold(3 M) - Domme will make you hold the edge for three minutes
-            ' @EdgeHold(2 Hours) - Domme will make you hold the edge for 2 hours. Good luck :D
-            '
-            'You can also set a time range using a comma. For example, @EdgeHold(2 Minutes, 5 Minutes) - the domme would make you hold it a random amount of time bwteen 2 and 5 minutes.
-
-            If StringClean.Contains("@EdgeHold(") Then
-
-                Dim EdgeHoldFlag As String = GetParentheses(StringClean, "@EdgeHold(")
-
-                If EdgeHoldFlag.Contains(",") Then
-
-                    EdgeHoldFlag = FixCommas(EdgeHoldFlag)
-
-                    Dim EdgeFlagArray As String() = EdgeHoldFlag.Split(",")
-
-                    Dim Edge1 As Integer = Val(EdgeFlagArray(0))
-                    Dim Edge2 As Integer = Val(EdgeFlagArray(1))
-
-                    If UCase(EdgeFlagArray(0)).Contains("M") Then Edge1 *= 60
-                    If UCase(EdgeFlagArray(1)).Contains("M") Then Edge2 *= 60
-
-                    If UCase(EdgeFlagArray(0)).Contains("H") Then Edge1 *= 3600
-                    If UCase(EdgeFlagArray(1)).Contains("H") Then Edge2 *= 3600
-
-                    EdgeHoldSeconds = randomizer.Next(Edge1, Edge2 + 1)
-
-                Else
-
-                    EdgeHoldSeconds = Val(EdgeHoldFlag)
-                    If UCase(GetParentheses(StringClean, "@EdgeHold(")).Contains("M") Then EdgeHoldSeconds *= 60
-                    If UCase(GetParentheses(StringClean, "@EdgeHold(")).Contains("H") Then EdgeHoldSeconds *= 3600
-
-                End If
-
-                EdgeHoldFlag = True
 
 
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeHold(" & GetParentheses(StringClean, "@EdgeHold(") & ")", "")
+
+        If StringClean.Contains("@EdgeToRuinHoldNoSecret(") Then
+
+            Dim EdgeHoldFlag As String = GetParentheses(StringClean, "@EdgeToRuinHoldNoSecret(")
+
+            If EdgeHoldFlag.Contains(",") Then
+
+                EdgeHoldFlag = FixCommas(EdgeHoldFlag)
+
+                Dim EdgeFlagArray As String() = EdgeHoldFlag.Split(",")
+
+                Dim Edge1 As Integer = Val(EdgeFlagArray(0))
+                Dim Edge2 As Integer = Val(EdgeFlagArray(1))
+
+                If UCase(EdgeFlagArray(0)).Contains("M") Then Edge1 *= 60
+                If UCase(EdgeFlagArray(1)).Contains("M") Then Edge2 *= 60
+
+                If UCase(EdgeFlagArray(0)).Contains("H") Then Edge1 *= 3600
+                If UCase(EdgeFlagArray(1)).Contains("H") Then Edge2 *= 3600
+
+                EdgeHoldSeconds = randomizer.Next(Edge1, Edge2 + 1)
+
+            Else
+
+                EdgeHoldSeconds = Val(EdgeHoldFlag)
+                If UCase(GetParentheses(StringClean, "@EdgeToRuinHoldNoSecret(")).Contains("M") Then EdgeHoldSeconds *= 60
+                If UCase(GetParentheses(StringClean, "@EdgeToRuinHoldNoSecret(")).Contains("H") Then EdgeHoldSeconds *= 3600
 
             End If
 
+            EdgeHoldFlag = True
+
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeToRuin = True
+            EdgeToRuinSecret = False
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeToRuinHoldNoSecret(" & GetParentheses(StringClean, "@EdgeToRuinHoldNoSecret(") & ")", "")
+        End If
 
 
 
-            If StringClean.Contains("@EdgeHold") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeHold = True
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@EdgeHold", "")
+        If StringClean.Contains("@EdgeToRuinHoldNoSecret") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeToRuin = True
+            EdgeToRuinSecret = False
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeToRuinHoldNoSecret", "")
+        End If
+
+        If StringClean.Contains("@EdgeToRuinNoSecret") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeToRuinSecret = False
+            EdgeToRuin = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeToRuinNoSecret", "")
+        End If
+
+        If StringClean.Contains("@EdgeToRuinNoHold") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeNoHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeToRuin = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeToRuinNoHold", "")
+        End If
+
+
+
+
+
+        If StringClean.Contains("@EdgeToRuinHold(") Then
+
+            Dim EdgeHoldFlag As String = GetParentheses(StringClean, "@EdgeToRuinHold(")
+
+            If EdgeHoldFlag.Contains(",") Then
+
+                EdgeHoldFlag = FixCommas(EdgeHoldFlag)
+
+                Dim EdgeFlagArray As String() = EdgeHoldFlag.Split(",")
+
+                Dim Edge1 As Integer = Val(EdgeFlagArray(0))
+                Dim Edge2 As Integer = Val(EdgeFlagArray(1))
+
+                If UCase(EdgeFlagArray(0)).Contains("M") Then Edge1 *= 60
+                If UCase(EdgeFlagArray(1)).Contains("M") Then Edge2 *= 60
+
+                If UCase(EdgeFlagArray(0)).Contains("H") Then Edge1 *= 3600
+                If UCase(EdgeFlagArray(1)).Contains("H") Then Edge2 *= 3600
+
+                EdgeHoldSeconds = randomizer.Next(Edge1, Edge2 + 1)
+
+            Else
+
+                EdgeHoldSeconds = Val(EdgeHoldFlag)
+                If UCase(GetParentheses(StringClean, "@EdgeToRuinHold(")).Contains("M") Then EdgeHoldSeconds *= 60
+                If UCase(GetParentheses(StringClean, "@EdgeToRuinHold(")).Contains("H") Then EdgeHoldSeconds *= 3600
+
             End If
 
-            If StringClean.Contains("@Edge") Then
-                ContactEdgeCheck(StringClean)
-                If SubStroking = True Then AlreadyStrokingEdge = True
-                GetEdgeTickCheck()
-                SubStroking = True
-                LongEdge = False
-                AskedToSpeedUp = False
-                AskedToSlowDown = False
-                EdgeCountTick = 0
-                EdgeCountTimer.Start()
-                SubEdging = True
-                EdgeTauntInt = randomizer.Next(30, 46)
-                EdgeTauntTimer.Start()
-                If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
-                EdgePace()
-                ActivateWebToy()
-                DisableContactStroke()
-                SessionEdges += 1
-                StringClean = StringClean.Replace("@Edge", "")
+            EdgeHoldFlag = True
+
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeToRuin = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeToRuinHold(" & GetParentheses(StringClean, "@EdgeToRuinHold(") & ")", "")
+        End If
+
+        If StringClean.Contains("@EdgeToRuinHold") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeToRuin = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeToRuinHold", "")
+        End If
+
+        If StringClean.Contains("@EdgeToRuin") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeToRuin = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeToRuin", "")
+        End If
+
+        If StringClean.Contains("@EdgeNoHold") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeNoHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeNoHold", "")
+        End If
+
+
+        ' The Commands @EdgeHold(), @EdgeToRuinHold() and @EdgeToRuinHoldNoSecret() allow you to specify the amount of time the edge is held. The defualt is in seconds, but you can use Minutes and Hours as well
+        ' For example: @EdgeHold(60) would have the domme make you hold the edge for 60 seconds
+        ' @EdgeHold(3 Minutes) or @EdgeHold(3 M) - Domme will make you hold the edge for three minutes
+        ' @EdgeHold(2 Hours) - Domme will make you hold the edge for 2 hours. Good luck :D
+        '
+        'You can also set a time range using a comma. For example, @EdgeHold(2 Minutes, 5 Minutes) - the domme would make you hold it a random amount of time bwteen 2 and 5 minutes.
+
+        If StringClean.Contains("@EdgeHold(") Then
+
+            Dim EdgeHoldFlag As String = GetParentheses(StringClean, "@EdgeHold(")
+
+            If EdgeHoldFlag.Contains(",") Then
+
+                EdgeHoldFlag = FixCommas(EdgeHoldFlag)
+
+                Dim EdgeFlagArray As String() = EdgeHoldFlag.Split(",")
+
+                Dim Edge1 As Integer = Val(EdgeFlagArray(0))
+                Dim Edge2 As Integer = Val(EdgeFlagArray(1))
+
+                If UCase(EdgeFlagArray(0)).Contains("M") Then Edge1 *= 60
+                If UCase(EdgeFlagArray(1)).Contains("M") Then Edge2 *= 60
+
+                If UCase(EdgeFlagArray(0)).Contains("H") Then Edge1 *= 3600
+                If UCase(EdgeFlagArray(1)).Contains("H") Then Edge2 *= 3600
+
+                EdgeHoldSeconds = randomizer.Next(Edge1, Edge2 + 1)
+
+            Else
+
+                EdgeHoldSeconds = Val(EdgeHoldFlag)
+                If UCase(GetParentheses(StringClean, "@EdgeHold(")).Contains("M") Then EdgeHoldSeconds *= 60
+                If UCase(GetParentheses(StringClean, "@EdgeHold(")).Contains("H") Then EdgeHoldSeconds *= 3600
+
             End If
 
-            If StringClean.Contains("@CBTBalls") Then
-                If FrmSettings.CBCBTBalls.Checked = True Then
-                    CBTBallsActive = True
-                    CBTBallsFlag = True
-                End If
-                StringClean = StringClean.Replace("@CBTBalls", "")
+            EdgeHoldFlag = True
+
+
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeHold(" & GetParentheses(StringClean, "@EdgeHold(") & ")", "")
+
+        End If
+
+
+
+
+        If StringClean.Contains("@EdgeHold") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeHold = True
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@EdgeHold", "")
+        End If
+
+        If StringClean.Contains("@Edge") Then
+            ContactEdgeCheck(StringClean)
+            If SubStroking = True Then AlreadyStrokingEdge = True
+            GetEdgeTickCheck()
+            SubStroking = True
+            LongEdge = False
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            EdgeCountTick = 0
+            EdgeCountTimer.Start()
+            SubEdging = True
+            EdgeTauntInt = randomizer.Next(30, 46)
+            EdgeTauntTimer.Start()
+            If OrgasmAllowed = True Or OrgasmDenied = True Or OrgasmRuined = True Then OrgasmYesNo = True
+            EdgePace()
+            ActivateWebToy()
+            DisableContactStroke()
+            SessionEdges += 1
+            StringClean = StringClean.Replace("@Edge", "")
+        End If
+
+        If StringClean.Contains("@CBTBalls") Then
+            If FrmSettings.CBCBTBalls.Checked = True Then
+                CBTBallsActive = True
+                CBTBallsFlag = True
+            End If
+            StringClean = StringClean.Replace("@CBTBalls", "")
+        End If
+
+        If StringClean.Contains("@CBTCock") Then
+            If FrmSettings.CBCBTCock.Checked = True Then
+                CBTCockActive = True
+                CBTCockFlag = True
+            End If
+            StringClean = StringClean.Replace("@CBTCock", "")
+        End If
+
+        If StringClean.Contains("@CBT") And Not StringClean.Contains("@CBTLevel") Then
+
+            If FrmSettings.CBCBTCock.Checked = True And FrmSettings.CBCBTBalls.Checked = True Then
+                CBTBothActive = True
+                CBTBothFlag = True
             End If
 
-            If StringClean.Contains("@CBTCock") Then
-                If FrmSettings.CBCBTCock.Checked = True Then
-                    CBTCockActive = True
-                    CBTCockFlag = True
-                End If
-                StringClean = StringClean.Replace("@CBTCock", "")
-            End If
-
-            If StringClean.Contains("@CBT") And Not StringClean.Contains("@CBTLevel") Then
-
-                If FrmSettings.CBCBTCock.Checked = True And FrmSettings.CBCBTBalls.Checked = True Then
-                    CBTBothActive = True
-                    CBTBothFlag = True
-                End If
-
-                StringClean = StringClean.Replace("@CBT", "")
-            End If
+            StringClean = StringClean.Replace("@CBT", "")
+        End If
 
 
-            ' The @CustomTask() Command works similarly to @CBTBalls and @CBTCock. It allows the user to have the domme run custom instructions from scripts located in Custom\Tasks. For example,
-            ' @CustomTask(Spanking) would pull its first instruction from Custom\Tasks\Spanking_First.txt, and all subsequent instructions would be pulled from Custom\Tasks\Spanking.txt.
+        ' The @CustomTask() Command works similarly to @CBTBalls and @CBTCock. It allows the user to have the domme run custom instructions from scripts located in Custom\Tasks. For example,
+        ' @CustomTask(Spanking) would pull its first instruction from Custom\Tasks\Spanking_First.txt, and all subsequent instructions would be pulled from Custom\Tasks\Spanking.txt.
 
-            If StringClean.Contains("@CustomTask(") Then
+        If StringClean.Contains("@CustomTask(") Then
 
-                Dim CustomFlag As String = GetParentheses(StringClean, "@CustomTask(")
+            Dim CustomFlag As String = GetParentheses(StringClean, "@CustomTask(")
 
-                If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Custom\Tasks\" & CustomFlag & "_First.txt") And _
+            If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Custom\Tasks\" & CustomFlag & "_First.txt") And
                     File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Custom\Tasks\" & CustomFlag & ".txt") Then
-                    CustomTask = True
-                    CustomTaskActive = True
-                    CustomTaskText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Custom\Tasks\" & CustomFlag & ".txt"
-                    CustomTaskTextFirst = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Custom\Tasks\" & CustomFlag & "_First.txt"
-                End If
+                CustomTask = True
+                CustomTaskActive = True
+                CustomTaskText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Custom\Tasks\" & CustomFlag & ".txt"
+                CustomTaskTextFirst = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Custom\Tasks\" & CustomFlag & "_First.txt"
+            End If
 
-                StringClean = StringClean.Replace("@CustomTask(" & CustomFlag & ")", "")
+            StringClean = StringClean.Replace("@CustomTask(" & CustomFlag & ")", "")
 
+        End If
+
+
+        If StringClean.Contains("@DecideOrgasm") Then
+
+
+            If FrmSettings.alloworgasmComboBox.Text = "Always Allows" And FrmSettings.ruinorgasmComboBox.Text = "Always Ruins" Then
+                FileGoto = "Orgasm Ruin"
+                OrgasmRuined = True
+                GoTo OrgasmDecided
+            End If
+
+            Dim OrgasmInt As Integer = randomizer.Next(1, 101)
+            'Debug.Print("OrgasmInt =" & OrgasmInt)
+            Dim OrgasmThreshold As Integer
+
+            If FrmSettings.alloworgasmComboBox.Text = "Never Allows" Then OrgasmThreshold = 0
+            If FrmSettings.alloworgasmComboBox.Text = "Always Allows" Then OrgasmThreshold = 1000
+
+            If FrmSettings.CBRangeOrgasm.Checked = True Then
+                If FrmSettings.alloworgasmComboBox.Text = "Rarely Allows" Then OrgasmThreshold = 20
+                If FrmSettings.alloworgasmComboBox.Text = "Sometimes Allows" Then OrgasmThreshold = 50
+                If FrmSettings.alloworgasmComboBox.Text = "Often Allows" Then OrgasmThreshold = 75
+            Else
+                If FrmSettings.alloworgasmComboBox.Text = "Rarely Allows" Then OrgasmThreshold = FrmSettings.NBAllowRarely.Value
+                If FrmSettings.alloworgasmComboBox.Text = "Sometimes Allows" Then OrgasmThreshold = FrmSettings.NBAllowSometimes.Value
+                If FrmSettings.alloworgasmComboBox.Text = "Often Allows" Then OrgasmThreshold = FrmSettings.NBAllowOften.Value
             End If
 
 
-            If StringClean.Contains("@DecideOrgasm") Then
+            If OrgasmInt > OrgasmThreshold Then
+                FileGoto = "Orgasm Deny"
+                OrgasmDenied = True
+                GoTo OrgasmDecided
+            End If
+
+            Dim RuinInt As Integer = randomizer.Next(1, 101)
+            'Debug.Print("OrgasmInt =" & OrgasmInt)
+            Dim RuinThreshold As Integer
+
+            If FrmSettings.ruinorgasmComboBox.Text = "Never Ruins" Then RuinThreshold = 0
+            If FrmSettings.ruinorgasmComboBox.Text = "Always Ruins" Then RuinThreshold = 1000
 
 
-                If FrmSettings.alloworgasmComboBox.Text = "Always Allows" And FrmSettings.ruinorgasmComboBox.Text = "Always Ruins" Then
-                    FileGoto = "Orgasm Ruin"
-                    OrgasmRuined = True
-                    GoTo OrgasmDecided
-                End If
-
-                Dim OrgasmInt As Integer = randomizer.Next(1, 101)
-                'Debug.Print("OrgasmInt =" & OrgasmInt)
-                Dim OrgasmThreshold As Integer
-
-                If FrmSettings.alloworgasmComboBox.Text = "Never Allows" Then OrgasmThreshold = 0
-                If FrmSettings.alloworgasmComboBox.Text = "Always Allows" Then OrgasmThreshold = 1000
-
-                If FrmSettings.CBRangeOrgasm.Checked = True Then
-                    If FrmSettings.alloworgasmComboBox.Text = "Rarely Allows" Then OrgasmThreshold = 20
-                    If FrmSettings.alloworgasmComboBox.Text = "Sometimes Allows" Then OrgasmThreshold = 50
-                    If FrmSettings.alloworgasmComboBox.Text = "Often Allows" Then OrgasmThreshold = 75
-                Else
-                    If FrmSettings.alloworgasmComboBox.Text = "Rarely Allows" Then OrgasmThreshold = FrmSettings.NBAllowRarely.Value
-                    If FrmSettings.alloworgasmComboBox.Text = "Sometimes Allows" Then OrgasmThreshold = FrmSettings.NBAllowSometimes.Value
-                    If FrmSettings.alloworgasmComboBox.Text = "Often Allows" Then OrgasmThreshold = FrmSettings.NBAllowOften.Value
-                End If
+            If FrmSettings.CBRangeRuin.Checked = True Then
+                If FrmSettings.ruinorgasmComboBox.Text = "Rarely Ruins" Then RuinThreshold = 20
+                If FrmSettings.ruinorgasmComboBox.Text = "Sometimes Ruins" Then RuinThreshold = 50
+                If FrmSettings.ruinorgasmComboBox.Text = "Often Ruins" Then RuinThreshold = 75
+            Else
+                If FrmSettings.ruinorgasmComboBox.Text = "Rarely Ruins" Then RuinThreshold = FrmSettings.NBRuinRarely.Value
+                If FrmSettings.ruinorgasmComboBox.Text = "Sometimes Ruins" Then RuinThreshold = FrmSettings.NBRuinSometimes.Value
+                If FrmSettings.ruinorgasmComboBox.Text = "Often Ruins" Then RuinThreshold = FrmSettings.NBRuinOften.Value
+            End If
 
 
-                If OrgasmInt > OrgasmThreshold Then
-                    FileGoto = "Orgasm Deny"
-                    OrgasmDenied = True
-                    GoTo OrgasmDecided
-                End If
-
-                Dim RuinInt As Integer = randomizer.Next(1, 101)
-                'Debug.Print("OrgasmInt =" & OrgasmInt)
-                Dim RuinThreshold As Integer
-
-                If FrmSettings.ruinorgasmComboBox.Text = "Never Ruins" Then RuinThreshold = 0
-                If FrmSettings.ruinorgasmComboBox.Text = "Always Ruins" Then RuinThreshold = 1000
-
-
-                If FrmSettings.CBRangeRuin.Checked = True Then
-                    If FrmSettings.ruinorgasmComboBox.Text = "Rarely Ruins" Then RuinThreshold = 20
-                    If FrmSettings.ruinorgasmComboBox.Text = "Sometimes Ruins" Then RuinThreshold = 50
-                    If FrmSettings.ruinorgasmComboBox.Text = "Often Ruins" Then RuinThreshold = 75
-                Else
-                    If FrmSettings.ruinorgasmComboBox.Text = "Rarely Ruins" Then RuinThreshold = FrmSettings.NBRuinRarely.Value
-                    If FrmSettings.ruinorgasmComboBox.Text = "Sometimes Ruins" Then RuinThreshold = FrmSettings.NBRuinSometimes.Value
-                    If FrmSettings.ruinorgasmComboBox.Text = "Often Ruins" Then RuinThreshold = FrmSettings.NBRuinOften.Value
-                End If
-
-
-                If RuinInt > RuinThreshold Then
-                    FileGoto = "Orgasm Allow"
-                    OrgasmAllowed = True
-                Else
-                    FileGoto = "Orgasm Ruin"
-                    OrgasmRuined = True
-                End If
+            If RuinInt > RuinThreshold Then
+                FileGoto = "Orgasm Allow"
+                OrgasmAllowed = True
+            Else
+                FileGoto = "Orgasm Ruin"
+                OrgasmRuined = True
+            End If
 
 OrgasmDecided:
 
-                SkipGotoLine = True
-                GetGoto()
+            SkipGotoLine = True
+            GetGoto()
 
-                StringClean = StringClean.Replace("@DecideOrgasm", "")
+            StringClean = StringClean.Replace("@DecideOrgasm", "")
+        End If
+
+
+        ' The @Glitter Command allows to specify a specfic script from the domme's Apps\Glitter\Script directory, which will then immediately play out in the Glitter app. For example, @Glitter(About to Ruin)
+        ' would run the Glitter script in Apps\Glitter\Script\About to Ruin.txt.
+
+        If StringClean.Contains("@Glitter(") Then
+
+            Dim GlitterFlag As Integer = GetParentheses(StringClean, "@Glitter(")
+
+            If FrmSettings.CBGlitterFeedOff.Checked = False And UpdatingPost = False Then
+                If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Script\" & GlitterFlag & ".txt") And UpdatingPost = False Then
+                    UpdateList.Clear()
+                    UpdateList.Add(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Script\" & GlitterFlag & ".txt")
+                    StatusUpdatePost()
+                End If
+            End If
+
+            StringClean = StringClean.Replace("@Glitter(" & GlitterFlag & ")", "")
+
+        End If
+
+
+
+        If StringClean.Contains("@WritingTask(") Then
+
+            WritingTaskFlag = True
+
+            Dim WTTempString As String() = Split(StringClean, "@WritingTask(", 2)
+            Dim WTTemp As String() = Split(WTTempString(1), ")")
+            LBLWritingTaskText.Text = WTTemp(0)
+            LBLWritingTaskText.Text = StripCommands(LBLWritingTaskText.Text)
+            LBLWritingTaskText.Text = StripFormat(LBLWritingTaskText.Text)
+            LBLWritingTaskText.Text = LBLWritingTaskText.Text.Replace("  ", " ")
+
+            Dim WritingTaskVal As Integer = Val(LBLWritingTaskText.Text)
+            'Debug.Print("WritingTaskVal = " & WritingTaskVal)
+
+            If WritingTaskVal = 0 Then
+                WritingTaskLinesAmount = randomizer.Next(FrmSettings.NBWritingTaskMin.Value, FrmSettings.NBWritingTaskMax.Value)
+                WritingTaskLinesAmount = 5 * Math.Round(WritingTaskLinesAmount / 5)
+            Else
+                WritingTaskLinesAmount = WritingTaskVal
+                LBLWritingTaskText.Text = LBLWritingTaskText.Text.Replace(WritingTaskVal, "")
             End If
 
 
-            ' The @Glitter Command allows to specify a specfic script from the domme's Apps\Glitter\Script directory, which will then immediately play out in the Glitter app. For example, @Glitter(About to Ruin)
-            ' would run the Glitter script in Apps\Glitter\Script\About to Ruin.txt.
+            LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times:"
+            LBLWritingTask.Text = LBLWritingTask.Text.Replace("line 1 times", "line 1 time")
+            LBLLinesWritten.Text = "0"
+            LBLLinesRemaining.Text = WritingTaskLinesAmount
 
-            If StringClean.Contains("@Glitter(") Then
 
-                Dim GlitterFlag As Integer = GetParentheses(StringClean, "@Glitter(")
+            ' Dim WTTempString As String() = Split(StringClean, "@WritingTask(", 2)
+            ' Dim WTTemp As String() = Split(WTTempString(1), ")" 1)
 
-                If FrmSettings.CBGlitterFeedOff.Checked = False And UpdatingPost = False Then
-                    If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Script\" & GlitterFlag & ".txt") And UpdatingPost = False Then
-                        UpdateList.Clear()
-                        UpdateList.Add(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Script\" & GlitterFlag & ".txt")
-                        StatusUpdatePost()
-                    End If
-                End If
+            ' LBLWritingTaskText.Text = WTTemp(0)
 
-                StringClean = StringClean.Replace("@Glitter(" & GlitterFlag & ")", "")
-
+            If PNLWritingTask.Visible = False Then
+                CloseApp()
+                OpenApp()
+                PNLWritingTask.Visible = True
             End If
+            WritingTaskMistakesAllowed = randomizer.Next(3, 11)
+            LBLMistakesAllowed.Text = WritingTaskMistakesAllowed
+            LBLMistakesMade.Text = "0"
+            StringClean = StringClean.Replace("@WritingTask", "")
+            LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times."
+            WritingTaskLinesRemaining = WritingTaskLinesAmount
+            WritingTaskLinesWritten = 0
+            WritingTaskMistakesMade = 0
+            chatBox.ShortcutsEnabled = False
 
+        End If
 
+        If StringClean.Contains("@CheckJOIVideo") Then
 
-            If StringClean.Contains("@WritingTask(") Then
-
-                WritingTaskFlag = True
-
-                Dim WTTempString As String() = Split(StringClean, "@WritingTask(", 2)
-                Dim WTTemp As String() = Split(WTTempString(1), ")")
-                LBLWritingTaskText.Text = WTTemp(0)
-                LBLWritingTaskText.Text = StripCommands(LBLWritingTaskText.Text)
-                LBLWritingTaskText.Text = StripFormat(LBLWritingTaskText.Text)
-                LBLWritingTaskText.Text = LBLWritingTaskText.Text.Replace("  ", " ")
-
-                Dim WritingTaskVal As Integer = Val(LBLWritingTaskText.Text)
-                'Debug.Print("WritingTaskVal = " & WritingTaskVal)
-
-                If WritingTaskVal = 0 Then
-                    WritingTaskLinesAmount = randomizer.Next(FrmSettings.NBWritingTaskMin.Value, FrmSettings.NBWritingTaskMax.Value)
-                    WritingTaskLinesAmount = 5 * Math.Round(WritingTaskLinesAmount / 5)
-                Else
-                    WritingTaskLinesAmount = WritingTaskVal
-                    LBLWritingTaskText.Text = LBLWritingTaskText.Text.Replace(WritingTaskVal, "")
-                End If
-
-
-                LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times:"
-                LBLWritingTask.Text = LBLWritingTask.Text.Replace("line 1 times", "line 1 time")
-                LBLLinesWritten.Text = "0"
-                LBLLinesRemaining.Text = WritingTaskLinesAmount
-
-
-                ' Dim WTTempString As String() = Split(StringClean, "@WritingTask(", 2)
-                ' Dim WTTemp As String() = Split(WTTempString(1), ")" 1)
-
-                ' LBLWritingTaskText.Text = WTTemp(0)
-
-                If PNLWritingTask.Visible = False Then
-                    CloseApp()
-                    OpenApp()
-                    PNLWritingTask.Visible = True
-                End If
-                WritingTaskMistakesAllowed = randomizer.Next(3, 11)
-                LBLMistakesAllowed.Text = WritingTaskMistakesAllowed
-                LBLMistakesMade.Text = "0"
-                StringClean = StringClean.Replace("@WritingTask", "")
-                LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times."
-                WritingTaskLinesRemaining = WritingTaskLinesAmount
-                WritingTaskLinesWritten = 0
-                WritingTaskMistakesMade = 0
-                chatBox.ShortcutsEnabled = False
-
-            End If
-
-            If StringClean.Contains("@CheckJOIVideo") Then
-
-                If Directory.Exists(FrmSettings.LblVideoJOI.Text) Or Directory.Exists(FrmSettings.LblVideoJOID.Text) Then
-                    If FrmSettings.LblVideoJOITotal.Text <> "0" Or FrmSettings.LblVideoJOITotalD.Text <> "0" Then
-                    Else
-                        SkipGotoLine = True
-                        FileGoto = "No JOI Found"
-                        GetGoto()
-                    End If
+            If Directory.Exists(FrmSettings.LblVideoJOI.Text) Or Directory.Exists(FrmSettings.LblVideoJOID.Text) Then
+                If FrmSettings.LblVideoJOITotal.Text <> "0" Or FrmSettings.LblVideoJOITotalD.Text <> "0" Then
                 Else
                     SkipGotoLine = True
                     FileGoto = "No JOI Found"
                     GetGoto()
                 End If
-
-                StringClean = StringClean.Replace("@CheckJOIVideo", "")
-
+            Else
+                SkipGotoLine = True
+                FileGoto = "No JOI Found"
+                GetGoto()
             End If
 
+            StringClean = StringClean.Replace("@CheckJOIVideo", "")
 
-            If StringClean.Contains("@PlayJOIVideo") Then
+        End If
 
-                If Directory.Exists(FrmSettings.LblVideoJOI.Text) Or Directory.Exists(FrmSettings.LblVideoJOID.Text) Then
 
-                    TeaseVideo = True
-                    PlayRandomJOI()
-                End If
+        If StringClean.Contains("@PlayJOIVideo") Then
 
-                StringClean = StringClean.Replace("@PlayJOIVideo", "")
+            If Directory.Exists(FrmSettings.LblVideoJOI.Text) Or Directory.Exists(FrmSettings.LblVideoJOID.Text) Then
 
+                TeaseVideo = True
+                PlayRandomJOI()
             End If
 
-            If StringClean.Contains("@PlayCHVideo") Then
+            StringClean = StringClean.Replace("@PlayJOIVideo", "")
 
-                If Directory.Exists(FrmSettings.LblVideoCH.Text) Or Directory.Exists(FrmSettings.LblVideoCH.Text) Then
+        End If
 
-                    TeaseVideo = True
-                    PlayRandomCH()
-                End If
+        If StringClean.Contains("@PlayCHVideo") Then
 
-                StringClean = StringClean.Replace("@PlayCHVideo", "")
+            If Directory.Exists(FrmSettings.LblVideoCH.Text) Or Directory.Exists(FrmSettings.LblVideoCH.Text) Then
 
+                TeaseVideo = True
+                PlayRandomCH()
             End If
 
+            StringClean = StringClean.Replace("@PlayCHVideo", "")
+
+        End If
 
 
 
-            If StringClean.Contains("@GiveUpCheck") Then
+
+        If StringClean.Contains("@GiveUpCheck") Then
 
 
-                If AskedToGiveUpSection = True Then
+            If AskedToGiveUpSection = True Then
 
-                    If SubGaveUp = True Then
-                        ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpREHASH.txt"
-                    Else
-                        ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpREPEAT.txt"
-                    End If
-                    StringClean = ResponseClean(StringClean)
-
+                If SubGaveUp = True Then
+                    ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpREHASH.txt"
                 Else
-
-                    AskedToGiveUpSection = True
-                    AskedToGiveUp = True
-
-                    Dim GiveUpCheck As Integer
-
-                    If FrmSettings.NBEmpathy.Value = 1 Then GiveUpCheck = 0
-                    If FrmSettings.NBEmpathy.Value = 2 Then GiveUpCheck = 25
-                    If FrmSettings.NBEmpathy.Value = 3 Then GiveUpCheck = 50
-                    If FrmSettings.NBEmpathy.Value = 4 Then GiveUpCheck = 75
-                    If FrmSettings.NBEmpathy.Value = 5 Then GiveUpCheck = 1000
-
-                    Dim GiveUpVal As Integer = randomizer.Next(1, 101)
-
-                    If GiveUpVal > GiveUpCheck Then
-                        ' you can give up
-                        ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpALLOWED.txt"
-                        LockImage = False
-                        SubGaveUp = True
-                        FirstRound = False
-                    Else
-                        ' you can't give up
-                        ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpDENIED.txt"
-                    End If
-
-                    StringClean = ResponseClean(StringClean)
-
+                    ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpREPEAT.txt"
                 End If
+                StringClean = ResponseClean(StringClean)
 
+            Else
 
-            End If
+                AskedToGiveUpSection = True
+                AskedToGiveUp = True
 
+                Dim GiveUpCheck As Integer
 
-            If StringClean.Contains("@EndTease") Then
-                SetVariable("SYS_SubLeftEarly", 0)
-                'My.Settings.Sys_SubLeftEarly = 0
-                'My.Settings.Save()
-                StopEverything()
-                ResetButton()
-                ResetFlag = True
-                ResumeSession()
-                StringClean = StringClean.Replace("@EndTease", "")
-            End If
+                If FrmSettings.NBEmpathy.Value = 1 Then GiveUpCheck = 0
+                If FrmSettings.NBEmpathy.Value = 2 Then GiveUpCheck = 25
+                If FrmSettings.NBEmpathy.Value = 3 Then GiveUpCheck = 50
+                If FrmSettings.NBEmpathy.Value = 4 Then GiveUpCheck = 75
+                If FrmSettings.NBEmpathy.Value = 5 Then GiveUpCheck = 1000
 
-            If StringClean.Contains("@FinishTease") Then
-                TeaseTick = 0
-                StringClean = StringClean.Replace("@FinishTease", "")
-            End If
+                Dim GiveUpVal As Integer = randomizer.Next(1, 101)
 
-            If StringClean.Contains("@ShowButtImage") Or StringClean.Contains("@ShowButtsImage") Then
-                JustShowedBlogImage = True
-                GetTnAList()
-                ClearMainPictureBox()
-                Dim ButtPic As String = AssList(randomizer.Next(0, AssList.Count))
-
-                If ButtPic.Contains("\") Then
-                    ShowImage(ButtPic)
-                    'ImageLocation = ButtPic
-                    'PBImage = ButtPic
-                    'ImageThread.Start()
-                    'DisplayImage(Image.FromFile(ButtPic))
-                    'mainPictureBox.Image = Image.FromFile(ButtPic)
-                    DeleteLocalImageFilePath = ButtPic
-                Else
-                    ShowImage(ButtPic)
-                    ' ImageLocation = ButtPic
-                    'PBImage = ButtPic
-                    'ImageThread.Start()
-                    'mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(ButtPic)))
-                End If
-
-                StringClean = StringClean.Replace("@ShowButtImage", "")
-                StringClean = StringClean.Replace("@ShowButtsImage", "")
-            End If
-
-            If StringClean.Contains("@ShowBoobsImage") Or StringClean.Contains("@ShowBoobImage") Then
-                JustShowedBlogImage = True
-                GetTnAList()
-                ClearMainPictureBox()
-                Dim BoobPic As String = BoobList(randomizer.Next(0, BoobList.Count))
-
-                If BoobPic.Contains("\") Then
-                    ShowImage(BoobPic)
-                    'ImageLocation = BoobPic
-                    'PBImage = _ImageFileNames(BoobPic)
-                    'ImageThread.Start()
-                    'DisplayImage(Image.FromFile(BoobPic))
-                    'mainPictureBox.Image = Image.FromFile(BoobPic)
-                    DeleteLocalImageFilePath = BoobPic
-                Else
-                    ShowImage(BoobPic)
-                    'ImageLocation = BoobPic
-                    'PBImage = _ImageFileNames(BoobPic)
-                    'ImageThread.Start()
-                    'DisplayImage(New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(BoobPic))))
-                    'mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(BoobPic)))
-                End If
-
-
-                StringClean = StringClean.Replace("@ShowBoobsImage", "")
-                StringClean = StringClean.Replace("@ShowBoobImage", "")
-            End If
-
-            If StringClean.Contains("@DommeLevelDown") Then
-                If FrmSettings.domlevelNumBox.Value > 1 Then
-                    FrmSettings.domlevelNumBox.Value -= 1
-                End If
-                StringClean = StringClean.Replace("@DommeLevelDown", "")
-            End If
-
-            If StringClean.Contains("@ApathyLevelDown") Then
-                If FrmSettings.NBEmpathy.Value > 1 Then
-                    FrmSettings.NBEmpathy.Value -= 1
-                End If
-                StringClean = StringClean.Replace("@ApathyLevelDown", "")
-            End If
-
-            If StringClean.Contains("@DommeLevelUp") Then
-                If FrmSettings.domlevelNumBox.Value < 5 Then
-                    FrmSettings.domlevelNumBox.Value += 1
-                End If
-                StringClean = StringClean.Replace("@DommeLevelUp", "")
-            End If
-
-            If StringClean.Contains("@ApathyLevelUp") Then
-                If FrmSettings.NBEmpathy.Value < 5 Then
-                    FrmSettings.NBEmpathy.Value += 1
-                End If
-                StringClean = StringClean.Replace("@ApathyLevelUp", "")
-            End If
-
-            If StringClean.Contains("@ShowHardcoreImage") Then
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBIHardcoreSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLIHardcore.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLIHardcore.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowHardcoreImage", "")
-            End If
-
-            If StringClean.Contains("@ShowSoftcoreImage") Then
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBISoftcoreSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLISoftcore.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLISoftcore.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowSoftcoreImage", "")
-            End If
-
-            If StringClean.Contains("@ShowLesbianImage") Then
-                'Debug.Print("Show Lesbian Image Called")
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBILesbianSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLILesbian.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLILesbian.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowLesbianImage", "")
-            End If
-
-            If StringClean.Contains("@ShowBlowjobImage") Then
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBIBlowjobSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLIBlowjob.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLIBlowjob.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowBlowjobImage", "")
-            End If
-
-            If StringClean.Contains("@ShowFemdomImage") Then
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBIFemdomSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLIFemdom.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLIFemdom.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowFemdomImage", "")
-            End If
-
-            If StringClean.Contains("@ShowLezdomImage") Then
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBILezdomSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLILezdom.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLILezdom.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowLezdomImage", "")
-            End If
-
-            If StringClean.Contains("@ShowHentaiImage") Then
-                'Debug.Print("Show Hentai Image Called")
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBIHentaiSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLIHentai.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLIHentai.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowHentaiImage", "")
-            End If
-
-            If StringClean.Contains("@ShowGayImage") Then
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBIGaySD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLIGay.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLIGay.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowGayImage", "")
-            End If
-
-            If StringClean.Contains("@ShowMaledomImage") Then
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBIMaledomSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLIMaledom.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLIMaledom.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowMaledomImage", "")
-            End If
-
-            If StringClean.Contains("@ShowCaptionsImage") Then
-                'Debug.Print("Show Captions Image Called")
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBICaptionsSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLICaptions.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLICaptions.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowCaptionsImage", "")
-            End If
-
-            If StringClean.Contains("@ShowGeneralImage") Then
-                Dim PornList As New List(Of String)
-                PornList.Clear()
-                Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
-                Dim files As String()
-                Try
-                    If FrmSettings.CBIGeneralSD.Checked = True Then
-                        files = Directory.GetFiles(FrmSettings.LBLIGeneral.Text, "*.*", SearchOption.AllDirectories)
-                    Else
-                        files = Directory.GetFiles(FrmSettings.LBLIGeneral.Text, "*.*")
-                    End If
-
-                    Array.Sort(files)
-
-                    For Each fi As String In files
-                        If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
-                            PornList.Add(fi)
-                        End If
-                    Next
-
-                    If PornList.Count = 0 Then
-                        FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                    Else
-                        Do
-                            FoundString = PornList(randomizer.Next(0, PornList.Count))
-                        Loop Until FoundString <> ""
-                    End If
-                Catch
-                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
-                End Try
-                ShowGotImage()
-                StringClean = StringClean.Replace("@ShowGeneralImage", "")
-            End If
-
-            If StringClean.Contains("@InterruptLongEdge") Then
-
-                Dim EdgeList As New List(Of String)
-
-                For Each EdgeFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Long Edge\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-                    'Debug.Print("EdgeFile = " & EdgeFile)
-                    EdgeList.Add(EdgeFile)
-                Next
-
-                'Debug.Print("EdgeList.Count = " & EdgeList.Count)
-
-                If EdgeList.Count > 0 Then
-
-                    SubEdging = False
-                    SubHoldingEdge = False
-                    EdgeTauntTimer.Stop()
-                    StrokeTimer.Stop()
-                    StrokeTauntTimer.Stop()
-                    FileText = EdgeList(randomizer.Next(0, EdgeList.Count))
+                If GiveUpVal > GiveUpCheck Then
+                    ' you can give up
+                    ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpALLOWED.txt"
                     LockImage = False
-                    StrokeTauntVal = -1
-                    ScriptTick = 3
-                    ScriptTimer.Start()
-                    ShowModule = True
-
+                    SubGaveUp = True
+                    FirstRound = False
                 Else
-                    MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Long Edge!" & Environment.NewLine _
-                                    & Environment.NewLine & "Please make sure at lease one LongEdge_ file exists.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                End If
-                StringClean = StringClean.Replace("@InterruptLongEdge", "")
-                JustShowedBlogImage = True
-            End If
-
-            If StringClean.Contains("@InterruptStartStroking") Then
-
-                If CensorshipGame = True Or AvoidTheEdgeGame = True Or RLGLGame = True Then
-                    StringClean = "Ask me later"
-                    GoTo VTSkip
+                    ' you can't give up
+                    ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpDENIED.txt"
                 End If
 
-                Dim StrokeList As New List(Of String)
-
-                For Each StrokeFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Stroking\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-                    'Debug.Print("EdgeFile = " & EdgeFile)
-                    StrokeList.Add(StrokeFile)
-                Next
-
-                'Debug.Print("EdgeList.Count = " & EdgeList.Count)
-
-                If StrokeList.Count > 0 Then
-
-                    CBTCockFlag = False
-                    CBTBallsFlag = False
-                    CBTBothFlag = False
-                    CustomTask = False
-                    SubEdging = False
-                    SubHoldingEdge = False
-                    EdgeTauntTimer.Stop()
-                    StrokeTimer.Stop()
-                    StrokeTauntTimer.Stop()
-                    FileText = StrokeList(randomizer.Next(0, StrokeList.Count))
-                    LockImage = False
-                    StrokeTauntVal = -1
-                    ScriptTick = 3
-                    ScriptTimer.Start()
-                    ShowModule = True
-
-                Else
-                    MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Stroking!" & Environment.NewLine _
-                                    & Environment.NewLine & "Please make sure at lease one StartStroking_ file exists.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                End If
-                StringClean = StringClean.Replace("@InterruptStartStroking", "")
-                JustShowedBlogImage = True
-            End If
-
-            If StringClean.Contains("@Interrupt(") Then
-                Dim InterruptClean As String = StringClean
-                Dim StartIndex As Integer = InterruptClean.IndexOf("@Interrupt(") + 11
-                For i As Integer = 1 To StartIndex
-                    InterruptClean = InterruptClean.Remove(0, 1)
-                Next
-                Dim InterruptS As String() = InterruptClean.Split(")")
-                InterruptClean = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\" & InterruptS(0) & ".txt"
-
-                If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\" & InterruptS(0) & ".txt") Then
-
-                    CBTCockFlag = False
-                    CBTBallsFlag = False
-                    CBTBothFlag = False
-                    CustomTask = False
-                    SubEdging = False
-                    SubHoldingEdge = False
-                    StrokeTimer.Stop()
-                    StrokeTauntTimer.Stop()
-
-                    CensorshipTimer.Stop()
-                    RLGLTimer.Stop()
-                    TnASlides.Stop()
-                    AvoidTheEdge.Stop()
-                    EdgeTauntTimer.Stop()
-                    HoldEdgeTimer.Stop()
-                    HoldEdgeTauntTimer.Stop()
-                    AvoidTheEdgeTaunts.Stop()
-                    RLGLTauntTimer.Stop()
-                    VideoTauntTimer.Stop()
-                    EdgeCountTimer.Stop()
-
-                    FileText = InterruptClean
-                    LockImage = False
-                    StrokeTauntVal = -1
-                    ScriptTick = 3
-                    ScriptTimer.Start()
-                    ShowModule = True
-
-                Else
-                    MessageBox.Show(Me, InterruptS(0) & ".txt was not found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt!" & Environment.NewLine _
-                                    & Environment.NewLine & "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                End If
-                StringClean = StringClean.Replace("@Interrupt(" & InterruptS(0) & ")", "")
-                'Debug.Print("StringClean INterrupt Remove = " & "@Interrupt(" & InterruptS(0) & ")")
-                JustShowedBlogImage = True
-            End If
-
-            If StringClean.Contains("@BookmarkModule") Then
-                BookmarkModule = True
-                BookmarkModuleFile = FileText
-                BookmarkModuleLine = StrokeTauntVal + 1
-                StringClean = StringClean.Replace("@BookmarkModule", "")
-            End If
-
-            If StringClean.Contains("@BookmarkLink") Then
-                BookmarkLink = True
-                BookmarkLinkFile = FileText
-                BookmarkLinkLine = StrokeTauntVal + 1
-                StringClean = StringClean.Replace("@BookmarkLink", "")
-            End If
-
-            If StringClean.Contains("@AFKOn") Then
-                AFK = True
-                StringClean = StringClean.Replace("@AFKOn", "")
-            End If
-
-            If StringClean.Contains("@AFKOff") Then
-                AFK = False
-                StringClean = StringClean.Replace("@AFKOff", "")
-            End If
-
-            If StringClean.Contains("@Wait(") Then
-
-                Dim WaitFlag As String = GetParentheses(StringClean, "Wait(")
-                Dim WaitSeconds As Integer = Val(WaitFlag)
-
-                If UCase(WaitFlag).Contains("M") Then WaitSeconds *= 60
-                If UCase(WaitFlag).Contains("H") Then WaitSeconds *= 3600
-
-                WaitTick = WaitSeconds
-                WaitTimer.Start()
-
-                StringClean = StringClean.Replace("@Wait(" & WaitFlag & ")", "")
+                StringClean = ResponseClean(StringClean)
 
             End If
 
 
-
-            If StringClean.Contains("@ShowTaggedImage") Then
-
-                'Debug.Print("ShowTaggedImage StringClean ^^^^^^^^^^^^^^^^^^^^^^ = " & StringClean)
-
-                If File.Exists(Application.StartupPath & "\Images\System\LocalImageTags.txt") Then
-                    Dim LocalReader As New StreamReader(Application.StartupPath & "\Images\System\LocalImageTags.txt")
-                    While LocalReader.Peek <> -1
-                        LocalTagImageList.Add(LocalReader.ReadLine())
-                    End While
-                    LocalReader.Close()
-                    LocalReader.Dispose()
-
-                    For i As Integer = LocalTagImageList.Count - 1 To 0 Step -1
-                        Dim LocalCheck As String() = Split(LocalTagImageList(i))
-                        Dim LocalString As String = LocalCheck(0)
-                        Debug.Print("LocalString = " & LocalString)
-                        If Not LCase(LocalString).Contains(".jpg") And Not LCase(LocalString).Contains(".jpeg") And Not LCase(LocalString).Contains(".bmp") And _
-                            Not LCase(LocalString).Contains(".png") And Not LCase(LocalString).Contains(".gif") Then
-                            Debug.Print("LocalTag Check Doesn't contain extension")
-                            For x As Integer = 1 To LocalCheck.Count - 1
-                                LocalString = LocalString & " " & LocalCheck(x)
-                                If LCase(LocalString).Contains(".jpg") Or LCase(LocalString).Contains(".jpeg") Or LCase(LocalString).Contains(".bmp") Or _
-                       LCase(LocalString).Contains(".png") Or LCase(LocalString).Contains(".gif") Then Exit For
-                            Next
-                        End If
-                        Debug.Print("Local Tag check - " & LocalString)
-                        If Not File.Exists(LocalString) Then LocalTagImageList.Remove(LocalTagImageList(i))
-                    Next
-                End If
+        End If
 
 
-                If StringClean.Contains("@Tag") Then
-                    Dim TSplit As String() = Split(StringClean)
-                    For i As Integer = 0 To TSplit.Length - 1
-                        If TSplit(i).Contains("@Tag") Then
-                            Dim TString As String = TSplit(i).Replace("@Tag", "")
-                            For j As Integer = LocalTagImageList.Count - 1 To 0 Step -1
-                                If Not LocalTagImageList(j).Contains(TString) Then LocalTagImageList.RemoveAt(j)
-                            Next
-                        End If
-                    Next
-                End If
+        If StringClean.Contains("@EndTease") Then
+            SetVariable("SYS_SubLeftEarly", 0)
+            'My.Settings.Sys_SubLeftEarly = 0
+            'My.Settings.Save()
+            StopEverything()
+            ResetButton()
+            ResetFlag = True
+            ResumeSession()
+            StringClean = StringClean.Replace("@EndTease", "")
+        End If
 
-                For i As Integer = 0 To LocalTagImageList.Count - 1
-                    'Debug.Print(i & ". " & LocalTagImageList(i))
-                Next
+        If StringClean.Contains("@FinishTease") Then
+            TeaseTick = 0
+            StringClean = StringClean.Replace("@FinishTease", "")
+        End If
 
-                Dim TagSplit As String() = Split(LocalTagImageList(randomizer.Next(0, LocalTagImageList.Count)))
-                FoundString = TagSplit(0) & " "
+        If StringClean.Contains("@ShowButtImage") Or StringClean.Contains("@ShowButtsImage") Then
+            JustShowedBlogImage = True
+            GetTnAList()
+            ClearMainPictureBox()
+            Dim ButtPic As String = AssList(randomizer.Next(0, AssList.Count))
 
-                If Not LCase(FoundString).Contains(".jpg ") Or Not LCase(FoundString).Contains(".jpeg ") Or Not LCase(FoundString).Contains(".png ") Or Not LCase(FoundString).Contains(".bmp ") Or Not LCase(FoundString).Contains(".gif ") Then
-                    Dim FSLoop As Integer = 1
-                    Do Until LCase(FoundString).Contains(".jpg ") Or LCase(FoundString).Contains(".jpeg ") Or LCase(FoundString).Contains(".png ") Or LCase(FoundString).Contains(".bmp ") Or LCase(FoundString).Contains(".gif ")
-                        FoundString = FoundString & TagSplit(FSLoop) & " "
-                        FSLoop += 1
-                    Loop
-                End If
-
-                JustShowedBlogImage = True
-
-                ClearMainPictureBox()
-
-                ShowImage(FoundString)
-                'ImageLocation = FoundString
-                'PBImage = FoundString
+            If ButtPic.Contains("\") Then
+                ShowImage(ButtPic)
+                'ImageLocation = ButtPic
+                'PBImage = ButtPic
                 'ImageThread.Start()
-                'DisplayImage(Image.FromFile(FoundString))
-                'mainPictureBox.Image = Image.FromFile(FoundString)
-                DeleteLocalImageFilePath = FoundString
+                'DisplayImage(Image.FromFile(ButtPic))
+                'mainPictureBox.Image = Image.FromFile(ButtPic)
+                DeleteLocalImageFilePath = ButtPic
+            Else
+                ShowImage(ButtPic)
+                ' ImageLocation = ButtPic
+                'PBImage = ButtPic
+                'ImageThread.Start()
+                'mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(ButtPic)))
+            End If
 
+            StringClean = StringClean.Replace("@ShowButtImage", "")
+            StringClean = StringClean.Replace("@ShowButtsImage", "")
+        End If
 
+        If StringClean.Contains("@ShowBoobsImage") Or StringClean.Contains("@ShowBoobImage") Then
+            JustShowedBlogImage = True
+            GetTnAList()
+            ClearMainPictureBox()
+            Dim BoobPic As String = BoobList(randomizer.Next(0, BoobList.Count))
 
-
-                StringClean = StringClean.Replace("@ShowTaggedImage", "")
-
+            If BoobPic.Contains("\") Then
+                ShowImage(BoobPic)
+                'ImageLocation = BoobPic
+                'PBImage = _ImageFileNames(BoobPic)
+                'ImageThread.Start()
+                'DisplayImage(Image.FromFile(BoobPic))
+                'mainPictureBox.Image = Image.FromFile(BoobPic)
+                DeleteLocalImageFilePath = BoobPic
+            Else
+                ShowImage(BoobPic)
+                'ImageLocation = BoobPic
+                'PBImage = _ImageFileNames(BoobPic)
+                'ImageThread.Start()
+                'DisplayImage(New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(BoobPic))))
+                'mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(BoobPic)))
             End If
 
 
+            StringClean = StringClean.Replace("@ShowBoobsImage", "")
+            StringClean = StringClean.Replace("@ShowBoobImage", "")
+        End If
 
-            If StringClean.Contains("@SendDailyTasks") Then
-                CreateTaskLetter()
-                StringClean = StringClean.Replace("@SendDailyTasks", "")
+        If StringClean.Contains("@DommeLevelDown") Then
+            If FrmSettings.domlevelNumBox.Value > 1 Then
+                FrmSettings.domlevelNumBox.Value -= 1
+            End If
+            StringClean = StringClean.Replace("@DommeLevelDown", "")
+        End If
+
+        If StringClean.Contains("@ApathyLevelDown") Then
+            If FrmSettings.NBEmpathy.Value > 1 Then
+                FrmSettings.NBEmpathy.Value -= 1
+            End If
+            StringClean = StringClean.Replace("@ApathyLevelDown", "")
+        End If
+
+        If StringClean.Contains("@DommeLevelUp") Then
+            If FrmSettings.domlevelNumBox.Value < 5 Then
+                FrmSettings.domlevelNumBox.Value += 1
+            End If
+            StringClean = StringClean.Replace("@DommeLevelUp", "")
+        End If
+
+        If StringClean.Contains("@ApathyLevelUp") Then
+            If FrmSettings.NBEmpathy.Value < 5 Then
+                FrmSettings.NBEmpathy.Value += 1
+            End If
+            StringClean = StringClean.Replace("@ApathyLevelUp", "")
+        End If
+
+        If StringClean.Contains("@ShowHardcoreImage") Then
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBIHardcoreSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLIHardcore.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLIHardcore.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowHardcoreImage", "")
+        End If
+
+        If StringClean.Contains("@ShowSoftcoreImage") Then
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBISoftcoreSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLISoftcore.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLISoftcore.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowSoftcoreImage", "")
+        End If
+
+        If StringClean.Contains("@ShowLesbianImage") Then
+            'Debug.Print("Show Lesbian Image Called")
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBILesbianSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLILesbian.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLILesbian.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowLesbianImage", "")
+        End If
+
+        If StringClean.Contains("@ShowBlowjobImage") Then
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBIBlowjobSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLIBlowjob.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLIBlowjob.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowBlowjobImage", "")
+        End If
+
+        If StringClean.Contains("@ShowFemdomImage") Then
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBIFemdomSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLIFemdom.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLIFemdom.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowFemdomImage", "")
+        End If
+
+        If StringClean.Contains("@ShowLezdomImage") Then
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBILezdomSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLILezdom.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLILezdom.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowLezdomImage", "")
+        End If
+
+        If StringClean.Contains("@ShowHentaiImage") Then
+            'Debug.Print("Show Hentai Image Called")
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBIHentaiSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLIHentai.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLIHentai.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowHentaiImage", "")
+        End If
+
+        If StringClean.Contains("@ShowGayImage") Then
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBIGaySD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLIGay.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLIGay.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowGayImage", "")
+        End If
+
+        If StringClean.Contains("@ShowMaledomImage") Then
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBIMaledomSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLIMaledom.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLIMaledom.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowMaledomImage", "")
+        End If
+
+        If StringClean.Contains("@ShowCaptionsImage") Then
+            'Debug.Print("Show Captions Image Called")
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBICaptionsSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLICaptions.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLICaptions.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowCaptionsImage", "")
+        End If
+
+        If StringClean.Contains("@ShowGeneralImage") Then
+            Dim PornList As New List(Of String)
+            PornList.Clear()
+            Dim supportedExtensions As String = "*.png,*.jpg,*.gif,*.bmp,*.jpeg"
+            Dim files As String()
+            Try
+                If FrmSettings.CBIGeneralSD.Checked = True Then
+                    files = Directory.GetFiles(FrmSettings.LBLIGeneral.Text, "*.*", SearchOption.AllDirectories)
+                Else
+                    files = Directory.GetFiles(FrmSettings.LBLIGeneral.Text, "*.*")
+                End If
+
+                Array.Sort(files)
+
+                For Each fi As String In files
+                    If supportedExtensions.Contains(Path.GetExtension(LCase(fi))) Then
+                        PornList.Add(fi)
+                    End If
+                Next
+
+                If PornList.Count = 0 Then
+                    FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+                Else
+                    Do
+                        FoundString = PornList(randomizer.Next(0, PornList.Count))
+                    Loop Until FoundString <> ""
+                End If
+            Catch
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            End Try
+            ShowGotImage()
+            StringClean = StringClean.Replace("@ShowGeneralImage", "")
+        End If
+
+        If StringClean.Contains("@InterruptLongEdge") Then
+
+            Dim EdgeList As New List(Of String)
+
+            For Each EdgeFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Long Edge\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                'Debug.Print("EdgeFile = " & EdgeFile)
+                EdgeList.Add(EdgeFile)
+            Next
+
+            'Debug.Print("EdgeList.Count = " & EdgeList.Count)
+
+            If EdgeList.Count > 0 Then
+
+                SubEdging = False
+                SubHoldingEdge = False
+                EdgeTauntTimer.Stop()
+                StrokeTimer.Stop()
+                StrokeTauntTimer.Stop()
+                FileText = EdgeList(randomizer.Next(0, EdgeList.Count))
+                LockImage = False
+                StrokeTauntVal = -1
+                ScriptTick = 3
+                ScriptTimer.Start()
+                ShowModule = True
+
+            Else
+                MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Long Edge!" & Environment.NewLine _
+                                    & Environment.NewLine & "Please make sure at lease one LongEdge_ file exists.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+            End If
+            StringClean = StringClean.Replace("@InterruptLongEdge", "")
+            JustShowedBlogImage = True
+        End If
+
+        If StringClean.Contains("@InterruptStartStroking") Then
+
+            If CensorshipGame = True Or AvoidTheEdgeGame = True Or RLGLGame = True Then
+                StringClean = "Ask me later"
+                GoTo VTSkip
             End If
 
-            If StringClean.Contains("@EdgingHold") Then
+            Dim StrokeList As New List(Of String)
+
+            For Each StrokeFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Stroking\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                'Debug.Print("EdgeFile = " & EdgeFile)
+                StrokeList.Add(StrokeFile)
+            Next
+
+            'Debug.Print("EdgeList.Count = " & EdgeList.Count)
+
+            If StrokeList.Count > 0 Then
+
+                CBTCockFlag = False
+                CBTBallsFlag = False
+                CBTBothFlag = False
+                CustomTask = False
+                SubEdging = False
+                SubHoldingEdge = False
+                EdgeTauntTimer.Stop()
+                StrokeTimer.Stop()
+                StrokeTauntTimer.Stop()
+                FileText = StrokeList(randomizer.Next(0, StrokeList.Count))
+                LockImage = False
+                StrokeTauntVal = -1
+                ScriptTick = 3
+                ScriptTimer.Start()
+                ShowModule = True
+
+            Else
+                MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Stroking!" & Environment.NewLine _
+                                    & Environment.NewLine & "Please make sure at lease one StartStroking_ file exists.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+            End If
+            StringClean = StringClean.Replace("@InterruptStartStroking", "")
+            JustShowedBlogImage = True
+        End If
+
+        If StringClean.Contains("@Interrupt(") Then
+            Dim InterruptClean As String = StringClean
+            Dim StartIndex As Integer = InterruptClean.IndexOf("@Interrupt(") + 11
+            For i As Integer = 1 To StartIndex
+                InterruptClean = InterruptClean.Remove(0, 1)
+            Next
+            Dim InterruptS As String() = InterruptClean.Split(")")
+            InterruptClean = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\" & InterruptS(0) & ".txt"
+
+            If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\" & InterruptS(0) & ".txt") Then
+
+                CBTCockFlag = False
+                CBTBallsFlag = False
+                CBTBothFlag = False
+                CustomTask = False
+                SubEdging = False
+                SubHoldingEdge = False
+                StrokeTimer.Stop()
+                StrokeTauntTimer.Stop()
+
+                CensorshipTimer.Stop()
+                RLGLTimer.Stop()
+                TnASlides.Stop()
+                AvoidTheEdge.Stop()
+                EdgeTauntTimer.Stop()
+                HoldEdgeTimer.Stop()
+                HoldEdgeTauntTimer.Stop()
+                AvoidTheEdgeTaunts.Stop()
+                RLGLTauntTimer.Stop()
+                VideoTauntTimer.Stop()
+                EdgeCountTimer.Stop()
+
+                FileText = InterruptClean
+                LockImage = False
+                StrokeTauntVal = -1
+                ScriptTick = 3
+                ScriptTimer.Start()
+                ShowModule = True
+
+            Else
+                MessageBox.Show(Me, InterruptS(0) & ".txt was not found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt!" & Environment.NewLine _
+                                    & Environment.NewLine & "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+            End If
+            StringClean = StringClean.Replace("@Interrupt(" & InterruptS(0) & ")", "")
+            'Debug.Print("StringClean INterrupt Remove = " & "@Interrupt(" & InterruptS(0) & ")")
+            JustShowedBlogImage = True
+        End If
+
+        If StringClean.Contains("@BookmarkModule") Then
+            BookmarkModule = True
+            BookmarkModuleFile = FileText
+            BookmarkModuleLine = StrokeTauntVal + 1
+            StringClean = StringClean.Replace("@BookmarkModule", "")
+        End If
+
+        If StringClean.Contains("@BookmarkLink") Then
+            BookmarkLink = True
+            BookmarkLinkFile = FileText
+            BookmarkLinkLine = StrokeTauntVal + 1
+            StringClean = StringClean.Replace("@BookmarkLink", "")
+        End If
+
+        If StringClean.Contains("@AFKOn") Then
+            AFK = True
+            StringClean = StringClean.Replace("@AFKOn", "")
+        End If
+
+        If StringClean.Contains("@AFKOff") Then
+            AFK = False
+            StringClean = StringClean.Replace("@AFKOff", "")
+        End If
+
+        If StringClean.Contains("@Wait(") Then
+
+            Dim WaitFlag As String = GetParentheses(StringClean, "Wait(")
+            Dim WaitSeconds As Integer = Val(WaitFlag)
+
+            If UCase(WaitFlag).Contains("M") Then WaitSeconds *= 60
+            If UCase(WaitFlag).Contains("H") Then WaitSeconds *= 3600
+
+            WaitTick = WaitSeconds
+            WaitTimer.Start()
+
+            StringClean = StringClean.Replace("@Wait(" & WaitFlag & ")", "")
+
+        End If
+
+
+
+        If StringClean.Contains("@ShowTaggedImage") Then
+
+            'Debug.Print("ShowTaggedImage StringClean ^^^^^^^^^^^^^^^^^^^^^^ = " & StringClean)
+
+            If File.Exists(Application.StartupPath & "\Images\System\LocalImageTags.txt") Then
+                Dim LocalReader As New StreamReader(Application.StartupPath & "\Images\System\LocalImageTags.txt")
+                While LocalReader.Peek <> -1
+                    LocalTagImageList.Add(LocalReader.ReadLine())
+                End While
+                LocalReader.Close()
+                LocalReader.Dispose()
+
+                For i As Integer = LocalTagImageList.Count - 1 To 0 Step -1
+                    Dim LocalCheck As String() = Split(LocalTagImageList(i))
+                    Dim LocalString As String = LocalCheck(0)
+                    Debug.Print("LocalString = " & LocalString)
+                    If Not LCase(LocalString).Contains(".jpg") And Not LCase(LocalString).Contains(".jpeg") And Not LCase(LocalString).Contains(".bmp") And
+                            Not LCase(LocalString).Contains(".png") And Not LCase(LocalString).Contains(".gif") Then
+                        Debug.Print("LocalTag Check Doesn't contain extension")
+                        For x As Integer = 1 To LocalCheck.Count - 1
+                            LocalString = LocalString & " " & LocalCheck(x)
+                            If LCase(LocalString).Contains(".jpg") Or LCase(LocalString).Contains(".jpeg") Or LCase(LocalString).Contains(".bmp") Or
+                       LCase(LocalString).Contains(".png") Or LCase(LocalString).Contains(".gif") Then Exit For
+                        Next
+                    End If
+                    Debug.Print("Local Tag check - " & LocalString)
+                    If Not File.Exists(LocalString) Then LocalTagImageList.Remove(LocalTagImageList(i))
+                Next
+            End If
+
+
+            If StringClean.Contains("@Tag") Then
+                Dim TSplit As String() = Split(StringClean)
+                For i As Integer = 0 To TSplit.Length - 1
+                    If TSplit(i).Contains("@Tag") Then
+                        Dim TString As String = TSplit(i).Replace("@Tag", "")
+                        For j As Integer = LocalTagImageList.Count - 1 To 0 Step -1
+                            If Not LocalTagImageList(j).Contains(TString) Then LocalTagImageList.RemoveAt(j)
+                        Next
+                    End If
+                Next
+            End If
+
+            For i As Integer = 0 To LocalTagImageList.Count - 1
+                'Debug.Print(i & ". " & LocalTagImageList(i))
+            Next
+
+            Dim TagSplit As String() = Split(LocalTagImageList(randomizer.Next(0, LocalTagImageList.Count)))
+            FoundString = TagSplit(0) & " "
+
+            If Not LCase(FoundString).Contains(".jpg ") Or Not LCase(FoundString).Contains(".jpeg ") Or Not LCase(FoundString).Contains(".png ") Or Not LCase(FoundString).Contains(".bmp ") Or Not LCase(FoundString).Contains(".gif ") Then
+                Dim FSLoop As Integer = 1
+                Do Until LCase(FoundString).Contains(".jpg ") Or LCase(FoundString).Contains(".jpeg ") Or LCase(FoundString).Contains(".png ") Or LCase(FoundString).Contains(".bmp ") Or LCase(FoundString).Contains(".gif ")
+                    FoundString = FoundString & TagSplit(FSLoop) & " "
+                    FSLoop += 1
+                Loop
+            End If
+
+            JustShowedBlogImage = True
+
+            ClearMainPictureBox()
+
+            ShowImage(FoundString)
+            'ImageLocation = FoundString
+            'PBImage = FoundString
+            'ImageThread.Start()
+            'DisplayImage(Image.FromFile(FoundString))
+            'mainPictureBox.Image = Image.FromFile(FoundString)
+            DeleteLocalImageFilePath = FoundString
+
+
+
+
+            StringClean = StringClean.Replace("@ShowTaggedImage", "")
+
+        End If
+
+
+
+        If StringClean.Contains("@SendDailyTasks") Then
+            CreateTaskLetter()
+            StringClean = StringClean.Replace("@SendDailyTasks", "")
+        End If
+
+        If StringClean.Contains("@EdgingHold") Then
+
+            DomTypeCheck = True
+            SubEdging = False
+            SubStroking = False
+            SubHoldingEdge = True
+            EdgeTauntTimer.Stop()
+            'DomChat = "#HoldTheEdge"
+            'TypingDelay()
+
+            HoldEdgeTick = HoldEdgeChance
+
+            Dim HoldEdgeMin As Integer = FrmSettings.NBHoldTheEdgeMin.Value
+            If FrmSettings.LBLMinHold.Text = "minutes" Then HoldEdgeMin *= 60
+
+            Dim HoldEdgeMax As Integer = FrmSettings.NBHoldTheEdgeMax.Value
+            If FrmSettings.LBLMaxHold.Text = "minutes" Then HoldEdgeMax *= 60
+
+            If HoldEdgeMax < HoldEdgeMin Then HoldEdgeMax = HoldEdgeMin + 1
+
+            HoldEdgeTick = randomizer.Next(HoldEdgeMin, HoldEdgeMax + 1)
+            If HoldEdgeTick < 10 Then HoldEdgeTick = 10
+
+            HoldEdgeTime = 0
+
+            HoldEdgeTimer.Start()
+            HoldEdgeTauntTimer.Start()
+
+            Do
+                Application.DoEvents()
+            Loop Until DomTypeCheck = False
+
+
+            StringClean = StringClean.Replace("@EdgingHold", "")
+        End If
+
+        If StringClean.Contains("@EdgingStop") Then
+
+            DomTypeCheck = True
+            SubEdging = False
+            SubStroking = False
+            EdgeTauntTimer.Stop()
+            'DomChat = "#StopStrokingEdge"
+            'TypingDelay()
+
+            Do
+                Application.DoEvents()
+            Loop Until DomTypeCheck = False
+
+            StringClean = StringClean.Replace("@EdgingStop", "")
+        End If
+
+        If StringClean.Contains("@EdgingDecide") Then
+
+            TempVal = randomizer.Next(0, 101)
+
+            If TempVal < 51 Then
 
                 DomTypeCheck = True
                 SubEdging = False
                 SubStroking = False
                 SubHoldingEdge = True
                 EdgeTauntTimer.Stop()
-                'DomChat = "#HoldTheEdge"
-                'TypingDelay()
+                StrokePace = 0
+                DomChat = "#HoldTheEdge"
+                If Contact1Stroke = True Then
+                    DomChat = "@Contact1 #HoldTheEdge"
+                    Contact1Stroke = False
+                End If
+                If Contact2Stroke = True Then
+                    DomChat = "@Contact2 #HoldTheEdge"
+                    Contact2Stroke = False
+                End If
+                If Contact3Stroke = True Then
+                    DomChat = "@Contact3 #HoldTheEdge"
+                    Contact3Stroke = False
+                End If
+                TypingDelay()
 
                 HoldEdgeTick = HoldEdgeChance
 
@@ -12153,565 +12222,496 @@ OrgasmDecided:
                 HoldEdgeTimer.Start()
                 HoldEdgeTauntTimer.Start()
 
-                Do
-                    Application.DoEvents()
-                Loop Until DomTypeCheck = False
-
-
-                StringClean = StringClean.Replace("@EdgingHold", "")
-            End If
-
-            If StringClean.Contains("@EdgingStop") Then
+            Else
 
                 DomTypeCheck = True
                 SubEdging = False
                 SubStroking = False
                 EdgeTauntTimer.Stop()
-                'DomChat = "#StopStrokingEdge"
-                'TypingDelay()
+                DomChat = "#StopStrokingEdge"
+                If Contact1Stroke = True Then
+                    DomChat = "@Contact1 #StopStrokingEdge"
+                    Contact1Stroke = False
+                End If
+                If Contact2Stroke = True Then
+                    DomChat = "@Contact2 #StopStrokingEdge"
+                    Contact2Stroke = False
+                End If
+                If Contact3Stroke = True Then
+                    DomChat = "@Contact3 #StopStrokingEdge"
+                    Contact3Stroke = False
+                End If
+                TypingDelay()
 
+            End If
+
+            Do
+                Application.DoEvents()
+            Loop Until DomTypeCheck = False
+
+
+            StringClean = StringClean.Replace("@EdgingDecide", "")
+        End If
+
+        If StringClean.Contains("@CheckVideo") Then
+            VideoCheck = True
+            RandomVideo()
+            If NoVideo = True Then
+                FileGoto = "(No Videos Found)"
+            Else
+                FileGoto = "(Videos Found)"
+            End If
+            VideoCheck = False
+            NoVideo = False
+            SkipGotoLine = True
+            GetGoto()
+            StringClean = StringClean.Replace("@CheckVideo", "")
+        End If
+
+        If StringClean.Contains("@PlayCensorshipSucks") Then
+
+            RandomVideo()
+
+            If NoVideo = False Then
+                ScriptVideoTease = "Censorship Sucks"
+                ScriptVideoTeaseFlag = True
+                ScriptVideoTeaseFlag = False
+                CensorshipGame = True
+                VideoTease = True
+                CensorshipTick = randomizer.Next(FrmSettings.NBCensorHideMin.Value, FrmSettings.NBCensorHideMax.Value + 1)
+                CensorshipTimer.Start()
+            End If
+
+            StringClean = StringClean.Replace("@PlayCensorshipSucks", "")
+        End If
+
+        If StringClean.Contains("@ChastityOn") Then
+            My.Settings.Chastity = True
+            My.Settings.Save()
+            FrmSettings.LBLChastityState.Text = "ON"
+            FrmSettings.LBLChastityState.ForeColor = Color.Green
+            StringClean = StringClean.Replace("@ChastityOn", "")
+        End If
+
+        If StringClean.Contains("@ChastityOff") Then
+            My.Settings.Chastity = False
+            My.Settings.Save()
+            FrmSettings.LBLChastityState.Text = "OFF"
+            FrmSettings.LBLChastityState.ForeColor = Color.Red
+            StringClean = StringClean.Replace("@ChastityOff", "")
+        End If
+
+        If StringClean.Contains("@VitalSubAssignment") Then
+            Dim AssignReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\VitalSub\Assignments.txt")
+            Dim AssignList As New List(Of String)
+            While AssignReader.Peek <> -1
+                AssignList.Add(AssignReader.ReadLine())
+            End While
+            AssignReader.Close()
+            AssignReader.Dispose()
+
+
+            Dim TempAssign As String
+
+            Try
+                AssignList = FilterList(AssignList)
+                TempAssign = AssignList(randomizer.Next(0, AssignList.Count))
+            Catch
+                TempAssign = "ERROR: VitalSub Assign"
+            End Try
+
+            Dim TempArray As String() = Split(TempAssign)
+
+            For i As Integer = TempArray.Count - 1 To 0 Step -1
+                If TempArray(i).Contains("@") Then TempArray(i) = ""
+            Next
+
+
+            CLBExercise.Items.Add(TempAssign)
+            SaveExercise()
+            CBVitalSubDomTask.Checked = False
+            My.Settings.VitalSubAssignments = False
+            My.Settings.Save()
+            StringClean = StringClean.Replace("@VitalSubAssignment", "")
+        End If
+
+        If StringClean.Contains("@DeleteLocalImage") Then
+
+            Debug.Print("FoundString = " & FoundString)
+
+            If Not mainPictureBox Is Nothing Then
+                ClearMainPictureBox()
                 Do
                     Application.DoEvents()
-                Loop Until DomTypeCheck = False
-
-                StringClean = StringClean.Replace("@EdgingStop", "")
+                Loop Until mainPictureBox.Image Is Nothing
             End If
 
-            If StringClean.Contains("@EdgingDecide") Then
+            mainPictureBox.BackgroundImage = Nothing
+            mainPictureBox.Refresh()
+            ShowImage(Application.StartupPath & "\Images\System\Black.jpg")
+            'ImageLocation = Application.StartupPath & "\Images\System\Black.jpg"
+            'PBImage =
+            'ImageThread.Start()
+            'DisplayImage(Image.FromFile())
+            'mainPictureBox.Image = Image.FromFile(Application.StartupPath & "\Images\System\Black.jpg")
 
-                TempVal = randomizer.Next(0, 101)
-
-                If TempVal < 51 Then
-
-                    DomTypeCheck = True
-                    SubEdging = False
-                    SubStroking = False
-                    SubHoldingEdge = True
-                    EdgeTauntTimer.Stop()
-                    StrokePace = 0
-                    DomChat = "#HoldTheEdge"
-                    If Contact1Stroke = True Then
-                        DomChat = "@Contact1 #HoldTheEdge"
-                        Contact1Stroke = False
-                    End If
-                    If Contact2Stroke = True Then
-                        DomChat = "@Contact2 #HoldTheEdge"
-                        Contact2Stroke = False
-                    End If
-                    If Contact3Stroke = True Then
-                        DomChat = "@Contact3 #HoldTheEdge"
-                        Contact3Stroke = False
-                    End If
-                    TypingDelay()
-
-                    HoldEdgeTick = HoldEdgeChance
-
-                    Dim HoldEdgeMin As Integer = FrmSettings.NBHoldTheEdgeMin.Value
-                    If FrmSettings.LBLMinHold.Text = "minutes" Then HoldEdgeMin *= 60
-
-                    Dim HoldEdgeMax As Integer = FrmSettings.NBHoldTheEdgeMax.Value
-                    If FrmSettings.LBLMaxHold.Text = "minutes" Then HoldEdgeMax *= 60
-
-                    If HoldEdgeMax < HoldEdgeMin Then HoldEdgeMax = HoldEdgeMin + 1
-
-                    HoldEdgeTick = randomizer.Next(HoldEdgeMin, HoldEdgeMax + 1)
-                    If HoldEdgeTick < 10 Then HoldEdgeTick = 10
-
-                    HoldEdgeTime = 0
-
-                    HoldEdgeTimer.Start()
-                    HoldEdgeTauntTimer.Start()
-
-                Else
-
-                    DomTypeCheck = True
-                    SubEdging = False
-                    SubStroking = False
-                    EdgeTauntTimer.Stop()
-                    DomChat = "#StopStrokingEdge"
-                    If Contact1Stroke = True Then
-                        DomChat = "@Contact1 #StopStrokingEdge"
-                        Contact1Stroke = False
-                    End If
-                    If Contact2Stroke = True Then
-                        DomChat = "@Contact2 #StopStrokingEdge"
-                        Contact2Stroke = False
-                    End If
-                    If Contact3Stroke = True Then
-                        DomChat = "@Contact3 #StopStrokingEdge"
-                        Contact3Stroke = False
-                    End If
-                    TypingDelay()
-
-                End If
-
-                Do
-                    Application.DoEvents()
-                Loop Until DomTypeCheck = False
-
-
-                StringClean = StringClean.Replace("@EdgingDecide", "")
-            End If
-
-            If StringClean.Contains("@CheckVideo") Then
-                VideoCheck = True
-                RandomVideo()
-                If NoVideo = True Then
-                    FileGoto = "(No Videos Found)"
-                Else
-                    FileGoto = "(Videos Found)"
-                End If
-                VideoCheck = False
-                NoVideo = False
-                SkipGotoLine = True
-                GetGoto()
-                StringClean = StringClean.Replace("@CheckVideo", "")
-            End If
-
-            If StringClean.Contains("@PlayCensorshipSucks") Then
-
-                RandomVideo()
-
-                If NoVideo = False Then
-                    ScriptVideoTease = "Censorship Sucks"
-                    ScriptVideoTeaseFlag = True
-                    ScriptVideoTeaseFlag = False
-                    CensorshipGame = True
-                    VideoTease = True
-                    CensorshipTick = randomizer.Next(FrmSettings.NBCensorHideMin.Value, FrmSettings.NBCensorHideMax.Value + 1)
-                    CensorshipTimer.Start()
-                End If
-
-                StringClean = StringClean.Replace("@PlayCensorshipSucks", "")
-            End If
-
-            If StringClean.Contains("@ChastityOn") Then
-                My.Settings.Chastity = True
-                My.Settings.Save()
-                FrmSettings.LBLChastityState.Text = "ON"
-                FrmSettings.LBLChastityState.ForeColor = Color.Green
-                StringClean = StringClean.Replace("@ChastityOn", "")
-            End If
-
-            If StringClean.Contains("@ChastityOff") Then
-                My.Settings.Chastity = False
-                My.Settings.Save()
-                FrmSettings.LBLChastityState.Text = "OFF"
-                FrmSettings.LBLChastityState.ForeColor = Color.Red
-                StringClean = StringClean.Replace("@ChastityOff", "")
-            End If
-
-            If StringClean.Contains("@VitalSubAssignment") Then
-                Dim AssignReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\VitalSub\Assignments.txt")
-                Dim AssignList As New List(Of String)
-                While AssignReader.Peek <> -1
-                    AssignList.Add(AssignReader.ReadLine())
-                End While
-                AssignReader.Close()
-                AssignReader.Dispose()
-
-
-                Dim TempAssign As String
-
+            If FrmSettings.CBDomDel.Checked = True Then
                 Try
-                    AssignList = FilterList(AssignList)
-                    TempAssign = AssignList(randomizer.Next(0, AssignList.Count))
+                    My.Computer.FileSystem.DeleteFile(DeleteLocalImageFilePath)
                 Catch
-                    TempAssign = "ERROR: VitalSub Assign"
                 End Try
+            End If
 
-                Dim TempArray As String() = Split(TempAssign)
 
-                For i As Integer = TempArray.Count - 1 To 0 Step -1
-                    If TempArray(i).Contains("@") Then TempArray(i) = ""
+            StringClean = StringClean.Replace("@DeleteLocalImage", "")
+        End If
+
+        If StringClean.Contains("@AddTokens(") Then
+
+            Dim TokenFlag As String = GetParentheses(StringClean, "@AddTokens(")
+            TokenFlag = FixCommas(TokenFlag)
+            Dim TokenAdd As Integer
+
+            If TokenFlag.Contains(",") Then
+                Dim TokenArray As String() = TokenFlag.Split(",")
+                For i As Integer = 0 To TokenArray.Count - 1
+                    TokenAdd = Val(TokenArray(i))
+                    If UCase(TokenArray(i)).Contains("B") Then BronzeTokens += TokenAdd
+                    If UCase(TokenArray(i)).Contains("S") Then SilverTokens += TokenAdd
+                    If UCase(TokenArray(i)).Contains("G") Then GoldTokens += TokenAdd
                 Next
-
-
-                CLBExercise.Items.Add(TempAssign)
-                SaveExercise()
-                CBVitalSubDomTask.Checked = False
-                My.Settings.VitalSubAssignments = False
-                My.Settings.Save()
-                StringClean = StringClean.Replace("@VitalSubAssignment", "")
+            Else
+                TokenAdd = Val(TokenFlag)
+                If UCase(TokenFlag).Contains("B") Then BronzeTokens += TokenAdd
+                If UCase(TokenFlag).Contains("S") Then SilverTokens += TokenAdd
+                If UCase(TokenFlag).Contains("G") Then GoldTokens += TokenAdd
             End If
 
-            If StringClean.Contains("@DeleteLocalImage") Then
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.SilverTokens = SilverTokens
+            My.Settings.GoldTokens = GoldTokens
 
-                Debug.Print("FoundString = " & FoundString)
+            My.Settings.Save()
 
-                If Not mainPictureBox Is Nothing Then
-                    ClearMainPictureBox()
-                    Do
-                        Application.DoEvents()
-                    Loop Until mainPictureBox.Image Is Nothing
-                End If
+            StringClean = StringClean.Replace("@AddTokens(" & TokenFlag & ")", "")
 
-                mainPictureBox.BackgroundImage = Nothing
-                mainPictureBox.Refresh()
-                ShowImage(Application.StartupPath & "\Images\System\Black.jpg")
-                'ImageLocation = Application.StartupPath & "\Images\System\Black.jpg"
-                'PBImage =
-                'ImageThread.Start()
-                'DisplayImage(Image.FromFile())
-                'mainPictureBox.Image = Image.FromFile(Application.StartupPath & "\Images\System\Black.jpg")
-
-                If FrmSettings.CBDomDel.Checked = True Then
-                    Try
-                        My.Computer.FileSystem.DeleteFile(DeleteLocalImageFilePath)
-                    Catch
-                    End Try
-                End If
+        End If
 
 
-                StringClean = StringClean.Replace("@DeleteLocalImage", "")
+        If StringClean.Contains("@RemoveTokens(") Then
+
+            Dim TokenFlag As String = GetParentheses(StringClean, "@RemoveTokens(")
+            TokenFlag = FixCommas(TokenFlag)
+            Dim TokenRemove As Integer
+
+            If TokenFlag.Contains(",") Then
+                Dim TokenArray As String() = TokenFlag.Split(",")
+                For i As Integer = 0 To TokenArray.Count - 1
+                    TokenRemove = Val(TokenArray(i))
+                    If UCase(TokenArray(i)).Contains("B") Then BronzeTokens -= TokenRemove
+                    If UCase(TokenArray(i)).Contains("S") Then SilverTokens -= TokenRemove
+                    If UCase(TokenArray(i)).Contains("G") Then GoldTokens -= TokenRemove
+                Next
+            Else
+                TokenRemove = Val(TokenFlag)
+                If UCase(TokenFlag).Contains("B") Then BronzeTokens -= TokenRemove
+                If UCase(TokenFlag).Contains("S") Then SilverTokens -= TokenRemove
+                If UCase(TokenFlag).Contains("G") Then GoldTokens -= TokenRemove
             End If
 
-            If StringClean.Contains("@AddTokens(") Then
+            If BronzeTokens < 0 Then BronzeTokens = 0
+            If SilverTokens < 0 Then SilverTokens = 0
+            If GoldTokens < 0 Then GoldTokens = 0
 
-                Dim TokenFlag As String = GetParentheses(StringClean, "@AddTokens(")
-                TokenFlag = FixCommas(TokenFlag)
-                Dim TokenAdd As Integer
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.SilverTokens = SilverTokens
+            My.Settings.GoldTokens = GoldTokens
 
-                If TokenFlag.Contains(",") Then
-                    Dim TokenArray As String() = TokenFlag.Split(",")
-                    For i As Integer = 0 To TokenArray.Count - 1
-                        TokenAdd = Val(TokenArray(i))
-                        If UCase(TokenArray(i)).Contains("B") Then BronzeTokens += TokenAdd
-                        If UCase(TokenArray(i)).Contains("S") Then SilverTokens += TokenAdd
-                        If UCase(TokenArray(i)).Contains("G") Then GoldTokens += TokenAdd
-                    Next
-                Else
-                    TokenAdd = Val(TokenFlag)
-                    If UCase(TokenFlag).Contains("B") Then BronzeTokens += TokenAdd
-                    If UCase(TokenFlag).Contains("S") Then SilverTokens += TokenAdd
-                    If UCase(TokenFlag).Contains("G") Then GoldTokens += TokenAdd
-                End If
+            My.Settings.Save()
 
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.SilverTokens = SilverTokens
-                My.Settings.GoldTokens = GoldTokens
+            StringClean = StringClean.Replace("@RemoveTokens(" & TokenFlag & ")", "")
 
-                My.Settings.Save()
+        End If
 
-                StringClean = StringClean.Replace("@AddTokens(" & TokenFlag & ")", "")
+        If StringClean.Contains("@Add1Token") Then
+            BronzeTokens += 1
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.Save()
+            FrmCardList.UpdateBronzeTokens()
+            MessageBox.Show(Me, domName.Text & " has given you 1 Bronze token!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            StringClean = StringClean.Replace("@Add1Token", "")
+        End If
 
-            End If
+        If StringClean.Contains("@Add3Tokens") Then
+            BronzeTokens += 3
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.Save()
+            FrmCardList.UpdateBronzeTokens()
+            MessageBox.Show(Me, domName.Text & " has given you 3 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            StringClean = StringClean.Replace("@Add3Tokens", "")
+        End If
 
+        If StringClean.Contains("@Add5Tokens") Then
+            BronzeTokens += 5
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.Save()
+            FrmCardList.UpdateBronzeTokens()
+            StringClean = StringClean.Replace("@Add5Tokens", "")
+            MessageBox.Show(Me, domName.Text & " has given you 5 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
 
-            If StringClean.Contains("@RemoveTokens(") Then
+        If StringClean.Contains("@Add10Tokens") Then
+            BronzeTokens += 10
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.Save()
+            FrmCardList.UpdateBronzeTokens()
+            MessageBox.Show(Me, domName.Text & " has given you 10 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            StringClean = StringClean.Replace("@Add10Tokens", "")
+        End If
 
-                Dim TokenFlag As String = GetParentheses(StringClean, "@RemoveTokens(")
-                TokenFlag = FixCommas(TokenFlag)
-                Dim TokenRemove As Integer
+        If StringClean.Contains("@Add25Tokens") Then
+            BronzeTokens += 25
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.Save()
+            FrmCardList.UpdateBronzeTokens()
+            MessageBox.Show(Me, domName.Text & " has given you 25 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            StringClean = StringClean.Replace("@Add25Tokens", "")
+        End If
 
-                If TokenFlag.Contains(",") Then
-                    Dim TokenArray As String() = TokenFlag.Split(",")
-                    For i As Integer = 0 To TokenArray.Count - 1
-                        TokenRemove = Val(TokenArray(i))
-                        If UCase(TokenArray(i)).Contains("B") Then BronzeTokens -= TokenRemove
-                        If UCase(TokenArray(i)).Contains("S") Then SilverTokens -= TokenRemove
-                        If UCase(TokenArray(i)).Contains("G") Then GoldTokens -= TokenRemove
-                    Next
-                Else
-                    TokenRemove = Val(TokenFlag)
-                    If UCase(TokenFlag).Contains("B") Then BronzeTokens -= TokenRemove
-                    If UCase(TokenFlag).Contains("S") Then SilverTokens -= TokenRemove
-                    If UCase(TokenFlag).Contains("G") Then GoldTokens -= TokenRemove
-                End If
+        If StringClean.Contains("@Add50Tokens") Then
+            BronzeTokens += 50
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.Save()
+            FrmCardList.UpdateBronzeTokens()
+            MessageBox.Show(Me, domName.Text & " has given you 50 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            StringClean = StringClean.Replace("@Add50Tokens", "")
+        End If
 
-                If BronzeTokens < 0 Then BronzeTokens = 0
-                If SilverTokens < 0 Then SilverTokens = 0
-                If GoldTokens < 0 Then GoldTokens = 0
+        If StringClean.Contains("@Add100Tokens") Then
+            BronzeTokens += 100
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.Save()
+            FrmCardList.UpdateBronzeTokens()
+            MessageBox.Show(Me, domName.Text & " has given you 100 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            StringClean = StringClean.Replace("@Add50Tokens", "")
+        End If
 
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.SilverTokens = SilverTokens
-                My.Settings.GoldTokens = GoldTokens
-
-                My.Settings.Save()
-
-                StringClean = StringClean.Replace("@RemoveTokens(" & TokenFlag & ")", "")
-
-            End If
-
-            If StringClean.Contains("@Add1Token") Then
-                BronzeTokens += 1
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.Save()
-                FrmCardList.UpdateBronzeTokens()
-                MessageBox.Show(Me, domName.Text & " has given you 1 Bronze token!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                StringClean = StringClean.Replace("@Add1Token", "")
-            End If
-
-            If StringClean.Contains("@Add3Tokens") Then
-                BronzeTokens += 3
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.Save()
-                FrmCardList.UpdateBronzeTokens()
-                MessageBox.Show(Me, domName.Text & " has given you 3 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                StringClean = StringClean.Replace("@Add3Tokens", "")
-            End If
-
-            If StringClean.Contains("@Add5Tokens") Then
-                BronzeTokens += 5
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.Save()
-                FrmCardList.UpdateBronzeTokens()
-                StringClean = StringClean.Replace("@Add5Tokens", "")
-                MessageBox.Show(Me, domName.Text & " has given you 5 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-
-            If StringClean.Contains("@Add10Tokens") Then
-                BronzeTokens += 10
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.Save()
-                FrmCardList.UpdateBronzeTokens()
-                MessageBox.Show(Me, domName.Text & " has given you 10 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                StringClean = StringClean.Replace("@Add10Tokens", "")
-            End If
-
-            If StringClean.Contains("@Add25Tokens") Then
-                BronzeTokens += 25
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.Save()
-                FrmCardList.UpdateBronzeTokens()
-                MessageBox.Show(Me, domName.Text & " has given you 25 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                StringClean = StringClean.Replace("@Add25Tokens", "")
-            End If
-
-            If StringClean.Contains("@Add50Tokens") Then
-                BronzeTokens += 50
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.Save()
-                FrmCardList.UpdateBronzeTokens()
-                MessageBox.Show(Me, domName.Text & " has given you 50 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                StringClean = StringClean.Replace("@Add50Tokens", "")
-            End If
-
-            If StringClean.Contains("@Add100Tokens") Then
-                BronzeTokens += 100
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.Save()
-                FrmCardList.UpdateBronzeTokens()
-                MessageBox.Show(Me, domName.Text & " has given you 100 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                StringClean = StringClean.Replace("@Add50Tokens", "")
-            End If
-
-            If StringClean.Contains("@Remove100Tokens") Then
-                BronzeTokens -= 100
-                My.Settings.BronzeTokens = BronzeTokens
-                My.Settings.Save()
-                FrmCardList.UpdateBronzeTokens()
-                MessageBox.Show(Me, domName.Text & " has taken 100 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                StringClean = StringClean.Replace("@@Remove100Tokens", "")
-            End If
+        If StringClean.Contains("@Remove100Tokens") Then
+            BronzeTokens -= 100
+            My.Settings.BronzeTokens = BronzeTokens
+            My.Settings.Save()
+            FrmCardList.UpdateBronzeTokens()
+            MessageBox.Show(Me, domName.Text & " has taken 100 Bronze tokens!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            StringClean = StringClean.Replace("@@Remove100Tokens", "")
+        End If
 
 
-            If StringClean.Contains("@PlayAvoidTheEdge") Then
-                ' #### Reboot
+        If StringClean.Contains("@PlayAvoidTheEdge") Then
+            ' #### Reboot
 
-                RandomVideo()
+            RandomVideo()
 
-                If NoVideo = False Then
+            If NoVideo = False Then
 
-                    ScriptTimer.Stop()
-                    SubStroking = True
-                    TempStrokeTauntVal = StrokeTauntVal
-                    TempFileText = FileText
-                    ScriptVideoTease = "Avoid The Edge"
-                    ScriptVideoTeaseFlag = True
-                    AvoidTheEdgeStroking = True
-                    AvoidTheEdgeGame = True
-                    ScriptVideoTeaseFlag = False
-                    VideoTease = True
-                    StartStrokingCount += 1
-                    StopMetronome = False
-                    StrokePace = randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
-                    StrokePace = 50 * Math.Round(StrokePace / 50)
-                    StrokePaceTimer.Interval = StrokePace
-                    StrokePaceTimer.Start()
-                    AvoidTheEdgeTick = 120 / FrmSettings.TauntSlider.Value
-                    AvoidTheEdgeTaunts.Start()
-
-                End If
-
-                StringClean = StringClean.Replace("@PlayAvoidTheEdge", "")
-            End If
-
-            If StringClean.Contains("@ResumeAvoidTheEdge") Then
-                DomWMP.Ctlcontrols.play()
                 ScriptTimer.Stop()
-                AvoidTheEdgeStroking = True
                 SubStroking = True
+                TempStrokeTauntVal = StrokeTauntVal
+                TempFileText = FileText
+                ScriptVideoTease = "Avoid The Edge"
+                ScriptVideoTeaseFlag = True
+                AvoidTheEdgeStroking = True
+                AvoidTheEdgeGame = True
+                ScriptVideoTeaseFlag = False
+                VideoTease = True
                 StartStrokingCount += 1
                 StopMetronome = False
-                VideoTease = True
                 StrokePace = randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
                 StrokePace = 50 * Math.Round(StrokePace / 50)
                 StrokePaceTimer.Interval = StrokePace
                 StrokePaceTimer.Start()
                 AvoidTheEdgeTick = 120 / FrmSettings.TauntSlider.Value
                 AvoidTheEdgeTaunts.Start()
-                StringClean = StringClean.Replace("@ResumeAvoidTheEdge", "")
-            End If
-
-            If StringClean.Contains("@PlayRedLightGreenLight") Then
-                ' #### Reboot
-
-                RandomVideo()
-
-                If NoVideo = False Then
-
-                    ScriptTimer.Stop()
-                    SubStroking = True
-                    TempStrokeTauntVal = StrokeTauntVal
-                    TempFileText = FileText
-                    ScriptVideoTease = "RLGL"
-                    ScriptVideoTeaseFlag = True
-                    'AvoidTheEdgeStroking = True
-                    RLGLGame = True
-
-                    ScriptVideoTeaseFlag = False
-                    VideoTease = True
-                    RLGLTick = randomizer.Next(FrmSettings.NBGreenLightMin.Value, FrmSettings.NBGreenLightMax.Value + 1)
-                    RLGLTimer.Start()
-                    StartStrokingCount += 1
-                    StopMetronome = False
-                    StrokePace = randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
-                    StrokePace = 50 * Math.Round(StrokePace / 50)
-                    StrokePaceTimer.Interval = StrokePace
-                    StrokePaceTimer.Start()
-                    'VideoTauntTick = randomizer.Next(20, 31)
-                    'VideoTauntTimer.Start()
-
-                End If
-                StringClean = StringClean.Replace("@PlayRedLightGreenLight", "")
-            End If
-
-            If StringClean.Contains("@PlayVideo[") Then
-
-                Dim VideoFlag As String = GetParentheses(StringClean, "@PlayVideo[")
-                Dim VideoClean As String = Application.StartupPath & "\Video\" & VideoFlag
-                VideoClean = VideoClean.Replace("\\", "\")
-
-                Debug.Print("VideoFlag = " & VideoFlag)
-
-                If VideoClean.Contains("*") Then
-
-                    Dim VideoList As New List(Of String)
-
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Path.GetDirectoryName(VideoClean), FileIO.SearchOption.SearchTopLevelOnly, Path.GetFileName(VideoClean))
-                        VideoList.Add(foundFile)
-                    Next
-
-                    If VideoList.Count > 0 Then
-                        DomWMP.URL = VideoList(randomizer.Next(0, VideoList.Count - 1))
-                        DomWMP.Visible = True
-                        mainPictureBox.Visible = False
-                        TeaseVideo = True
-                    Else
-                        MessageBox.Show(Me, "No videos matching " & Path.GetFileName(VideoClean) & " were found in " & Path.GetDirectoryName(VideoClean) & "!" & Environment.NewLine & Environment.NewLine & _
-                                   "Please make sure that valid files exist and that the wildcards are applied correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                    End If
-
-                Else
-
-                    If File.Exists(VideoClean) Then
-                        DomWMP.URL = VideoClean
-                        DomWMP.Visible = True
-                        mainPictureBox.Visible = False
-                        TeaseVideo = True
-                    Else
-                        MessageBox.Show(Me, Path.GetFileName(VideoClean) & " was not found in " & Application.StartupPath & "\Video!" & Environment.NewLine & Environment.NewLine & _
-                                        "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                    End If
-
-                End If
-
-                StringClean = StringClean.Replace("@PlayVideo[" & VideoFlag & "]", "")
-            End If
-
-            If StringClean.Contains("@PlayAudio[") Then
-
-                Dim AudioFlag As String = GetParentheses(StringClean, "@PlayAudio[")
-                Dim AudioClean As String = Application.StartupPath & "\Video\" & AudioFlag
-                AudioClean = AudioClean.Replace("\\", "\")
-
-                If AudioClean.Contains("*") Then
-
-                    Dim AudioList As New List(Of String)
-
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Path.GetDirectoryName(AudioClean), FileIO.SearchOption.SearchTopLevelOnly, Path.GetFileName(AudioClean))
-                        AudioList.Add(foundFile)
-                    Next
-
-                    If AudioList.Count > 0 Then
-                        DomWMP.URL = AudioList(randomizer.Next(0, AudioList.Count - 1))
-                    Else
-                        MessageBox.Show(Me, "No audio files matching " & Path.GetFileName(AudioClean) & " were found in " & Path.GetDirectoryName(AudioClean) & "!" & Environment.NewLine & Environment.NewLine & _
-                                   "Please make sure that valid files exist and that the wildcards are applied correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                    End If
-
-                Else
-
-
-                    If File.Exists(AudioClean) Then
-                        DomWMP.URL = AudioClean
-                    Else
-                        MessageBox.Show(Me, Path.GetFileName(AudioClean) & " was not found in " & Application.StartupPath & "\Audio!" & Environment.NewLine & Environment.NewLine & _
-                                        "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                    End If
-
-                End If
-
-
-                StringClean = StringClean.Replace("@PlayAudio[" & AudioFlag & "]", "")
 
             End If
 
-            If StringClean.Contains("@PlayVideo") Then
+            StringClean = StringClean.Replace("@PlayAvoidTheEdge", "")
+        End If
 
-                RandomizerVideo = True
-                RandomVideo()
+        If StringClean.Contains("@ResumeAvoidTheEdge") Then
+            DomWMP.Ctlcontrols.play()
+            ScriptTimer.Stop()
+            AvoidTheEdgeStroking = True
+            SubStroking = True
+            StartStrokingCount += 1
+            StopMetronome = False
+            VideoTease = True
+            StrokePace = randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
+            StrokePace = 50 * Math.Round(StrokePace / 50)
+            StrokePaceTimer.Interval = StrokePace
+            StrokePaceTimer.Start()
+            AvoidTheEdgeTick = 120 / FrmSettings.TauntSlider.Value
+            AvoidTheEdgeTaunts.Start()
+            StringClean = StringClean.Replace("@ResumeAvoidTheEdge", "")
+        End If
 
-                If NoVideo = False Then
+        If StringClean.Contains("@PlayRedLightGreenLight") Then
+            ' #### Reboot
+
+            RandomVideo()
+
+            If NoVideo = False Then
+
+                ScriptTimer.Stop()
+                SubStroking = True
+                TempStrokeTauntVal = StrokeTauntVal
+                TempFileText = FileText
+                ScriptVideoTease = "RLGL"
+                ScriptVideoTeaseFlag = True
+                'AvoidTheEdgeStroking = True
+                RLGLGame = True
+
+                ScriptVideoTeaseFlag = False
+                VideoTease = True
+                RLGLTick = randomizer.Next(FrmSettings.NBGreenLightMin.Value, FrmSettings.NBGreenLightMax.Value + 1)
+                RLGLTimer.Start()
+                StartStrokingCount += 1
+                StopMetronome = False
+                StrokePace = randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
+                StrokePace = 50 * Math.Round(StrokePace / 50)
+                StrokePaceTimer.Interval = StrokePace
+                StrokePaceTimer.Start()
+                'VideoTauntTick = randomizer.Next(20, 31)
+                'VideoTauntTimer.Start()
+
+            End If
+            StringClean = StringClean.Replace("@PlayRedLightGreenLight", "")
+        End If
+
+        If StringClean.Contains("@PlayVideo[") Then
+
+            Dim VideoFlag As String = GetParentheses(StringClean, "@PlayVideo[")
+            Dim VideoClean As String = Application.StartupPath & "\Video\" & VideoFlag
+            VideoClean = VideoClean.Replace("\\", "\")
+
+            Debug.Print("VideoFlag = " & VideoFlag)
+
+            If VideoClean.Contains("*") Then
+
+                Dim VideoList As New List(Of String)
+
+                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Path.GetDirectoryName(VideoClean), FileIO.SearchOption.SearchTopLevelOnly, Path.GetFileName(VideoClean))
+                    VideoList.Add(foundFile)
+                Next
+
+                If VideoList.Count > 0 Then
+                    DomWMP.URL = VideoList(randomizer.Next(0, VideoList.Count - 1))
+                    DomWMP.Visible = True
+                    mainPictureBox.Visible = False
                     TeaseVideo = True
                 Else
-                    MessageBox.Show(Me, "No videos were found!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                    MessageBox.Show(Me, "No videos matching " & Path.GetFileName(VideoClean) & " were found in " & Path.GetDirectoryName(VideoClean) & "!" & Environment.NewLine & Environment.NewLine &
+                                   "Please make sure that valid files exist and that the wildcards are applied correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
                 End If
 
-                RandomizerVideo = False
-                StringClean = StringClean.Replace("@PlayVideo", "")
+            Else
+
+                If File.Exists(VideoClean) Then
+                    DomWMP.URL = VideoClean
+                    DomWMP.Visible = True
+                    mainPictureBox.Visible = False
+                    TeaseVideo = True
+                Else
+                    MessageBox.Show(Me, Path.GetFileName(VideoClean) & " was not found in " & Application.StartupPath & "\Video!" & Environment.NewLine & Environment.NewLine &
+                                        "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                End If
+
+            End If
+
+            StringClean = StringClean.Replace("@PlayVideo[" & VideoFlag & "]", "")
+        End If
+
+        If StringClean.Contains("@PlayAudio[") Then
+
+            Dim AudioFlag As String = GetParentheses(StringClean, "@PlayAudio[")
+            Dim AudioClean As String = Application.StartupPath & "\Video\" & AudioFlag
+            AudioClean = AudioClean.Replace("\\", "\")
+
+            If AudioClean.Contains("*") Then
+
+                Dim AudioList As New List(Of String)
+
+                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Path.GetDirectoryName(AudioClean), FileIO.SearchOption.SearchTopLevelOnly, Path.GetFileName(AudioClean))
+                    AudioList.Add(foundFile)
+                Next
+
+                If AudioList.Count > 0 Then
+                    DomWMP.URL = AudioList(randomizer.Next(0, AudioList.Count - 1))
+                Else
+                    MessageBox.Show(Me, "No audio files matching " & Path.GetFileName(AudioClean) & " were found in " & Path.GetDirectoryName(AudioClean) & "!" & Environment.NewLine & Environment.NewLine &
+                                   "Please make sure that valid files exist and that the wildcards are applied correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                End If
+
+            Else
+
+
+                If File.Exists(AudioClean) Then
+                    DomWMP.URL = AudioClean
+                Else
+                    MessageBox.Show(Me, Path.GetFileName(AudioClean) & " was not found in " & Application.StartupPath & "\Audio!" & Environment.NewLine & Environment.NewLine &
+                                        "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                End If
+
             End If
 
 
-            If StringClean.Contains("@AddStrokeTime(") Then
+            StringClean = StringClean.Replace("@PlayAudio[" & AudioFlag & "]", "")
 
-                Dim OriginalFlag As String = ""
+        End If
 
-                If StrokeTimer.Enabled = True Then
+        If StringClean.Contains("@PlayVideo") Then
 
-                    Dim StrokeFlag As String = GetParentheses(StringClean, "@AddStrokeTime(")
-                    OriginalFlag = StrokeFlag
-                    Dim StrokeSeconds As Integer
+            RandomizerVideo = True
+            RandomVideo()
 
-                    If StrokeFlag.Contains(",") Then
-                        StrokeFlag = FixCommas(StrokeFlag)
-                        Dim StrokeFlagArray As String() = StrokeFlag.Split(",")
-                        Dim Stroke1 As Integer = Val(StrokeFlagArray(0))
-                        Dim Stroke2 As Integer = Val(StrokeFlagArray(1))
-                        If UCase(StrokeFlagArray(0)).Contains("M") Then Stroke1 *= 60
-                        If UCase(StrokeFlagArray(1)).Contains("M") Then Stroke2 *= 60
-                        If UCase(StrokeFlagArray(0)).Contains("H") Then Stroke1 *= 3600
-                        If UCase(StrokeFlagArray(1)).Contains("H") Then Stroke2 *= 3600
-                        StrokeSeconds = randomizer.Next(Stroke1, Stroke2 + 1)
-                    Else
-                        StrokeSeconds = Val(StrokeFlag)
-                        If UCase(GetParentheses(StringClean, "@AddStrokeTime(")).Contains("M") Then StrokeSeconds *= 60
-                        If UCase(GetParentheses(StringClean, "@AddStrokeTime(")).Contains("H") Then StrokeSeconds *= 3600
-                    End If
-                    StrokeTick += StrokeSeconds
+            If NoVideo = False Then
+                TeaseVideo = True
+            Else
+                MessageBox.Show(Me, "No videos were found!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+            End If
+
+            RandomizerVideo = False
+            StringClean = StringClean.Replace("@PlayVideo", "")
+        End If
+
+
+        If StringClean.Contains("@AddStrokeTime(") Then
+
+            Dim OriginalFlag As String = ""
+
+            If StrokeTimer.Enabled = True Then
+
+                Dim StrokeFlag As String = GetParentheses(StringClean, "@AddStrokeTime(")
+                OriginalFlag = StrokeFlag
+                Dim StrokeSeconds As Integer
+
+                If StrokeFlag.Contains(",") Then
+                    StrokeFlag = FixCommas(StrokeFlag)
+                    Dim StrokeFlagArray As String() = StrokeFlag.Split(",")
+                    Dim Stroke1 As Integer = Val(StrokeFlagArray(0))
+                    Dim Stroke2 As Integer = Val(StrokeFlagArray(1))
+                    If UCase(StrokeFlagArray(0)).Contains("M") Then Stroke1 *= 60
+                    If UCase(StrokeFlagArray(1)).Contains("M") Then Stroke2 *= 60
+                    If UCase(StrokeFlagArray(0)).Contains("H") Then Stroke1 *= 3600
+                    If UCase(StrokeFlagArray(1)).Contains("H") Then Stroke2 *= 3600
+                    StrokeSeconds = randomizer.Next(Stroke1, Stroke2 + 1)
+                Else
+                    StrokeSeconds = Val(StrokeFlag)
+                    If UCase(GetParentheses(StringClean, "@AddStrokeTime(")).Contains("M") Then StrokeSeconds *= 60
+                    If UCase(GetParentheses(StringClean, "@AddStrokeTime(")).Contains("H") Then StrokeSeconds *= 3600
                 End If
-                StringClean = StringClean.Replace("@AddStrokeTime(" & OriginalFlag & ")", "")
+                StrokeTick += StrokeSeconds
+            End If
+            StringClean = StringClean.Replace("@AddStrokeTime(" & OriginalFlag & ")", "")
         End If
 
         If StringClean.Contains("@RemoveStrokeTime(") Then
@@ -12747,19 +12747,19 @@ OrgasmDecided:
 
 
 
-            If StringClean.Contains("@AddStrokeTime") Then
-                If StrokeTimer.Enabled = True Then
-                    If FrmSettings.CBTauntCycleDD.Checked = True Then
-                        If FrmSettings.domlevelNumBox.Value = 1 Then StrokeTick += randomizer.Next(1, 3) * 60
-                        If FrmSettings.domlevelNumBox.Value = 2 Then StrokeTick += randomizer.Next(1, 4) * 60
-                        If FrmSettings.domlevelNumBox.Value = 3 Then StrokeTick += randomizer.Next(3, 6) * 60
-                        If FrmSettings.domlevelNumBox.Value = 4 Then StrokeTick += randomizer.Next(4, 8) * 60
-                        If FrmSettings.domlevelNumBox.Value = 5 Then StrokeTick += randomizer.Next(5, 11) * 60
-                    Else
-                        StrokeTick += randomizer.Next(FrmSettings.NBTauntCycleMin.Value * 60, FrmSettings.NBTauntCycleMax.Value * 60)
-                    End If
+        If StringClean.Contains("@AddStrokeTime") Then
+            If StrokeTimer.Enabled = True Then
+                If FrmSettings.CBTauntCycleDD.Checked = True Then
+                    If FrmSettings.domlevelNumBox.Value = 1 Then StrokeTick += randomizer.Next(1, 3) * 60
+                    If FrmSettings.domlevelNumBox.Value = 2 Then StrokeTick += randomizer.Next(1, 4) * 60
+                    If FrmSettings.domlevelNumBox.Value = 3 Then StrokeTick += randomizer.Next(3, 6) * 60
+                    If FrmSettings.domlevelNumBox.Value = 4 Then StrokeTick += randomizer.Next(4, 8) * 60
+                    If FrmSettings.domlevelNumBox.Value = 5 Then StrokeTick += randomizer.Next(5, 11) * 60
+                Else
+                    StrokeTick += randomizer.Next(FrmSettings.NBTauntCycleMin.Value * 60, FrmSettings.NBTauntCycleMax.Value * 60)
                 End If
-                StringClean = StringClean.Replace("@AddStrokeTime", "")
+            End If
+            StringClean = StringClean.Replace("@AddStrokeTime", "")
         End If
 
         If StringClean.Contains("@RemoveStrokeTime") Then
@@ -13718,7 +13718,7 @@ VTSkip:
             Dim CallReplace As String = CheckFlag
 
             If Not Directory.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\" & CheckFlag) Then
-                MessageBox.Show(Me, "The current script attempted to @Call from a directory that does not exist!" & Environment.NewLine & Environment.NewLine & _
+                MessageBox.Show(Me, "The current script attempted to @Call from a directory that does not exist!" & Environment.NewLine & Environment.NewLine &
                                 Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\" & CheckFlag, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
                 Dim RandomFile As New List(Of String)
@@ -13727,7 +13727,7 @@ VTSkip:
                     RandomFile.Add(foundFile)
                 Next
                 If RandomFile.Count < 1 Then
-                    MessageBox.Show(Me, "The current script attempted to @Call from a directory that does not contain any scripts!" & Environment.NewLine & Environment.NewLine & _
+                    MessageBox.Show(Me, "The current script attempted to @Call from a directory that does not contain any scripts!" & Environment.NewLine & Environment.NewLine &
                                Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\" & CheckFlag, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
                     FileText = RandomFile(randomizer.Next(0, RandomFile.Count))
@@ -14175,7 +14175,7 @@ VTSkip:
 
     Public Function CreateFlag(ByVal FlagDir As String)
 
-        Dim FlagCreate As FileStream = File.Create(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & FlagDir)
+        Dim FlagCreate As FileStream = File.Create(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & FlagDir)
         FlagCreate.Close()
         FlagCreate.Dispose()
 
@@ -14184,7 +14184,7 @@ VTSkip:
 
     Public Function CreateTempFlag(ByVal FlagDir As String)
 
-        Dim FlagCreate As FileStream = File.Create(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & FlagDir)
+        Dim FlagCreate As FileStream = File.Create(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & FlagDir)
         FlagCreate.Close()
         FlagCreate.Dispose()
 
@@ -14194,11 +14194,11 @@ VTSkip:
 
     Public Function DeleteFlag(ByVal FlagDir As String)
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & FlagDir) Then _
-                    My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & FlagDir)
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & FlagDir) Then _
+                    My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & FlagDir)
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & FlagDir) Then _
-         My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & FlagDir)
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & FlagDir) Then _
+         My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & FlagDir)
 
 
     End Function
@@ -14207,8 +14207,8 @@ VTSkip:
 
         Dim CheckFlag As Boolean
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & FlagDir) Or _
-            File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & FlagDir) Then
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & FlagDir) Or
+            File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & FlagDir) Then
             CheckFlag = True
         Else
             CheckFlag = False
@@ -14220,14 +14220,14 @@ VTSkip:
 
     Public Function SetVariable(ByVal VarName As String, ByVal VarValue As String)
 
-        My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & VarName, VarValue, False)
+        My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & VarName, VarValue, False)
 
     End Function
 
     Public Function DeleteVariable(ByVal FlagDir As String)
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & FlagDir) Then _
-                    My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & FlagDir)
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & FlagDir) Then _
+                    My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & FlagDir)
 
     End Function
 
@@ -14237,8 +14237,8 @@ VTSkip:
         Dim Val2 As Integer
 
         If IsNumeric(ChangeVal1) = False Then
-            If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVal1) Then
-                Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVal1)
+            If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVal1) Then
+                Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVal1)
                 Val1 = Val(VarReader.ReadLine())
                 VarReader.Close()
                 VarReader.Dispose()
@@ -14250,8 +14250,8 @@ VTSkip:
         End If
 
         If IsNumeric(ChangeVal2) = False Then
-            If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVal2) Then
-                Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVal2)
+            If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVal2) Then
+                Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVal2)
                 Val2 = Val(VarReader.ReadLine())
                 VarReader.Close()
                 VarReader.Dispose()
@@ -14275,7 +14275,7 @@ VTSkip:
         If ScriptOperator = "Multiply" Then ChangeVal = Val1 * Val2
         If ScriptOperator = "Divide" Then ChangeVal = Val1 / Val2
 
-        My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & ChangeVar, ChangeVal, False)
+        My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & ChangeVar, ChangeVal, False)
 
     End Function
 
@@ -14283,8 +14283,8 @@ VTSkip:
 
         Dim VarGet As String
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & VarName) Then
-            Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & VarName)
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & VarName) Then
+            Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & VarName)
             VarGet = CDate(VarReader.ReadLine())
             VarReader.Close()
             VarReader.Dispose()
@@ -14320,8 +14320,8 @@ VTSkip:
 
         Dim VarGet As String
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & VarName) Then
-            Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & VarName)
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & VarName) Then
+            Dim VarReader As New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & VarName)
             VarGet = Val(VarReader.ReadLine())
             VarReader.Close()
             VarReader.Dispose()
@@ -14367,7 +14367,7 @@ VTSkip:
 
                 Else
 
-                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & SCGotVarSplit(0)
+                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & SCGotVarSplit(0)
                     'Debug.Print("VarCheck = " & VarCheck)
                     If File.Exists(VarCheck) Then
                         'Debug.Print("VarCheck Exists")
@@ -14443,7 +14443,7 @@ VTSkip:
 
                 Else
 
-                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & SCGotVarSplit(0)
+                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & SCGotVarSplit(0)
 
                     If File.Exists(VarCheck) Then
 
@@ -14854,7 +14854,7 @@ VTSkip:
 
 
     End Sub
-   
+
 
     Public Sub EdgePace()
 
@@ -14864,7 +14864,7 @@ VTSkip:
 
     End Sub
 
-  
+
 
 
     Public Sub ShowGotImage()
@@ -14898,7 +14898,7 @@ VTSkip:
         End If
 
 
-        
+
 
     End Sub
 
@@ -16802,8 +16802,8 @@ VTSkip:
             Application.DoEvents()
             PoundCount -= 1
             If ListClean(PoundCount).Contains("@ShowLocalImage") Then
-                If FrmSettings.CBIHardcore.Checked = False And FrmSettings.CBISoftcore.Checked = False And FrmSettings.CBILesbian.Checked = False And FrmSettings.CBIBlowjob.Checked = False And _
-                    FrmSettings.CBIFemdom.Checked = False And FrmSettings.CBILezdom.Checked = False And FrmSettings.CBIHentai.Checked = False And FrmSettings.CBIGay.Checked = False And _
+                If FrmSettings.CBIHardcore.Checked = False And FrmSettings.CBISoftcore.Checked = False And FrmSettings.CBILesbian.Checked = False And FrmSettings.CBIBlowjob.Checked = False And
+                    FrmSettings.CBIFemdom.Checked = False And FrmSettings.CBILezdom.Checked = False And FrmSettings.CBIHentai.Checked = False And FrmSettings.CBIGay.Checked = False And
                     FrmSettings.CBIMaledom.Checked = False And FrmSettings.CBICaptions.Checked = False And FrmSettings.CBIGeneral.Checked = False Then
                     If StrokeFilter = True Then
                         For i As Integer = 0 To StrokeTauntCount - 1
@@ -17309,12 +17309,12 @@ VTSkip:
                 Dim LocalCheck As String() = Split(LocalTagImageList(i))
                 Dim LocalString As String = LocalCheck(0)
                 Debug.Print("LocalString = " & LocalString)
-                If Not LCase(LocalString).Contains(".jpg") And Not LCase(LocalString).Contains(".jpeg") And Not LCase(LocalString).Contains(".bmp") And _
+                If Not LCase(LocalString).Contains(".jpg") And Not LCase(LocalString).Contains(".jpeg") And Not LCase(LocalString).Contains(".bmp") And
                     Not LCase(LocalString).Contains(".png") And Not LCase(LocalString).Contains(".gif") Then
                     Debug.Print("LocalTag Check Doesn't contain extension")
                     For x As Integer = 1 To LocalCheck.Count - 1
                         LocalString = LocalString & " " & LocalCheck(x)
-                        If LCase(LocalString).Contains(".jpg") Or LCase(LocalString).Contains(".jpeg") Or LCase(LocalString).Contains(".bmp") Or _
+                        If LCase(LocalString).Contains(".jpg") Or LCase(LocalString).Contains(".jpeg") Or LCase(LocalString).Contains(".bmp") Or
                LCase(LocalString).Contains(".png") Or LCase(LocalString).Contains(".gif") Then Exit For
                     Next
                 End If
@@ -18519,8 +18519,8 @@ VTSkip:
                 WriteFlag = WriteFlag.Substring(WriteStart, WriteFlag.Length - WriteStart)
                 WriteFlag = WriteFlag.Split(")")(0)
                 WriteFlag = WriteFlag.Replace("@Flag(", "")
-                If Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & WriteFlag) And _
-                    Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & WriteFlag) Then
+                If Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & WriteFlag) And
+                    Not File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & WriteFlag) Then
                     If StrokeFilter = True Then
                         For i As Integer = 0 To StrokeTauntCount - 1
                             ListClean.Remove(ListClean(PoundCount))
@@ -18545,8 +18545,8 @@ VTSkip:
                 WriteFlag = WriteFlag.Substring(WriteStart, WriteFlag.Length - WriteStart)
                 WriteFlag = WriteFlag.Split(")")(0)
                 WriteFlag = WriteFlag.Replace("@NotFlag(", "")
-                If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\" & WriteFlag) Or _
-                    File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Flags\Temp\" & WriteFlag) Then
+                If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\" & WriteFlag) Or
+                    File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Flags\Temp\" & WriteFlag) Then
                     If StrokeFilter = True Then
                         For i As Integer = 0 To StrokeTauntCount - 1
                             ListClean.Remove(ListClean(PoundCount))
@@ -19075,8 +19075,8 @@ VTSkip:
 
 
 
-            Dim AvoidTheEdgeVideo As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\AvoidTheEdge.txt"
-            If DommeVideo = True Then AvoidTheEdgeVideo = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\AvoidTheEdgeD.txt"
+            Dim AvoidTheEdgeVideo As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\AvoidTheEdge.txt"
+            If DommeVideo = True Then AvoidTheEdgeVideo = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\AvoidTheEdgeD.txt"
 
             Dim AvoidTheEdgeLineStart As Integer
             Dim AvoidTheEdgeLineEnd As Integer
@@ -19344,7 +19344,7 @@ AlreadySeen:
 
         ClearMainPictureBox()
 
-        
+
 
 
         Try
@@ -19423,10 +19423,10 @@ AlreadySeen:
         ClearMainPictureBox()
 
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Temp\Temp.gif") Then
-            My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Temp\Temp.gif")
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif") Then
+            My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif")
         End If
-        My.Computer.Network.DownloadFile(TempURL, Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Temp\Temp.gif")
+        My.Computer.Network.DownloadFile(TempURL, Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif")
         TempGif = Image.FromFile(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif")
         ShowImage(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif")
         'ImageLocation = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif"
@@ -19603,7 +19603,7 @@ NoPlaylistLinkFile:
                 ChastityLinkCheck = "*.txt"
             End If
 
-            For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\Link\", FileIO.SearchOption.SearchTopLevelOnly, ChastityLinkCheck)
+            For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\Link\", FileIO.SearchOption.SearchTopLevelOnly, ChastityLinkCheck)
                 Dim TempLink As String = foundFile
                 TempLink = TempLink.Replace(".txt", "")
                 Do Until Not TempLink.Contains("\")
@@ -19626,9 +19626,9 @@ NoPlaylistLinkFile:
 
             If LinkList.Count < 1 Then
                 If My.Settings.Chastity = True Then
-                    FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\Link_CHASTITY.txt"
+                    FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Link_CHASTITY.txt"
                 Else
-                    FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\Link.txt"
+                    FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Link.txt"
                 End If
             Else
                 FileText = LinkList(randomizer.Next(0, LinkList.Count))
@@ -19637,11 +19637,11 @@ NoPlaylistLinkFile:
         Else
             Debug.Print("Playlist Link Called")
             If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
-                FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\Link\" & PlaylistFile(PlaylistCurrent)
+                FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\Link\" & PlaylistFile(PlaylistCurrent)
                 FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
                 FileText = FileText & ".txt"
             Else
-                FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Playlist\Link\" & PlaylistFile(PlaylistCurrent) & ".txt"
+                FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Link\" & PlaylistFile(PlaylistCurrent) & ".txt"
             End If
 
         End If
@@ -19670,7 +19670,7 @@ NoPlaylistLinkFile:
 
     Public Function GetSysVar(ByVal GetVar As String) As String
 
-        Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Variables\" & GetVar
+        Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & GetVar
         Dim VarValue As String
         If File.Exists(VarCheck) Then
             Dim VarReader As New StreamReader(VarCheck)
@@ -19719,7 +19719,7 @@ NoPlaylistEndFile:
                 ChastityEndCheck = "*.txt"
             End If
 
-            For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\End\", FileIO.SearchOption.SearchTopLevelOnly, ChastityEndCheck)
+            For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\End\", FileIO.SearchOption.SearchTopLevelOnly, ChastityEndCheck)
                 Dim TempEnd As String = foundFile
                 TempEnd = TempEnd.Replace(".txt", "")
                 Do Until Not TempEnd.Contains("\")
@@ -19741,9 +19741,9 @@ NoPlaylistEndFile:
 
             If EndList.Count < 1 Then
                 If My.Settings.Chastity = True Then
-                    FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\End_CHASTITY.txt"
+                    FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\End_CHASTITY.txt"
                 Else
-                    FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\End.txt"
+                    FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\End.txt"
                 End If
             Else
                 FileText = EndList(randomizer.Next(0, EndList.Count))
@@ -19751,11 +19751,11 @@ NoPlaylistEndFile:
 
         Else
             If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
-                FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\End\" & PlaylistFile(PlaylistCurrent)
+                FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\End\" & PlaylistFile(PlaylistCurrent)
                 FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
                 FileText = FileText & ".txt"
             Else
-                FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Playlist\End\" & PlaylistFile(PlaylistCurrent) & ".txt"
+                FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\End\" & PlaylistFile(PlaylistCurrent) & ".txt"
             End If
         End If
 
@@ -19777,7 +19777,7 @@ NoPlaylistEndFile:
         Dim EndList As New List(Of String)
         EndList.Clear()
 
-        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\End\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\End\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
             Dim TempEnd As String = foundFile
             TempEnd = TempEnd.Replace(".txt", "")
             Do Until Not TempEnd.Contains("\")
@@ -19793,7 +19793,7 @@ NoPlaylistEndFile:
 
 
         If EndList.Count < 1 Then
-            FileText = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\System\Scripts\End_BEG.txt"
+            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\End_BEG.txt"
         Else
             FileText = EndList(randomizer.Next(0, EndList.Count))
         End If
@@ -19840,7 +19840,7 @@ NoPlaylistEndFile:
             End Try
         End If
 
-       StrokePace = 0
+        StrokePace = 0
 
     End Sub
 
@@ -19865,9 +19865,9 @@ NoPlaylistEndFile:
 
 
             If GlitterTease = False Then
-                EdgeTaunt = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\Edge\Edge.txt")
+                EdgeTaunt = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\Edge\Edge.txt")
             Else
-                EdgeTaunt = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\Edge\GroupEdge.txt")
+                EdgeTaunt = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\Edge\GroupEdge.txt")
             End If
 
 
@@ -19947,7 +19947,7 @@ NoPlaylistEndFile:
 
                         Dim RepeatList As New List(Of String)
 
-                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Denial Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Denial Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                             RepeatList.Add(foundFile)
                         Next
 
@@ -20025,7 +20025,7 @@ RuinedOrgasm:
 
                     Dim RepeatList As New List(Of String)
 
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Ruin Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Ruin Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         RepeatList.Add(foundFile)
                     Next
 
@@ -20093,7 +20093,7 @@ AllowedOrgasm:
 
                     Dim NoCumList As New List(Of String)
 
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Out of Orgasms\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Out of Orgasms\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         NoCumList.Add(foundFile)
                     Next
 
@@ -20143,7 +20143,7 @@ NoNoCumFiles:
 
                     Dim RepeatList As New List(Of String)
 
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Interrupt\Orgasm Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Orgasm Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                         RepeatList.Add(foundFile)
                     Next
 
@@ -20222,9 +20222,9 @@ NoRepeatOFiles:
             Dim EdgeTaunt As StreamReader
 
             If GlitterTease = False Then
-                EdgeTaunt = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\HoldTheEdge\HoldTheEdge.txt")
+                EdgeTaunt = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\HoldTheEdge\HoldTheEdge.txt")
             Else
-                EdgeTaunt = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Stroke\HoldTheEdge\GroupHoldTheEdge.txt")
+                EdgeTaunt = New StreamReader(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Stroke\HoldTheEdge\GroupHoldTheEdge.txt")
             End If
 
             Dim ETLines As New List(Of String)
@@ -20267,7 +20267,7 @@ NoRepeatOFiles:
     Public Sub CreateTaskLetter()
 
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Greeting.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Greeting.txt"
         TaskText = ""
 
         Dim TaskRead As New StreamReader(TaskFile)
@@ -20294,7 +20294,7 @@ NoRepeatOFiles:
         CleanTaskText()
         TaskLines.Clear()
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Intro.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Intro.txt"
 
         TaskRead = New StreamReader(TaskFile)
         TaskLines.Clear()
@@ -20321,7 +20321,7 @@ NoRepeatOFiles:
         If GeneralTime = "Afternoon" Then GoTo Afternoon
         If GeneralTime = "Night" Then GoTo Night
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Task_1.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Task_1.txt"
 
         TaskRead = New StreamReader(TaskFile)
         TaskLines.Clear()
@@ -20346,7 +20346,7 @@ NoRepeatOFiles:
         TaskLines.Clear()
 
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Link_1-2.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Link_1-2.txt"
 
         TaskRead = New StreamReader(TaskFile)
         TaskLines.Clear()
@@ -20374,7 +20374,7 @@ NoRepeatOFiles:
 Afternoon:
 
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Task_2.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Task_2.txt"
 
         TaskRead = New StreamReader(TaskFile)
         TaskLines.Clear()
@@ -20400,7 +20400,7 @@ Afternoon:
         TaskLines.Clear()
 
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Link_2-3.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Link_2-3.txt"
 
         TaskRead = New StreamReader(TaskFile)
         TaskLines.Clear()
@@ -20427,7 +20427,7 @@ Afternoon:
 
 Night:
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Task_3.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Task_3.txt"
 
         TaskRead = New StreamReader(TaskFile)
         TaskLines.Clear()
@@ -20451,7 +20451,7 @@ Night:
         CleanTaskText()
         TaskLines.Clear()
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Outro.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Outro.txt"
 
         TaskRead = New StreamReader(TaskFile)
         TaskLines.Clear()
@@ -20475,7 +20475,7 @@ Night:
         CleanTaskText()
         TaskLines.Clear()
 
-        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Tasks\Signature.txt"
+        TaskFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Tasks\Signature.txt"
 
         TaskRead = New StreamReader(TaskFile)
         TaskLines.Clear()
@@ -20552,7 +20552,7 @@ AtNext:
 
         TempDate = TempDateNow.ToString("M dd")
 
-        TaskTextDir = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Received Files\Tasks for " & TempDate & ".txt"
+        TaskTextDir = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Received Files\Tasks for " & TempDate & ".txt"
         My.Computer.FileSystem.WriteAllText(TaskTextDir, TaskText, False)
 
 
@@ -21016,7 +21016,7 @@ TryNext:
 
 
 
- 
+
 
 
 
@@ -21766,7 +21766,7 @@ TryNext:
 
             Dim VTDir As String
 
-            If RLGLGame = True Then VTDir = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Red Light Green Light\Taunts.txt"
+            If RLGLGame = True Then VTDir = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Red Light Green Light\Taunts.txt"
 
             If Not File.Exists(VTDir) Then Return
 
@@ -21846,7 +21846,7 @@ TryNext:
 
             Dim VTDir As String
 
-            VTDir = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Red Light Green Light\Taunts.txt"
+            VTDir = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Red Light Green Light\Taunts.txt"
 
             If Not File.Exists(VTDir) Then Return
 
@@ -21905,7 +21905,7 @@ TryNext:
 
             Dim VTDir As String
 
-            VTDir = Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Avoid The Edge\Taunts.txt"
+            VTDir = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Avoid The Edge\Taunts.txt"
 
             If Not File.Exists(VTDir) Then Return
 
@@ -21972,7 +21972,7 @@ TryNext:
 
             If File.Exists(BlogPath & "\" & WebImage) Then
 
-                Dim Result As Integer = MessageBox.Show(Me, WebImage & " already exists in this directory!" & Environment.NewLine & Environment.NewLine & _
+                Dim Result As Integer = MessageBox.Show(Me, WebImage & " already exists in this directory!" & Environment.NewLine & Environment.NewLine &
                                                      "Do you wish to overwrite?", "Caution!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
                 If Result = DialogResult.Yes Then
                     My.Computer.FileSystem.DeleteFile(BlogPath & "\" & WebImage)
@@ -22205,7 +22205,7 @@ GetDommeSlideshow:
 
         ' Try
         If GreetFolder.Count < 1 Then
-            MessageBox.Show(Me, "There are no directories in the specified Domme Images Directory folder." & Environment.NewLine & Environment.NewLine & _
+            MessageBox.Show(Me, "There are no directories in the specified Domme Images Directory folder." & Environment.NewLine & Environment.NewLine &
                             "Please make sure the Domme Images Directory points to a location containing at least one subdirectory of images.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
             Return
         End If
@@ -22365,9 +22365,9 @@ GetDommeSlideshow:
 
     Public Sub ClearMainPictureBox()
 
-     
 
-     
+
+
 
 
 
@@ -22432,7 +22432,7 @@ GetDommeSlideshow:
         FormatClean = FormatClean.Replace("</u>", "")
         FormatClean = FormatClean.Replace(FrmSettings.TBEmote.Text, "")
         FormatClean = FormatClean.Replace(FrmSettings.TBEmoteEnd.Text, "")
-       
+
         Return FormatClean
     End Function
 
@@ -22757,13 +22757,13 @@ GetDommeSlideshow:
         Next
         'Debug.Print(VidFile)
 
-        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Scripts\" & VidFile & ".txt") Then
+        If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Scripts\" & VidFile & ".txt") Then
             Dim SubCheck As String()
             Dim PlayPos As Integer
             Dim WMPPos As Integer = Math.Ceiling(DomWMP.Ctlcontrols.currentPosition)
 
             Dim SubList As New List(Of String)
-            SubList = Txt2List(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Video\Scripts\" & VidFile & ".txt")
+            SubList = Txt2List(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Scripts\" & VidFile & ".txt")
 
             If Not SubList Is Nothing Then
                 For i As Integer = 0 To SubList.Count - 1
@@ -22797,7 +22797,7 @@ GetDommeSlideshow:
         SettingsList.Clear()
 
 
-        SettingsList.Add("Personality: " & dompersonalityComboBox.Text)
+        SettingsList.Add("Personality: " & dompersonalitycombobox.Text)
         SettingsList.Add("ScriptOperator: " & ScriptOperator)
         SettingsList.Add("ScriptCompare: " & ScriptCompare)
         SettingsList.Add("DomTyping: " & DomTyping)
@@ -23414,7 +23414,7 @@ GetDommeSlideshow:
         End Try
 
 
-        dompersonalityComboBox.Text = SettingsList(0).Replace("Personality: ", "")
+        dompersonalitycombobox.Text = SettingsList(0).Replace("Personality: ", "")
 
         ScriptOperator = SettingsList(1).Replace("ScriptOperator: ", "")
         ScriptCompare = SettingsList(2).Replace("ScriptCompare: ", "")
@@ -23930,7 +23930,7 @@ GetDommeSlideshow:
 
         'AdjustWindow()
 
-      
+
 
     End Sub
 
@@ -24002,7 +24002,7 @@ GetDommeSlideshow:
             SplitContainer1.Location = New Point(9, 37)
         End If
 
-      
+
 
 
 
@@ -24276,7 +24276,7 @@ SkipNew:
                 Stroke123 = Stroke123 * 50
                 StrokePace = StrokePace - Stroke123
                 If StrokePace < NBMaxPace.Value Then StrokePace = NBMaxPace.Value
-                
+
             End If
             StrokeFaster = False
         End If
@@ -24288,7 +24288,7 @@ SkipNew:
                 Stroke123 = Stroke123 * 50
                 StrokePace = StrokePace + Stroke123
                 If StrokePace > NBMinPace.Value Then StrokePace = NBMinPace.Value
-              
+
             End If
             StrokeSlower = False
         End If
@@ -24297,7 +24297,7 @@ SkipNew:
             If SubStroking = True And SubEdging = False And SubHoldingEdge = False Then
                 Debug.Print("Stroke Fastest")
                 StrokePace = NBMaxPace.Value
-               
+
             End If
             StrokeFastest = False
         End If
@@ -24306,7 +24306,7 @@ SkipNew:
             If SubStroking = True And SubEdging = False And SubHoldingEdge = False Then
                 Debug.Print("Stroke Slowest")
                 StrokePace = NBMinPace.Value
-               
+
             End If
             StrokeSlowest = False
         End If
@@ -24429,7 +24429,7 @@ SkipNew:
 
 
         If File.Exists(Application.StartupPath & "\System\SavedState.txt") Then
-            Dim Result As Integer = MessageBox.Show(Me, "A previous saved state already exists!" & Environment.NewLine & Environment.NewLine & _
+            Dim Result As Integer = MessageBox.Show(Me, "A previous saved state already exists!" & Environment.NewLine & Environment.NewLine &
                                                    "Do you wish to overwrite it?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
             If Result = DialogResult.No Then
                 Return
@@ -24454,7 +24454,7 @@ SkipNew:
         End If
 
         If SaidHello = True Then
-            Dim Result As Integer = MessageBox.Show(Me, "Resuming a previous state will cause you to lose your progress in this session!" & Environment.NewLine & Environment.NewLine & _
+            Dim Result As Integer = MessageBox.Show(Me, "Resuming a previous state will cause you to lose your progress in this session!" & Environment.NewLine & Environment.NewLine &
                                                    "Do you wish to proceed?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
             If Result = DialogResult.No Then
                 Return
@@ -26101,7 +26101,7 @@ SkipNew:
             OpenApp()
             PNLPlaylist.Visible = True
             LBPlaylist.Items.Clear()
-            For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Playlist\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+            For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                 LBPlaylist.Items.Add(Path.GetFileName(foundFile).Replace(".txt", ""))
             Next
         End If
@@ -26121,7 +26121,7 @@ SkipNew:
         Playlist = True
         'SaidHello = True
 
-        PlaylistFile = Txt2List(Application.StartupPath & "\Scripts\" & dompersonalityComboBox.Text & "\Playlist\" & LBPlaylist.SelectedItem & ".txt")
+        PlaylistFile = Txt2List(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\" & LBPlaylist.SelectedItem & ".txt")
         PlaylistFile = StripBlankLines(PlaylistFile)
         PlaylistCurrent = 0
         Try
@@ -26215,7 +26215,7 @@ SkipNew:
 
             If My.Settings.ClearWishlist = True Then
 
-                MessageBox.Show(Me, "You have already purchased " & domName.Text & "'s Wishlist item for today!" & Environment.NewLine & Environment.NewLine & _
+                MessageBox.Show(Me, "You have already purchased " & domName.Text & "'s Wishlist item for today!" & Environment.NewLine & Environment.NewLine &
                                 "Please check back again tomorrow!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return
             End If
@@ -26237,7 +26237,7 @@ SkipNew:
                 Next
 
                 If WishList.Count < 1 Then
-                    MessageBox.Show(Me, "No Wishlist items found!" & Environment.NewLine & Environment.NewLine & _
+                    MessageBox.Show(Me, "No Wishlist items found!" & Environment.NewLine & Environment.NewLine &
                                 "Please make sure you have item scripts located in Apps\Wishlist\Items.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
                     Return
 
@@ -27045,5 +27045,5 @@ SkipNew:
 
     End Sub
 
-  
+
 End Class
