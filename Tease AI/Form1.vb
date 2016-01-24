@@ -4046,7 +4046,7 @@ AcceptAnswer:
         'Debug.Print("TeaseVideo = " & TeaseVideo)
         If TeaseVideo = True Then Return
 
-        If CensorshipGame = True Or RLGLGame = True Or AvoidTheEdgeStroking = True Or SubEdging = True Or SubHoldingEdge = True Or SubStroking = True Then Return
+        If CensorshipGame = True Or RLGLGame = True Or AvoidTheEdgeStroking = True Or SubEdging = True Or SubHoldingEdge = True Then Return
         'If SearchImageBlog = True Then Return
 
         If RiskyDelay = True Then Return
