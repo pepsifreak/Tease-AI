@@ -26137,11 +26137,6 @@ SkipNew:
 
 
 
-    Private Sub CommandGuideToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CommandGuideToolStripMenuItem.Click
-        If Form10.Visible = False Then Form10.Show()
-        Form10.Focus()
-    End Sub
-
     Private Sub AIBoxesToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AIBoxesToolStripMenuItem.Click
         If Form9.Visible = False Then Form9.Show()
         Form9.Focus()
