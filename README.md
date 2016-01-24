@@ -1,6 +1,10 @@
 # Tease-AI
 Tease AI is adult-oriented software that aims to create an interactive tease and denial experience by emulating an online chat session with a domme. 
 
+# Changelog - Patch 48.1 UNOFFICIAL
+
+Fixed the issue of getting stuck in the taunt loop and modules not loading.
+
 # Changelog - Patch 48
 
 Tease AI now automatically capitalizes the first character of each line (will still be overridden by Remove Capitalization option in Domme's Typing Style)
