@@ -11242,7 +11242,7 @@ OrgasmDecided:
 
         If StringClean.Contains("@Glitter(") Then
 
-            Dim GlitterFlag As Integer = GetParentheses(StringClean, "@Glitter(")
+            Dim GlitterFlag As String = GetParentheses(StringClean, "@Glitter(")
 
             If FrmSettings.CBGlitterFeedOff.Checked = False And UpdatingPost = False Then
                 If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Glitter\Script\" & GlitterFlag & ".txt") And UpdatingPost = False Then
