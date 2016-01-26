@@ -15,7 +15,7 @@ Program uses less CPU
 
 Again, huge thanks to Pepsifreak for fixing these problems :)
 
-And finally, Fixed non-working "@Glitter" commands
+And finally, Fixed non-working @Glitter commands
 
 
 # Changelog - Patch 48.1 UNOFFICIAL
