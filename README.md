@@ -1,6 +1,22 @@
 # Tease-AI
 Tease AI is adult-oriented software that aims to create an interactive tease and denial experience by emulating an online chat session with a domme. 
 
+# Changelog - Patch 48.2 UNOFFICIAL (Contains a command **Change**)
+
+Pepsifreak posted code that was able to fix some of the remaining problems including:
+
+Images now show up on a reset
+
+Program no longer crashes on resuming a suspended session
+
+Program uses less CPU
+
+@EdgingDecide command replaced with @DecideEdge to restore functionality
+
+Again, huge thanks to Pepsifreak for fixing these problems :)
+
+And finally, Fixed the @ Glitter command
+
 # Changelog - Patch 48.1 UNOFFICIAL
 
 Fixed the issue of getting stuck in the taunt loop and modules not loading.
