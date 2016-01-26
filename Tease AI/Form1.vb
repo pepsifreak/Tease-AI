@@ -5295,7 +5295,7 @@ NullResponse:
                     DomTask = DomTask.Replace(ParenReg.Match(DomTask).Value(), "")
                 End If
 
-                If SysMes = False And EmoMes = False Then
+                If SysMes = False And EmoMes = False And Not DomTask = "" Then
 
                     Dim UCASELine As String = UCase(DomTask.Substring(0, 1))
                     DomTask = DomTask.Remove(0, 1).Insert(0, UCASELine)
@@ -12177,7 +12177,7 @@ OrgasmDecided:
             StringClean = StringClean.Replace("@EdgingStop", "")
         End If
 
-        If StringClean.Contains("@EdgingDecide") Then
+        If StringClean.Contains("@DecideEdge") Then
 
             TempVal = randomizer.Next(0, 101)
 
@@ -12250,7 +12250,7 @@ OrgasmDecided:
             Loop Until DomTypeCheck = False
 
 
-            StringClean = StringClean.Replace("@EdgingDecide", "")
+            StringClean = StringClean.Replace("@DecideEdge", "")
         End If
 
         If StringClean.Contains("@CheckVideo") Then
