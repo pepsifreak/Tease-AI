@@ -26880,20 +26880,18 @@ SkipNew:
     End Sub
 
     Public Sub MetronomeTick()
-
         Do
+            If StrokePace > 0 Then
+                If CBMetronome.Checked Then
+                    My.Computer.Audio.Stop()
+                    My.Computer.Audio.Play(Application.StartupPath & "\Audio\System\metronome.wav")
 
-            If StrokePace <> 0 And CBMetronome.Checked = True Then
-
-                My.Computer.Audio.Stop()
-                My.Computer.Audio.Play(Application.StartupPath & "\Audio\System\metronome.wav")
-
-                Thread.Sleep(StrokePace)
-
+                    Thread.Sleep(StrokePace)
+                End If
+            Else
+                Threading.Thread.Sleep(1000)
             End If
-
         Loop
-
     End Sub
 
     Private Sub MetronomeToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles MetronomeToolStripMenuItem.Click
