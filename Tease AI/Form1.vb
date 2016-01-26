@@ -23825,7 +23825,7 @@ GetDommeSlideshow:
             CheckDommeTags()
             If File.Exists(_ImageFileNames(FileCount)) Then
                 PBImage = _ImageFileNames(FileCount)
-                ImageThread.Start()
+                DisplayImage()
             End If
             'DisplayImage(Image.FromFile(_ImageFileNames(FileCount)))
             CheckDommeTags()
