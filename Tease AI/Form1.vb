@@ -12633,7 +12633,7 @@ OrgasmDecided:
         If StringClean.Contains("@PlayAudio[") Then
 
             Dim AudioFlag As String = GetParentheses(StringClean, "@PlayAudio[")
-            Dim AudioClean As String = Application.StartupPath & "\Video\" & AudioFlag
+            Dim AudioClean As String = Application.StartupPath & "\Audio\" & AudioFlag
             AudioClean = AudioClean.Replace("\\", "\")
 
             If AudioClean.Contains("*") Then
