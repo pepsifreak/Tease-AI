@@ -11,6 +11,8 @@ Program no longer crashes on resuming a suspended session
 
 Program uses less CPU
 
+Again, huge thanks to Pepsifreak for fixing these problems :)
+
 @EdgingDecide command replaced with @DecideEdge to restore functionality
 
 # Changelog - Patch 48.1 UNOFFICIAL
