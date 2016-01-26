@@ -22807,7 +22807,7 @@ GetDommeSlideshow:
 
         SettingsList.Add("PlaylistCurrent: " & PlaylistCurrent)
         SettingsList.Add("SubInChastity: " & SubInChastity)
-        SettingsList.Add("FormLoading: " & FormLoading)
+        SettingsList.Add("FormLoading: " & False)
         SettingsList.Add("RandomDelay: " & RandomDelay)
         SettingsList.Add("Responding: " & Responding)
         SettingsList.Add("ScriptLineVal: " & ScriptLineVal)
