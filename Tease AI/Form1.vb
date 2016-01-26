@@ -27030,7 +27030,7 @@ SkipNew:
         'mainPictureBox.Image = Nothing
         GC.Collect()
 
-        If PBImage.Contains("/") Then
+        If PBImage.Contains("/") And PBImage.Contains("://") Then
             mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(PBImage)))
         Else
             mainPictureBox.Image = Image.FromFile(PBImage)
