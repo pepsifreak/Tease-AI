@@ -15,7 +15,7 @@ Program uses less CPU
 
 Again, huge thanks to Pepsifreak for fixing these problems :)
 
-And finally, Fixed the @Glitter command
+And finally, Fixed the @ Glitter command
 
 # Changelog - Patch 48.1 UNOFFICIAL
 
