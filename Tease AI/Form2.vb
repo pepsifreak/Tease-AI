@@ -13886,7 +13886,7 @@ NextURL:
 
             'Debug.Print("Dates = " & Dates)
 
-            My.Settings.WakeUp = Form1.GetTime("SYS_WakeUp")
+            My.Settings.WakeUp = FormatDateTime(Now, DateFormat.ShortDate) & " " & Form1.GetTime("SYS_WakeUp")
             My.Settings.Save()
 
 
