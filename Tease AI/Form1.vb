@@ -34,7 +34,7 @@ Public Class Form1
 
     Public SubInChastity As Boolean
 
-    Public FormLoading As Boolean
+    Public FormLoading As Boolean = True
 
     Dim RandomDelay As Integer
     Dim Responding As Boolean
@@ -680,7 +680,6 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 
 
 
-        FormLoading = True
 
         FrmSplash.Show()
 
