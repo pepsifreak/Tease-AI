@@ -536,10 +536,6 @@
     <Setting Name="SubEyes" Type="System.String" Scope="User">
       <Value Profile="(Default)">green</Value>
     </Setting>
-    <Setting Name="RecentSlideshows" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
-    </Setting>
     <Setting Name="DomFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
     </Setting>
@@ -1207,7 +1203,7 @@
       <Value Profile="(Default)">seconds</Value>
     </Setting>
     <Setting Name="HoldTheEdgeMaxAmount" Type="System.String" Scope="User">
-      <Value Profile="(Default)">minutes</Value>
+      <Value Profile="(Default)">seconds</Value>
     </Setting>
     <Setting Name="MaxPace" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">200</Value>
@@ -1235,6 +1231,10 @@
     </Setting>
     <Setting Name="DomDegrading" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RecentSlideshows" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>
