@@ -626,15 +626,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 
         TempDate = TempDateNow.ToString("MM.dd.yyyy hhmm")
 
-        If FrmSettings.CBSaveChatlogExit.Checked = True Then
-
-            If (Not System.IO.Directory.Exists(Application.StartupPath & "\Chatlogs\")) Then
-                System.IO.Directory.CreateDirectory(Application.StartupPath & "\Chatlogs\")
-            End If
-
-            My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Chatlogs\" & TempDate & " chatlog.html", ChatText.DocumentText, False)
-
-        End If
+        SaveChatLog(TempDate)
 
         Try
             FrmSettings.Close()
@@ -668,7 +660,17 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
     End Sub
 
 
+    Private Sub SaveChatLog(LogDate As String)
+        If FrmSettings.CBSaveChatlogExit.Checked = True And ChatText.DocumentText.Length > 36 Then
 
+            If (Not System.IO.Directory.Exists(Application.StartupPath & "\Chatlogs\")) Then
+                System.IO.Directory.CreateDirectory(Application.StartupPath & "\Chatlogs\")
+            End If
+
+            My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\Chatlogs\" & LogDate & " chatlog.html", ChatText.DocumentText, False)
+
+        End If
+    End Sub
 
 
 
@@ -1666,6 +1668,13 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
     Public Sub ResetButton()
 
         ScriptTimer.Stop()
+
+        Dim TempDate As String
+        Dim TempDateNow As DateTime = DateTime.Now
+
+        TempDate = TempDateNow.ToString("MM.dd.yyyy hhmm")
+
+        SaveChatLog(TempDate)
 
         DomTask = "@SystemMessage <b>Tease AI has been reset</b>"
         DomChat = "@SystemMessage <b>Tease AI has been reset</b>"
