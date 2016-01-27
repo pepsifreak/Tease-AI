@@ -1751,7 +1751,7 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
         FrmSettings.domlevelNumBox.Value = My.Settings.DomLevel
         FrmSettings.NBEmpathy.Value = My.Settings.DomEmpathy
 
-
+        BTNPlaylist.Enabled = True
     End Sub
 
 
