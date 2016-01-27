@@ -2389,15 +2389,15 @@ WritingTaskLine:
                     DomChat = "#HoldTheEdge"
                     If Contact1Edge = True Then
                         DomChat = "@Contact1 #HoldTheEdge"
-                        Contact1Edge = False
+                        'Contact1Edge = False
                     End If
                     If Contact2Edge = True Then
                         DomChat = "@Contact2 #HoldTheEdge"
-                        Contact2Edge = False
+                        'Contact2Edge = False
                     End If
                     If Contact3Edge = True Then
                         DomChat = "@Contact3 #HoldTheEdge"
-                        Contact3Edge = False
+                        'Contact3Edge = False
                     End If
                     TypingDelay()
 
@@ -12200,15 +12200,15 @@ OrgasmDecided:
                 DomChat = "#HoldTheEdge"
                 If Contact1Stroke = True Then
                     DomChat = "@Contact1 #HoldTheEdge"
-                    Contact1Stroke = False
+                    'Contact1Stroke = False
                 End If
                 If Contact2Stroke = True Then
                     DomChat = "@Contact2 #HoldTheEdge"
-                    Contact2Stroke = False
+                    'Contact2Stroke = False
                 End If
                 If Contact3Stroke = True Then
                     DomChat = "@Contact3 #HoldTheEdge"
-                    Contact3Stroke = False
+                    'Contact3Stroke = False
                 End If
                 TypingDelay()
 
