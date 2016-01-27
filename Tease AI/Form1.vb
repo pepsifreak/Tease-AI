@@ -2605,7 +2605,7 @@ AllowedOrgasm:
                         SubStroking = False
                         EdgeTauntTimer.Stop()
                         OrgasmYesNo = False
-
+                        YesOrNo = False
                         'ShowModule = True
                         StrokeTauntVal = -1
                         FileText = NoCumList(randomizer.Next(0, NoCumList.Count))
@@ -12955,6 +12955,7 @@ OrgasmDecided:
 
         If StringClean.Contains("@UpdateOrgasm") Then
             My.Settings.LastOrgasm = FormatDateTime(Now, DateFormat.ShortDate)
+            My.Settings.OrgasmsRemaining -= 1
             My.Settings.Save()
             FrmSettings.LBLLastOrgasm.Text = My.Settings.LastOrgasm
             StringClean = StringClean.Replace("@UpdateOrgasm", "")
@@ -12962,6 +12963,7 @@ OrgasmDecided:
 
         If StringClean.Contains("@UpdateRuined") Then
             My.Settings.LastRuined = FormatDateTime(Now, DateFormat.ShortDate)
+            My.Settings.OrgasmsRemaining -= 1
             My.Settings.Save()
             FrmSettings.LBLLastRuined.Text = My.Settings.LastRuined
             StringClean = StringClean.Replace("@UpdateRuined", "")
