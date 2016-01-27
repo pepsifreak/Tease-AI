@@ -8785,7 +8785,7 @@ StatusUpdateEnd:
 
         UpdateStage = 0
 
-        StatusText = "Null" & Environment.NewLine & "Null" & Environment.NewLine & "Null" & Environment.NewLine & "Null" & Environment.NewLine
+        'StatusText = "Null" & Environment.NewLine & "Null" & Environment.NewLine & "Null" & Environment.NewLine & "Null" & Environment.NewLine 'Was causing a suspend/resume error sometimes
 
         UpdatingPost = False
 
