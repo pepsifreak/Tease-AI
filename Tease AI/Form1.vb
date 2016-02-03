@@ -8489,7 +8489,15 @@ CensorConstant:
 
         StatusText = lines(0)
         Debug.Print("HEre?")
-        StatusText = PoundClean(StatusText)
+        Dim LoopBuffer As Integer = 0
+        Do
+            LoopBuffer += 1
+
+            StatusText = PoundClean(StatusText)
+
+            If LoopBuffer > 4 Then Exit Do
+
+        Loop Until Not DomTask.Contains("#")
 
         Dim AtArray() As String = Split(StatusText)
         For i As Integer = AtArray.Length - 1 To 0 Step -1
