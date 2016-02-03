@@ -10688,8 +10688,8 @@ RinseLatherRepeat:
             'StrokeCycle = -1
             If StartStrokingCount = 0 Then FirstRound = True
             StartStrokingCount += 1
-            StrokePace = 0
-            StrokePaceTimer.Interval = StrokePace
+            'StrokePace = 0
+            'StrokePaceTimer.Interval = StrokePace
             StopMetronome = False
             If FrmSettings.CBTauntCycleDD.Checked = True Then
                 If FrmSettings.domlevelNumBox.Value = 1 Then StrokeTick = randomizer.Next(1, 3) * 60
