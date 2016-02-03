@@ -12096,15 +12096,20 @@ OrgasmDecided:
                 'Debug.Print(i & ". " & LocalTagImageList(i))
             Next
 
-            Dim TagSplit As String() = Split(LocalTagImageList(randomizer.Next(0, LocalTagImageList.Count)))
-            FoundString = TagSplit(0) & " "
+            If LocalTagImageList.Count = 0 Then
+                FoundString = Application.StartupPath & "\Images\System\NoLocalImagesFound.jpg"
+            Else
+                Dim TagSplit As String() = Split(LocalTagImageList(randomizer.Next(0, LocalTagImageList.Count)))
+                FoundString = TagSplit(0) & " "
 
-            If Not LCase(FoundString).Contains(".jpg ") Or Not LCase(FoundString).Contains(".jpeg ") Or Not LCase(FoundString).Contains(".png ") Or Not LCase(FoundString).Contains(".bmp ") Or Not LCase(FoundString).Contains(".gif ") Then
-                Dim FSLoop As Integer = 1
-                Do Until LCase(FoundString).Contains(".jpg ") Or LCase(FoundString).Contains(".jpeg ") Or LCase(FoundString).Contains(".png ") Or LCase(FoundString).Contains(".bmp ") Or LCase(FoundString).Contains(".gif ")
-                    FoundString = FoundString & TagSplit(FSLoop) & " "
-                    FSLoop += 1
-                Loop
+
+                If Not LCase(FoundString).Contains(".jpg ") Or Not LCase(FoundString).Contains(".jpeg ") Or Not LCase(FoundString).Contains(".png ") Or Not LCase(FoundString).Contains(".bmp ") Or Not LCase(FoundString).Contains(".gif ") Then
+                    Dim FSLoop As Integer = 1
+                    Do Until LCase(FoundString).Contains(".jpg ") Or LCase(FoundString).Contains(".jpeg ") Or LCase(FoundString).Contains(".png ") Or LCase(FoundString).Contains(".bmp ") Or LCase(FoundString).Contains(".gif ")
+                        FoundString = FoundString & TagSplit(FSLoop) & " "
+                        FSLoop += 1
+                    Loop
+                End If
             End If
 
             JustShowedBlogImage = True
