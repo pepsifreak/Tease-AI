@@ -14616,13 +14616,18 @@ VTSkip:
 
         Dim ParenFlag As String = ParenCheck
         Dim ParenStart As Integer = ParenFlag.IndexOf(CommandCheck) + CommandCheck.Length
-        Dim ParenType As String
+        Dim ParenType As String = Nothing
 
         ' #### CHECK ALL GETPAREN!
-        If CommandCheck.Substring(CommandCheck.Length - 1, 1) = "(" Then ParenType = ")"
-        If CommandCheck.Substring(CommandCheck.Length - 1, 1) = "[" Then ParenType = "]"
+        If CommandCheck.Substring(CommandCheck.Length - 1, 1) = "(" Then
+            ParenType = ")"
+        End If
+        If CommandCheck.Substring(CommandCheck.Length - 1, 1) = "[" Then
+            ParenType = "]"
+        End If
 
-        ParenFlag = ParenFlag.Substring(ParenStart, ParenFlag.Length - ParenStart)
+        Dim ParenEnd As Integer = ParenFlag.IndexOf(ParenType, ParenStart)
+        ParenFlag = ParenFlag.Substring(ParenStart, ParenEnd - ParenStart)
         ParenFlag = ParenFlag.Split(")")(0)
         ParenFlag = ParenFlag.Replace(ParenType, "")
         Debug.Print("ParenFlag = " & ParenFlag)
