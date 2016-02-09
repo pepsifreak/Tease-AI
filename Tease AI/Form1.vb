@@ -4037,9 +4037,9 @@ AcceptAnswer:
     Public Sub RunFileText()
 
 
-        Debug.Print("ReturnFlag = " & ReturnFlag)
+        'Debug.Print("ReturnFlag = " & ReturnFlag)
 
-        If ReturnFlag = True Then GoTo ReturnCalled
+        'If ReturnFlag = True Then GoTo ReturnCalled
 
         Debug.Print("SaidHello = " & SaidHello)
         If SaidHello = False Then Return
