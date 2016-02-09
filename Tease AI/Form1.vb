@@ -5466,8 +5466,8 @@ NullResponse:
                 DomTask = DomTask.Replace("atsymbol", "@")
 
                 If InputIcon = True Then
-                    DomTask = DomTask & " <img src=""file://" & Application.StartupPath & "/Images/System/input.png""/>"
-                    InputIcon = False
+					DomTask = DomTask & " <img src=""file://" & Application.StartupPath & "/Images/System/input.png"" title=""This icon means your Domme will remember your answer!""/>"
+					InputIcon = False
                 End If
 
 
