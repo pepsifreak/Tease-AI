@@ -537,9 +537,9 @@ Public Class Form1
     Dim DommeImageSTR As String
     Dim LocalImageSTR As String
 
-    Dim ImageLocation As String
+	Dim ImageLocation As String = ""
 
-    Public StrokeThread As Thread
+	Public StrokeThread As Thread
 
 
     Private Const DISABLE_SOUNDS As Integer = 21
@@ -1892,19 +1892,22 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
                 For Each TaskFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Tasks\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
                     TaskList.Add(TaskFile)
                 Next
-                If TaskList.Count > 0 Then
-                    BeforeTease = True
-                    SaidHello = True
-                    SubEdging = False
-                    SubHoldingEdge = False
-                    FileText = TaskList(randomizer.Next(0, TaskList.Count))
-                    LockImage = False
-                    StrokeTauntVal = -1
-                    ScriptTick = 3
-                    ScriptTimer.Start()
-                    ShowModule = False
-                Else
-                    MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Tasks!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+				If TaskList.Count > 0 Then
+					If Directory.Exists(FrmSettings.LBLDomImageDir.Text) And SlideshowLoaded = False Then
+						LoadDommeImageFolder()
+					End If
+					BeforeTease = True
+					SaidHello = True
+					SubEdging = False
+					SubHoldingEdge = False
+					FileText = TaskList(randomizer.Next(0, TaskList.Count))
+					LockImage = False
+					StrokeTauntVal = -1
+					ScriptTick = 3
+					ScriptTimer.Start()
+					ShowModule = False
+				Else
+					MessageBox.Show(Me, "No files were found in " & Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Start Tasks!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
                 End If
                 Return
             End If
