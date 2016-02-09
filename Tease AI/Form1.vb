@@ -12971,16 +12971,16 @@ OrgasmDecided:
 
         If StringClean.Contains("@UpdateOrgasm") Then
             My.Settings.LastOrgasm = FormatDateTime(Now, DateFormat.ShortDate)
-            My.Settings.OrgasmsRemaining -= 1
-            My.Settings.Save()
+			If My.Settings.OrgasmsLocked = True Then My.Settings.OrgasmsRemaining -= 1
+			My.Settings.Save()
             FrmSettings.LBLLastOrgasm.Text = My.Settings.LastOrgasm
             StringClean = StringClean.Replace("@UpdateOrgasm", "")
         End If
 
         If StringClean.Contains("@UpdateRuined") Then
             My.Settings.LastRuined = FormatDateTime(Now, DateFormat.ShortDate)
-            My.Settings.OrgasmsRemaining -= 1
-            My.Settings.Save()
+			If My.Settings.OrgasmsLocked = True Then My.Settings.OrgasmsRemaining -= 1
+			My.Settings.Save()
             FrmSettings.LBLLastRuined.Text = My.Settings.LastRuined
             StringClean = StringClean.Replace("@UpdateRuined", "")
         End If
