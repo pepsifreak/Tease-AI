@@ -1,6 +1,44 @@
 # Tease-AI
 Tease AI is adult-oriented software that aims to create an interactive tease and denial experience by emulating an online chat session with a domme. 
 
+# Changelog - Patch 48.3 UNOFFICIAL
+
+@PlayAudio now uses the correct directory (OxiKlein)
+
+@ShowImage fixed (OxiKlein)
+
+Fixed error when Suspending>Resuming>Suspending a session
+
+@EndTease now saves a chatlog if enabled, along with stopping empty logs from saving
+
+Fixed WakeUp setting
+
+Fixed metronome settings
+
+Fixed "Null" error when resuming sometimes
+
+If a glitter contact makes you edge, that contact will be the one to make you stop
+
+Fixed "upgrading" bug where your old HoldTheEdgeMax seconds setting turned into minutes
+
+Playlist start button now enables when a session is rest
+
+@UpdateRuined and @UpdateOrgasm now decrease the remaining orgasm count if locked
+
+Fixes "Out of Orgasms" interrupt
+
+Commands like @PlayAudio and @PlayVideo now work in the middle of a line
+
+Fixes missing image tag crash
+
+Nested emotes now work correctly in Glitter
+
+Fixed @StartTaunts error
+
+Starting a tasks session will now display images instead of crash
+
+@CallReturn now works with @CBT and similar commands.
+
 # Changelog - Patch 48.2 UNOFFICIAL (Contains a command **Change**)
 
 Pepsifreak posted code that was able to fix some of the remaining problems including:
