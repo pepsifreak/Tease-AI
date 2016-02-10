@@ -9892,9 +9892,9 @@ RinseLatherRepeat:
 
                 If CheckArray(i).Contains("@SetDate(") Then
 
-                    'CheckArray(i) = CheckArray(i) & "]"
+					CheckArray(i) = CheckArray(i) & ")"
 
-                    Dim CheckFlag As String = GetParentheses(CheckArray(i), "@SetDate(")
+					Dim CheckFlag As String = GetParentheses(CheckArray(i), "@SetDate(")
                     OriginalCheck = CheckFlag
 
                     Debug.Print("Original Check = " & OriginalCheck)
@@ -9922,9 +9922,9 @@ RinseLatherRepeat:
 
                     Debug.Print("CheckArray(i) = " & CheckArray(i))
 
-                    CheckArray(i) = CheckArray(i).Replace("@SetDate(" & OriginalCheck, "")
+					CheckArray(i) = CheckArray(i).Replace("@SetDate(" & OriginalCheck & ")", "")
 
-                End If
+				End If
 
             Next
 
@@ -9947,9 +9947,9 @@ RinseLatherRepeat:
 
                 If CheckArray(i).Contains("@CheckDate(") Then
 
-                    'CheckArray(i) = CheckArray(i) & "]"
+					CheckArray(i) = CheckArray(i) & ")"
 
-                    Dim CheckFlag As String = GetParentheses(CheckArray(i), "@CheckDate(")
+					Dim CheckFlag As String = GetParentheses(CheckArray(i), "@CheckDate(")
                     Dim OriginalCheck As String = CheckFlag
 
                     CheckFlag = FixCommas(CheckFlag)
@@ -10025,9 +10025,9 @@ RinseLatherRepeat:
 
                     End If
 
-                    CheckArray(i) = CheckArray(i).Replace("@CheckDate(" & OriginalCheck, "")
+					CheckArray(i) = CheckArray(i).Replace("@CheckDate(" & OriginalCheck & ")", "")
 
-                End If
+				End If
 
             Next
 
@@ -14642,8 +14642,9 @@ VTSkip:
             ParenType = "]"
         End If
 
-        Dim ParenEnd As Integer = ParenFlag.IndexOf(ParenType, ParenStart)
-        ParenFlag = ParenFlag.Substring(ParenStart, ParenEnd - ParenStart)
+		Dim ParenEnd As Integer = ParenFlag.IndexOf(ParenType, ParenStart)
+		If ParenEnd = -1 Then ParenEnd = ParenFlag.Length
+		ParenFlag = ParenFlag.Substring(ParenStart, ParenEnd - ParenStart)
         ParenFlag = ParenFlag.Split(")")(0)
         ParenFlag = ParenFlag.Replace(ParenType, "")
         Debug.Print("ParenFlag = " & ParenFlag)
