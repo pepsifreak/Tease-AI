@@ -27075,5 +27075,13 @@ SkipNew:
 
     End Sub
 
-
+	Private Sub ChatText_Resize(sender As Object, e As EventArgs) Handles ChatText.Resize
+		If PNLMediaBar.Visible = True Then
+			ChatText.Location = New Point(2, 33)
+			ChatText.Height = SplitContainer1.Panel2.Height - 67
+		Else
+			ChatText.Location = New Point(2, 0)
+			ChatText.Height = SplitContainer1.Panel2.Height - 34
+		End If
+	End Sub
 End Class
