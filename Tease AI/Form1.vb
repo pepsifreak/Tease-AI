@@ -4436,16 +4436,21 @@ ReturnCalled:
                     ReturnFlag = False
                     FileText = ReturnFileText
                     StrokeTauntVal = ReturnStrokeTauntVal
-                    If ReturnSubState = "Stroking" Then
-                        If SubStroking = False Then
-                            DomTask = "Get back to stroking @StartStroking"
-                            TypingDelayGeneric()
-                        Else
-                            StrokeTimer.Start()
-                            StrokeTauntTimer.Start()
-                        End If
-                    End If
-                    If ReturnSubState = "Edging" Then
+					If ReturnSubState = "Stroking" Then
+						If My.Settings.Chastity = True Then
+							DomTask = "Now as I was saying @StartTaunts"
+							TypingDelayGeneric()
+						Else
+							If SubStroking = False Then
+								DomTask = "Get back to stroking @StartStroking"
+								TypingDelayGeneric()
+							Else
+								StrokeTimer.Start()
+								StrokeTauntTimer.Start()
+							End If
+						End If
+					End If
+					If ReturnSubState = "Edging" Then
                         If SubEdging = False Then
                             DomTask = "Start getting yourself to the edge again @Edge"
                             SubStroking = True
