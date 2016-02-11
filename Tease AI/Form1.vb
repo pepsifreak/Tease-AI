@@ -2261,415 +2261,415 @@ WritingTaskLine:
 
         Debug.Print("EdgeFOund 2 = " & EdgeFound)
 
-        If EdgeFound = True Then
+		If EdgeFound = True And My.Settings.Chastity = False Then
 
 
 
-            Debug.Print("EdgeFOund = True Called")
+			Debug.Print("EdgeFOund = True Called")
 
-            EdgeFound = False
+			EdgeFound = False
 
-            If SubHoldingEdge = True Then
-                Debug.Print("EdgeFOund = SubHoldingedge")
-                DomChat = " #YoureAlreadySupposedToBeClose"
-                TypingDelay()
-                Return
-            End If
+			If SubHoldingEdge = True Then
+				Debug.Print("EdgeFOund = SubHoldingedge")
+				DomChat = " #YoureAlreadySupposedToBeClose"
+				TypingDelay()
+				Return
+			End If
 
-            SetVariable("SYS_EdgeTotal", Val(GetVariable("SYS_EdgeTotal") + 1))
+			SetVariable("SYS_EdgeTotal", Val(GetVariable("SYS_EdgeTotal") + 1))
 
-            If RLGLGame = True Then
-                Debug.Print("EdgeFOund = RLGL")
-                DomChat = "#TryToHoldIt"
-                TypingDelay()
-                Return
-            End If
-
-
-            If AvoidTheEdgeStroking = True Then
-
-                Debug.Print("EdgeFOund = ATE")
-
-                AvoidTheEdgeTaunts.Stop()
-
-                AvoidTheEdgeStroking = False
-                VideoTease = False
-
-                Dim ATEList As New List(Of String)
-
-                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Avoid The Edge\Scripts\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-                    ATEList.Add(foundFile)
-                Next
-
-                If ATEList.Count < 1 Then
-                    MessageBox.Show(Me, "No Avoid The Edge scripts were found!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                    Return
-                End If
-
-                DomWMP.Ctlcontrols.pause()
-
-                StrokeTauntVal = -1
-                FileText = ATEList(randomizer.Next(0, ATEList.Count))
-
-                ScriptTick = 2
-                ScriptTimer.Start()
-                Return
-            End If
+			If RLGLGame = True Then
+				Debug.Print("EdgeFOund = RLGL")
+				DomChat = "#TryToHoldIt"
+				TypingDelay()
+				Return
+			End If
 
 
-            If SubEdging = True Then
+			If AvoidTheEdgeStroking = True Then
 
-                Debug.Print("EdgeFOund = SubEdging")
+				Debug.Print("EdgeFOund = ATE")
 
-                EdgeCountTimer.Stop()
+				AvoidTheEdgeTaunts.Stop()
 
-                If SubStroking = True Then
-                    AvgEdgeCount += 1
-                    If AvgEdgeStroking = 0 Then
-                        AvgEdgeStroking = EdgeCountTick
-                    Else
-                        AvgEdgeStroking = (AvgEdgeStroking + EdgeCountTick) / AvgEdgeCount
-                    End If
-                    My.Settings.AvgEdgeStroking = AvgEdgeStroking
-                    My.Settings.AvgEdgeCount = AvgEdgeCount
-                Else
-                    AvgEdgeCountRest += 1
-                    If AvgEdgeNoTouch = 0 Then
-                        AvgEdgeNoTouch = EdgeCountTick
-                    Else
-                        AvgEdgeNoTouch = (AvgEdgeNoTouch + EdgeCountTick) / AvgEdgeCountRest
-                    End If
-                    My.Settings.AvgEdgeNoTouch = AvgEdgeNoTouch
-                    My.Settings.AvgEdgeCountRest = AvgEdgeCountRest
-                End If
+				AvoidTheEdgeStroking = False
+				VideoTease = False
 
-                My.Settings.Save()
+				Dim ATEList As New List(Of String)
 
-                If My.Settings.AvgEdgeCount > 4 Then
-                    AvgEdgeStroking = My.Settings.AvgEdgeStroking
-                    Dim TS1 As TimeSpan = TimeSpan.FromSeconds(AvgEdgeStroking)
-                    FrmSettings.LBLAvgEdgeStroking.Text = String.Format("{0:00}:{1:00}", TS1.Minutes, TS1.Seconds)
-                Else
-                    FrmSettings.LBLAvgEdgeStroking.Text = "WAIT"
-                End If
+				For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Avoid The Edge\Scripts\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+					ATEList.Add(foundFile)
+				Next
 
-                If My.Settings.AvgEdgeCountRest > 4 Then
-                    AvgEdgeNoTouch = My.Settings.AvgEdgeNoTouch
-                    Dim TS2 As TimeSpan = TimeSpan.FromSeconds(AvgEdgeNoTouch)
-                    FrmSettings.LBLAvgEdgeNoTouch.Text = String.Format("{0:00}:{1:00}", TS2.Minutes, TS2.Seconds)
-                Else
-                    FrmSettings.LBLAvgEdgeNoTouch.Text = "WAIT"
-                End If
+				If ATEList.Count < 1 Then
+					MessageBox.Show(Me, "No Avoid The Edge scripts were found!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+					Return
+				End If
 
-                If FrmSettings.domlevelNumBox.Value = 1 Then HoldEdgeChance = 20
-                If FrmSettings.domlevelNumBox.Value = 2 Then HoldEdgeChance = 25
-                If FrmSettings.domlevelNumBox.Value = 3 Then HoldEdgeChance = 30
-                If FrmSettings.domlevelNumBox.Value = 4 Then HoldEdgeChance = 40
-                If FrmSettings.domlevelNumBox.Value = 5 Then HoldEdgeChance = 50
+				DomWMP.Ctlcontrols.pause()
 
-                Dim HoldEdgeInt As Integer = randomizer.Next(1, 101)
+				StrokeTauntVal = -1
+				FileText = ATEList(randomizer.Next(0, ATEList.Count))
 
-                If EdgeHold = True Then HoldEdgeInt = 0
-                If EdgeNoHold = True Then HoldEdgeInt = 1000
+				ScriptTick = 2
+				ScriptTimer.Start()
+				Return
+			End If
 
 
-                Debug.Print("HoldEdgeInt = " & HoldEdgeInt)
+			If SubEdging = True Then
 
-                EdgeHold = False
-                EdgeNoHold = False
+				Debug.Print("EdgeFOund = SubEdging")
+
+				EdgeCountTimer.Stop()
+
+				If SubStroking = True Then
+					AvgEdgeCount += 1
+					If AvgEdgeStroking = 0 Then
+						AvgEdgeStroking = EdgeCountTick
+					Else
+						AvgEdgeStroking = (AvgEdgeStroking + EdgeCountTick) / AvgEdgeCount
+					End If
+					My.Settings.AvgEdgeStroking = AvgEdgeStroking
+					My.Settings.AvgEdgeCount = AvgEdgeCount
+				Else
+					AvgEdgeCountRest += 1
+					If AvgEdgeNoTouch = 0 Then
+						AvgEdgeNoTouch = EdgeCountTick
+					Else
+						AvgEdgeNoTouch = (AvgEdgeNoTouch + EdgeCountTick) / AvgEdgeCountRest
+					End If
+					My.Settings.AvgEdgeNoTouch = AvgEdgeNoTouch
+					My.Settings.AvgEdgeCountRest = AvgEdgeCountRest
+				End If
+
+				My.Settings.Save()
+
+				If My.Settings.AvgEdgeCount > 4 Then
+					AvgEdgeStroking = My.Settings.AvgEdgeStroking
+					Dim TS1 As TimeSpan = TimeSpan.FromSeconds(AvgEdgeStroking)
+					FrmSettings.LBLAvgEdgeStroking.Text = String.Format("{0:00}:{1:00}", TS1.Minutes, TS1.Seconds)
+				Else
+					FrmSettings.LBLAvgEdgeStroking.Text = "WAIT"
+				End If
+
+				If My.Settings.AvgEdgeCountRest > 4 Then
+					AvgEdgeNoTouch = My.Settings.AvgEdgeNoTouch
+					Dim TS2 As TimeSpan = TimeSpan.FromSeconds(AvgEdgeNoTouch)
+					FrmSettings.LBLAvgEdgeNoTouch.Text = String.Format("{0:00}:{1:00}", TS2.Minutes, TS2.Seconds)
+				Else
+					FrmSettings.LBLAvgEdgeNoTouch.Text = "WAIT"
+				End If
+
+				If FrmSettings.domlevelNumBox.Value = 1 Then HoldEdgeChance = 20
+				If FrmSettings.domlevelNumBox.Value = 2 Then HoldEdgeChance = 25
+				If FrmSettings.domlevelNumBox.Value = 3 Then HoldEdgeChance = 30
+				If FrmSettings.domlevelNumBox.Value = 4 Then HoldEdgeChance = 40
+				If FrmSettings.domlevelNumBox.Value = 5 Then HoldEdgeChance = 50
+
+				Dim HoldEdgeInt As Integer = randomizer.Next(1, 101)
+
+				If EdgeHold = True Then HoldEdgeInt = 0
+				If EdgeNoHold = True Then HoldEdgeInt = 1000
+
+
+				Debug.Print("HoldEdgeInt = " & HoldEdgeInt)
+
+				EdgeHold = False
+				EdgeNoHold = False
 
 
 
-                If HoldEdgeInt < HoldEdgeChance Then
+				If HoldEdgeInt < HoldEdgeChance Then
 
-                    Debug.Print("EdgeFOund = HOldtheedge")
+					Debug.Print("EdgeFOund = HOldtheedge")
 
-                    DomTypeCheck = True
-                    SubEdging = False
-                    SubStroking = False
-                    SubHoldingEdge = True
-                    EdgeTauntTimer.Stop()
-                    DomChat = "#HoldTheEdge"
-                    If Contact1Edge = True Then
-                        DomChat = "@Contact1 #HoldTheEdge"
+					DomTypeCheck = True
+					SubEdging = False
+					SubStroking = False
+					SubHoldingEdge = True
+					EdgeTauntTimer.Stop()
+					DomChat = "#HoldTheEdge"
+					If Contact1Edge = True Then
+						DomChat = "@Contact1 #HoldTheEdge"
                         'Contact1Edge = False
                     End If
-                    If Contact2Edge = True Then
-                        DomChat = "@Contact2 #HoldTheEdge"
+					If Contact2Edge = True Then
+						DomChat = "@Contact2 #HoldTheEdge"
                         'Contact2Edge = False
                     End If
-                    If Contact3Edge = True Then
-                        DomChat = "@Contact3 #HoldTheEdge"
+					If Contact3Edge = True Then
+						DomChat = "@Contact3 #HoldTheEdge"
                         'Contact3Edge = False
                     End If
-                    TypingDelay()
+					TypingDelay()
 
 
-                    If EdgeHoldFlag = False Then
+					If EdgeHoldFlag = False Then
 
-                        HoldEdgeTick = HoldEdgeChance
+						HoldEdgeTick = HoldEdgeChance
 
-                        Dim HoldEdgeMin As Integer = FrmSettings.NBHoldTheEdgeMin.Value
-                        If FrmSettings.LBLMinHold.Text = "minutes" Then HoldEdgeMin *= 60
+						Dim HoldEdgeMin As Integer = FrmSettings.NBHoldTheEdgeMin.Value
+						If FrmSettings.LBLMinHold.Text = "minutes" Then HoldEdgeMin *= 60
 
-                        Dim HoldEdgeMax As Integer = FrmSettings.NBHoldTheEdgeMax.Value
-                        If FrmSettings.LBLMaxHold.Text = "minutes" Then HoldEdgeMax *= 60
+						Dim HoldEdgeMax As Integer = FrmSettings.NBHoldTheEdgeMax.Value
+						If FrmSettings.LBLMaxHold.Text = "minutes" Then HoldEdgeMax *= 60
 
-                        If HoldEdgeMax < HoldEdgeMin Then HoldEdgeMax = HoldEdgeMin + 1
+						If HoldEdgeMax < HoldEdgeMin Then HoldEdgeMax = HoldEdgeMin + 1
 
-                        HoldEdgeTick = randomizer.Next(HoldEdgeMin, HoldEdgeMax + 1)
-                        If HoldEdgeTick < 10 Then HoldEdgeTick = 10
+						HoldEdgeTick = randomizer.Next(HoldEdgeMin, HoldEdgeMax + 1)
+						If HoldEdgeTick < 10 Then HoldEdgeTick = 10
 
-                    Else
+					Else
 
-                        HoldEdgeTick = EdgeHoldSeconds
-                        EdgeHoldFlag = False
+						HoldEdgeTick = EdgeHoldSeconds
+						EdgeHoldFlag = False
 
-                    End If
+					End If
 
-                    HoldEdgeTime = 0
+					HoldEdgeTime = 0
 
-                    HoldEdgeTimer.Start()
-                    HoldEdgeTauntTimer.Start()
-                    Return
+					HoldEdgeTimer.Start()
+					HoldEdgeTauntTimer.Start()
+					Return
 
-                Else
+				Else
 
-                    If EdgeToRuin = True Or OrgasmRuined = True Then GoTo RuinedOrgasm
-                    If OrgasmAllowed = True Then GoTo AllowedOrgasm
+					If EdgeToRuin = True Or OrgasmRuined = True Then GoTo RuinedOrgasm
+					If OrgasmAllowed = True Then GoTo AllowedOrgasm
 
-                    Debug.Print("Ruined Orgasm skipped")
+					Debug.Print("Ruined Orgasm skipped")
 
-                    If OrgasmDenied = True Then
+					If OrgasmDenied = True Then
 
-                        If FrmSettings.CBDomDenialEnds.Checked = False Then
+						If FrmSettings.CBDomDenialEnds.Checked = False Then
 
-                            Dim RepeatChance As Integer = randomizer.Next(0, 101)
+							Dim RepeatChance As Integer = randomizer.Next(0, 101)
 
-                            If RepeatChance < 10 * FrmSettings.domlevelNumBox.Value Then
-                                SubEdging = False
-                                SubStroking = False
-                                EdgeTauntTimer.Stop()
+							If RepeatChance < 10 * FrmSettings.domlevelNumBox.Value Then
+								SubEdging = False
+								SubStroking = False
+								EdgeTauntTimer.Stop()
 
-                                Dim RepeatList As New List(Of String)
+								Dim RepeatList As New List(Of String)
 
-                                For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Denial Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-                                    RepeatList.Add(foundFile)
-                                Next
+								For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Denial Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+									RepeatList.Add(foundFile)
+								Next
 
-                                If RepeatList.Count < 1 Then GoTo NoRepeatFiles
+								If RepeatList.Count < 1 Then GoTo NoRepeatFiles
 
 
-                                If FrmSettings.CBTeaseLengthDD.Checked = True Then
-                                    If FrmSettings.domlevelNumBox.Value = 1 Then TeaseTick = randomizer.Next(10, 16) * 60
-                                    If FrmSettings.domlevelNumBox.Value = 2 Then TeaseTick = randomizer.Next(15, 21) * 60
-                                    If FrmSettings.domlevelNumBox.Value = 3 Then TeaseTick = randomizer.Next(20, 31) * 60
-                                    If FrmSettings.domlevelNumBox.Value = 4 Then TeaseTick = randomizer.Next(30, 46) * 60
-                                    If FrmSettings.domlevelNumBox.Value = 5 Then TeaseTick = randomizer.Next(45, 61) * 60
-                                Else
-                                    TeaseTick = randomizer.Next(FrmSettings.NBTeaseLengthMin.Value * 60, FrmSettings.NBTeaseLengthMax.Value * 60)
-                                End If
-                                TeaseTimer.Start()
+								If FrmSettings.CBTeaseLengthDD.Checked = True Then
+									If FrmSettings.domlevelNumBox.Value = 1 Then TeaseTick = randomizer.Next(10, 16) * 60
+									If FrmSettings.domlevelNumBox.Value = 2 Then TeaseTick = randomizer.Next(15, 21) * 60
+									If FrmSettings.domlevelNumBox.Value = 3 Then TeaseTick = randomizer.Next(20, 31) * 60
+									If FrmSettings.domlevelNumBox.Value = 4 Then TeaseTick = randomizer.Next(30, 46) * 60
+									If FrmSettings.domlevelNumBox.Value = 5 Then TeaseTick = randomizer.Next(45, 61) * 60
+								Else
+									TeaseTick = randomizer.Next(FrmSettings.NBTeaseLengthMin.Value * 60, FrmSettings.NBTeaseLengthMax.Value * 60)
+								End If
+								TeaseTimer.Start()
 
                                 'ShowModule = True
                                 StrokeTauntVal = -1
-                                FileText = RepeatList(randomizer.Next(0, RepeatList.Count))
-                                ScriptTick = 2
-                                ScriptTimer.Start()
-                                OrgasmDenied = False
-                                OrgasmYesNo = False
-                                Return
-                            End If
+								FileText = RepeatList(randomizer.Next(0, RepeatList.Count))
+								ScriptTick = 2
+								ScriptTimer.Start()
+								OrgasmDenied = False
+								OrgasmYesNo = False
+								Return
+							End If
 
-                        End If
+						End If
 
 
-                    End If
+					End If
 
 NoRepeatFiles:
 
-                    DomTypeCheck = True
-                    OrgasmYesNo = False
-                    SubEdging = False
-                    SubStroking = False
-                    EdgeTauntTimer.Stop()
-                    DomChat = "#StopStrokingEdge"
-                    If Contact1Edge = True Then
-                        DomChat = "@Contact1 #StopStrokingEdge"
-                        Contact1Edge = False
-                    End If
-                    If Contact2Edge = True Then
-                        DomChat = "@Contact2 #StopStrokingEdge"
-                        Contact2Edge = False
-                    End If
-                    If Contact3Edge = True Then
-                        DomChat = "@Contact3 #StopStrokingEdge"
-                        Contact3Edge = False
-                    End If
-                    TypingDelay()
-                    Return
+					DomTypeCheck = True
+					OrgasmYesNo = False
+					SubEdging = False
+					SubStroking = False
+					EdgeTauntTimer.Stop()
+					DomChat = "#StopStrokingEdge"
+					If Contact1Edge = True Then
+						DomChat = "@Contact1 #StopStrokingEdge"
+						Contact1Edge = False
+					End If
+					If Contact2Edge = True Then
+						DomChat = "@Contact2 #StopStrokingEdge"
+						Contact2Edge = False
+					End If
+					If Contact3Edge = True Then
+						DomChat = "@Contact3 #StopStrokingEdge"
+						Contact3Edge = False
+					End If
+					TypingDelay()
+					Return
 
-                End If
+				End If
 
 RuinedOrgasm:
 
-                My.Settings.LastRuined = FormatDateTime(Now, DateFormat.ShortDate)
-                My.Settings.Save()
-                FrmSettings.LBLLastRuined.Text = My.Settings.LastRuined
+				My.Settings.LastRuined = FormatDateTime(Now, DateFormat.ShortDate)
+				My.Settings.Save()
+				FrmSettings.LBLLastRuined.Text = My.Settings.LastRuined
 
-                If FrmSettings.CBDomOrgasmEnds.Checked = False And OrgasmRuined = True Then
+				If FrmSettings.CBDomOrgasmEnds.Checked = False And OrgasmRuined = True Then
 
-                    Dim RepeatChance As Integer = randomizer.Next(0, 101)
+					Dim RepeatChance As Integer = randomizer.Next(0, 101)
 
-                    If RepeatChance < 8 * FrmSettings.domlevelNumBox.Value Then
+					If RepeatChance < 8 * FrmSettings.domlevelNumBox.Value Then
 
-                        SubEdging = False
-                        SubStroking = False
-                        EdgeToRuin = False
-                        EdgeToRuinSecret = True
-                        EdgeTauntTimer.Stop()
+						SubEdging = False
+						SubStroking = False
+						EdgeToRuin = False
+						EdgeToRuinSecret = True
+						EdgeTauntTimer.Stop()
 
-                        Dim RepeatList As New List(Of String)
+						Dim RepeatList As New List(Of String)
 
-                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Ruin Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-                            RepeatList.Add(foundFile)
-                        Next
+						For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Ruin Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+							RepeatList.Add(foundFile)
+						Next
 
-                        If RepeatList.Count < 1 Then GoTo NoRepeatRFiles
+						If RepeatList.Count < 1 Then GoTo NoRepeatRFiles
 
 
-                        If FrmSettings.CBTeaseLengthDD.Checked = True Then
-                            If FrmSettings.domlevelNumBox.Value = 1 Then TeaseTick = randomizer.Next(10, 16) * 60
-                            If FrmSettings.domlevelNumBox.Value = 2 Then TeaseTick = randomizer.Next(15, 21) * 60
-                            If FrmSettings.domlevelNumBox.Value = 3 Then TeaseTick = randomizer.Next(20, 31) * 60
-                            If FrmSettings.domlevelNumBox.Value = 4 Then TeaseTick = randomizer.Next(30, 46) * 60
-                            If FrmSettings.domlevelNumBox.Value = 5 Then TeaseTick = randomizer.Next(45, 61) * 60
-                        Else
-                            TeaseTick = randomizer.Next(FrmSettings.NBTeaseLengthMin.Value * 60, FrmSettings.NBTeaseLengthMax.Value * 60)
-                        End If
-                        TeaseTimer.Start()
+						If FrmSettings.CBTeaseLengthDD.Checked = True Then
+							If FrmSettings.domlevelNumBox.Value = 1 Then TeaseTick = randomizer.Next(10, 16) * 60
+							If FrmSettings.domlevelNumBox.Value = 2 Then TeaseTick = randomizer.Next(15, 21) * 60
+							If FrmSettings.domlevelNumBox.Value = 3 Then TeaseTick = randomizer.Next(20, 31) * 60
+							If FrmSettings.domlevelNumBox.Value = 4 Then TeaseTick = randomizer.Next(30, 46) * 60
+							If FrmSettings.domlevelNumBox.Value = 5 Then TeaseTick = randomizer.Next(45, 61) * 60
+						Else
+							TeaseTick = randomizer.Next(FrmSettings.NBTeaseLengthMin.Value * 60, FrmSettings.NBTeaseLengthMax.Value * 60)
+						End If
+						TeaseTimer.Start()
 
                         'ShowModule = True
                         StrokeTauntVal = -1
-                        FileText = RepeatList(randomizer.Next(0, RepeatList.Count))
-                        ScriptTick = 2
-                        ScriptTimer.Start()
-                        OrgasmRuined = False
-                        OrgasmYesNo = False
-                        Return
-                    End If
+						FileText = RepeatList(randomizer.Next(0, RepeatList.Count))
+						ScriptTick = 2
+						ScriptTimer.Start()
+						OrgasmRuined = False
+						OrgasmYesNo = False
+						Return
+					End If
 
-                End If
+				End If
 
 
 
 NoRepeatRFiles:
 
 
-                DomTypeCheck = True
-                SubEdging = False
-                SubStroking = False
-                EdgeToRuin = False
-                EdgeToRuinSecret = True
-                EdgeTauntTimer.Stop()
-                OrgasmYesNo = False
-                DomChat = "#RuinYourOrgasm"
-                If Contact1Edge = True Then
-                    DomChat = "@Contact1 #RuinYourOrgasm"
-                    Contact1Edge = False
-                End If
-                If Contact2Edge = True Then
-                    DomChat = "@Contact2 #RuinYourOrgasm"
-                    Contact2Edge = False
-                End If
-                If Contact3Edge = True Then
-                    DomChat = "@Contact3 #RuinYourOrgasm"
-                    Contact3Edge = False
-                End If
-                TypingDelay()
-                Return
+				DomTypeCheck = True
+				SubEdging = False
+				SubStroking = False
+				EdgeToRuin = False
+				EdgeToRuinSecret = True
+				EdgeTauntTimer.Stop()
+				OrgasmYesNo = False
+				DomChat = "#RuinYourOrgasm"
+				If Contact1Edge = True Then
+					DomChat = "@Contact1 #RuinYourOrgasm"
+					Contact1Edge = False
+				End If
+				If Contact2Edge = True Then
+					DomChat = "@Contact2 #RuinYourOrgasm"
+					Contact2Edge = False
+				End If
+				If Contact3Edge = True Then
+					DomChat = "@Contact3 #RuinYourOrgasm"
+					Contact3Edge = False
+				End If
+				TypingDelay()
+				Return
 
 AllowedOrgasm:
 
-                If My.Settings.OrgasmsLocked = True Then
+				If My.Settings.OrgasmsLocked = True Then
 
-                    If My.Settings.OrgasmsRemaining < 1 Then
+					If My.Settings.OrgasmsRemaining < 1 Then
 
-                        Dim NoCumList As New List(Of String)
+						Dim NoCumList As New List(Of String)
 
-                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Out of Orgasms\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-                            NoCumList.Add(foundFile)
-                        Next
+						For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Out of Orgasms\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+							NoCumList.Add(foundFile)
+						Next
 
-                        If NoCumList.Count < 1 Then GoTo NoNoCumFiles
+						If NoCumList.Count < 1 Then GoTo NoNoCumFiles
 
 
-                        SubEdging = False
-                        SubStroking = False
-                        EdgeTauntTimer.Stop()
-                        OrgasmYesNo = False
-                        YesOrNo = False
+						SubEdging = False
+						SubStroking = False
+						EdgeTauntTimer.Stop()
+						OrgasmYesNo = False
+						YesOrNo = False
                         'ShowModule = True
                         StrokeTauntVal = -1
-                        FileText = NoCumList(randomizer.Next(0, NoCumList.Count))
-                        ScriptTick = 2
-                        ScriptTimer.Start()
-                        Return
-                    End If
+						FileText = NoCumList(randomizer.Next(0, NoCumList.Count))
+						ScriptTick = 2
+						ScriptTimer.Start()
+						Return
+					End If
 
 
-                    My.Settings.OrgasmsRemaining -= 1
+					My.Settings.OrgasmsRemaining -= 1
 
-                    My.Settings.Save()
+					My.Settings.Save()
 
-                End If
+				End If
 
 NoNoCumFiles:
 
-                My.Settings.LastOrgasm = FormatDateTime(Now, DateFormat.ShortDate)
-                My.Settings.Save()
-                FrmSettings.LBLLastOrgasm.Text = My.Settings.LastOrgasm
+				My.Settings.LastOrgasm = FormatDateTime(Now, DateFormat.ShortDate)
+				My.Settings.Save()
+				FrmSettings.LBLLastOrgasm.Text = My.Settings.LastOrgasm
 
-                If FrmSettings.CBDomOrgasmEnds.Checked = False Then
+				If FrmSettings.CBDomOrgasmEnds.Checked = False Then
 
-                    Dim RepeatChance As Integer = randomizer.Next(0, 101)
+					Dim RepeatChance As Integer = randomizer.Next(0, 101)
 
-                    If RepeatChance < 4 * FrmSettings.domlevelNumBox.Value Then
-                        SubEdging = False
-                        SubStroking = False
-                        EdgeTauntTimer.Stop()
+					If RepeatChance < 4 * FrmSettings.domlevelNumBox.Value Then
+						SubEdging = False
+						SubStroking = False
+						EdgeTauntTimer.Stop()
 
-                        Dim RepeatList As New List(Of String)
+						Dim RepeatList As New List(Of String)
 
-                        For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Orgasm Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-                            RepeatList.Add(foundFile)
-                        Next
+						For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Interrupt\Orgasm Continue\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+							RepeatList.Add(foundFile)
+						Next
 
-                        If RepeatList.Count < 1 Then GoTo NoRepeatOFiles
+						If RepeatList.Count < 1 Then GoTo NoRepeatOFiles
 
 
-                        If FrmSettings.CBTeaseLengthDD.Checked = True Then
-                            If FrmSettings.domlevelNumBox.Value = 1 Then TeaseTick = randomizer.Next(10, 16) * 60
-                            If FrmSettings.domlevelNumBox.Value = 2 Then TeaseTick = randomizer.Next(15, 21) * 60
-                            If FrmSettings.domlevelNumBox.Value = 3 Then TeaseTick = randomizer.Next(20, 31) * 60
-                            If FrmSettings.domlevelNumBox.Value = 4 Then TeaseTick = randomizer.Next(30, 46) * 60
-                            If FrmSettings.domlevelNumBox.Value = 5 Then TeaseTick = randomizer.Next(45, 61) * 60
-                        Else
-                            TeaseTick = randomizer.Next(FrmSettings.NBTeaseLengthMin.Value * 60, FrmSettings.NBTeaseLengthMax.Value * 60)
-                        End If
-                        TeaseTimer.Start()
+						If FrmSettings.CBTeaseLengthDD.Checked = True Then
+							If FrmSettings.domlevelNumBox.Value = 1 Then TeaseTick = randomizer.Next(10, 16) * 60
+							If FrmSettings.domlevelNumBox.Value = 2 Then TeaseTick = randomizer.Next(15, 21) * 60
+							If FrmSettings.domlevelNumBox.Value = 3 Then TeaseTick = randomizer.Next(20, 31) * 60
+							If FrmSettings.domlevelNumBox.Value = 4 Then TeaseTick = randomizer.Next(30, 46) * 60
+							If FrmSettings.domlevelNumBox.Value = 5 Then TeaseTick = randomizer.Next(45, 61) * 60
+						Else
+							TeaseTick = randomizer.Next(FrmSettings.NBTeaseLengthMin.Value * 60, FrmSettings.NBTeaseLengthMax.Value * 60)
+						End If
+						TeaseTimer.Start()
 
                         'ShowModule = True
                         StrokeTauntVal = -1
-                        FileText = RepeatList(randomizer.Next(0, RepeatList.Count))
-                        ScriptTick = 2
-                        ScriptTimer.Start()
-                        OrgasmAllowed = False
-                        OrgasmYesNo = False
-                        Return
-                    End If
+						FileText = RepeatList(randomizer.Next(0, RepeatList.Count))
+						ScriptTick = 2
+						ScriptTimer.Start()
+						OrgasmAllowed = False
+						OrgasmYesNo = False
+						Return
+					End If
 
-                End If
+				End If
 
 
 
@@ -2682,132 +2682,135 @@ NoRepeatOFiles:
 
 
 
-                DomTypeCheck = True
-                SubEdging = False
-                SubStroking = False
+				DomTypeCheck = True
+				SubEdging = False
+				SubStroking = False
                 'OrgasmAllowed = False
                 EdgeTauntTimer.Stop()
-                OrgasmYesNo = False
-                DomChat = "#CumForMe"
-                If Contact1Edge = True Then
-                    DomChat = "@Contact1 #CumForMe"
-                    Contact1Edge = False
-                End If
-                If Contact2Edge = True Then
-                    DomChat = "@Contact2 #CumForMe"
-                    Contact2Edge = False
-                End If
-                If Contact3Edge = True Then
-                    DomChat = "@Contact3 #CumForMe"
-                    Contact3Edge = False
-                End If
-                TypingDelay()
-                Return
+				OrgasmYesNo = False
+				DomChat = "#CumForMe"
+				If Contact1Edge = True Then
+					DomChat = "@Contact1 #CumForMe"
+					Contact1Edge = False
+				End If
+				If Contact2Edge = True Then
+					DomChat = "@Contact2 #CumForMe"
+					Contact2Edge = False
+				End If
+				If Contact3Edge = True Then
+					DomChat = "@Contact3 #CumForMe"
+					Contact3Edge = False
+				End If
+				TypingDelay()
+				Return
 
 
-            End If
+			End If
 
 
 
-            If SubStroking = True Then
+			If SubStroking = True Then
 
-                FirstRound = False
-                ShowModule = True
-                StrokeTauntTimer.Stop()
-                StrokeTimer.Stop()
-
-
-                If BookmarkModule = True Then
-                    DomTypeCheck = True
-                    SubEdging = False
-                    SubStroking = False
-                    DomChat = "#StopStrokingEdge"
-                    If Contact1Edge = True Then
-                        DomChat = "@Contact1 #StopStrokingEdge"
-                        Contact1Edge = False
-                    End If
-                    If Contact2Edge = True Then
-                        DomChat = "@Contact2 #StopStrokingEdge"
-                        Contact2Edge = False
-                    End If
-                    If Contact3Edge = True Then
-                        DomChat = "@Contact3 #StopStrokingEdge"
-                        Contact3Edge = False
-                    End If
-                    TypingDelay()
-
-                    Do
-                        Application.DoEvents()
-                    Loop Until DomTypeCheck = False
-
-                    BookmarkModule = False
-                    FileText = BookmarkModuleFile
-                    StrokeTauntVal = BookmarkModuleLine
-                    RunFileText()
-                    Return
-                End If
-
-                ShowModule = True
+				FirstRound = False
+				ShowModule = True
+				StrokeTauntTimer.Stop()
+				StrokeTimer.Stop()
 
 
-                If PlaylistFile.Count = 0 Then GoTo NoPlaylistModuleFile
+				If BookmarkModule = True Then
+					DomTypeCheck = True
+					SubEdging = False
+					SubStroking = False
+					DomChat = "#StopStrokingEdge"
+					If Contact1Edge = True Then
+						DomChat = "@Contact1 #StopStrokingEdge"
+						Contact1Edge = False
+					End If
+					If Contact2Edge = True Then
+						DomChat = "@Contact2 #StopStrokingEdge"
+						Contact2Edge = False
+					End If
+					If Contact3Edge = True Then
+						DomChat = "@Contact3 #StopStrokingEdge"
+						Contact3Edge = False
+					End If
+					TypingDelay()
 
-                If Playlist = False Or PlaylistFile(PlaylistCurrent).Contains("Random Module") Then
+					Do
+						Application.DoEvents()
+					Loop Until DomTypeCheck = False
+
+					BookmarkModule = False
+					FileText = BookmarkModuleFile
+					StrokeTauntVal = BookmarkModuleLine
+					RunFileText()
+					Return
+				End If
+
+				ShowModule = True
+
+
+				If PlaylistFile.Count = 0 Then GoTo NoPlaylistModuleFile
+
+				If Playlist = False Or PlaylistFile(PlaylistCurrent).Contains("Random Module") Then
 
 NoPlaylistModuleFile:
 
-                    Dim ModuleList As New List(Of String)
-                    ModuleList.Clear()
+					Dim ModuleList As New List(Of String)
+					ModuleList.Clear()
 
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text &
-                                                                                    "\Modules\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-                        Dim TempModule As String = foundFile
-                        TempModule = TempModule.Replace(".txt", "")
-                        Do Until Not TempModule.Contains("\")
-                            TempModule = TempModule.Remove(0, 1)
-                        Loop
-                        For x As Integer = 0 To FrmSettings.CLBModuleList.Items.Count - 1
-                            If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And foundFile.Contains("_EDGING") Then
-                                ModuleList.Add(foundFile)
-                            End If
-                        Next
-                    Next
-
-
-                    If ModuleList.Count < 1 Then
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_EDGING.txt"
-                    Else
-                        FileText = ModuleList(randomizer.Next(0, ModuleList.Count))
-                    End If
-
-                Else
-                    If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
-                        FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
-                        FileText = FileText & ".txt"
-                    Else
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
-                    End If
-
-                End If
-
-                If Playlist = True Then PlaylistCurrent += 1
+					For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text &
+																					"\Modules\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
+						Dim TempModule As String = foundFile
+						TempModule = TempModule.Replace(".txt", "")
+						Do Until Not TempModule.Contains("\")
+							TempModule = TempModule.Remove(0, 1)
+						Loop
+						For x As Integer = 0 To FrmSettings.CLBModuleList.Items.Count - 1
+							If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And foundFile.Contains("_EDGING") Then
+								ModuleList.Add(foundFile)
+							End If
+						Next
+					Next
 
 
-                DomTask = DomTask.Replace("@Module", "")
-                StrokeTauntVal = -1
-                ScriptTick = 4
-                ScriptTimer.Start()
+					If ModuleList.Count < 1 Then
+						FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_EDGING.txt"
+					Else
+						FileText = ModuleList(randomizer.Next(0, ModuleList.Count))
+					End If
+
+				Else
+					If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
+						FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
+						FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
+						FileText = FileText & ".txt"
+					Else
+						FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
+					End If
+
+				End If
+
+				If Playlist = True Then PlaylistCurrent += 1
 
 
-            End If
+				DomTask = DomTask.Replace("@Module", "")
+				StrokeTauntVal = -1
+				ScriptTick = 4
+				ScriptTimer.Start()
 
 
-            Return
-
-        End If
+			End If
 
 
+			Return
+
+		End If
+
+		If EdgeFound = True And My.Settings.Chastity = True Then
+			EdgeFound = False
+			EdgeNOT = True
+		End If
 
 
 
