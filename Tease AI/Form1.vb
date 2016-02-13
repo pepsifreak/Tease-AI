@@ -25575,9 +25575,9 @@ SkipNew:
             PNLDate.BackColor = My.Settings.DateBackColor
         End If
 
-        StatusUpdates.DocumentText = "<body bgcolor=""" & Color2Html(My.Settings.ChatWindowColor) & """>" & StatusText & "</body>"
-        Chat = "<body bgcolor=""" & Color2Html(My.Settings.ChatWindowColor) & """>" & Chat & "</body>"
-        ChatText.DocumentText = Chat
+		StatusUpdates.DocumentText = "<body bgcolor=""" & Color2Html(My.Settings.ChatWindowColor) & """>" & StatusUpdates.DocumentText & "</body>"
+		Chat = "<body bgcolor=""" & Color2Html(My.Settings.ChatWindowColor) & """>" & Chat & "</body>"
+		ChatText.DocumentText = Chat
         While ChatText.ReadyState <> WebBrowserReadyState.Complete
             Application.DoEvents()
         End While
