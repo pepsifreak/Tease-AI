@@ -26878,10 +26878,8 @@ SkipNew:
 
         If VitalList.Count > 0 Then
 
-            For i As Integer = 0 To CLBExercise.Items.Count - 1
-                CLBExercise.SetItemChecked(i, False)
-            Next
-            SaveExercise()
+			CLBExercise.Items.Clear()
+			SaveExercise()
 
             LBCalorie.Items.Clear()
             If File.Exists(Application.StartupPath & "\System\VitalSub\CalorieItems.txt") Then My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\System\VitalSub\CalorieItems.txt")
