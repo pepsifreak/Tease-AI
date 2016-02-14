@@ -5090,118 +5090,118 @@ SkipGotoSearch:
                 If GlitterTease = True And JustShowedBlogImage = False Then GoTo TryNextWithTease
 
 
-                If FrmSettings.teaseRadio.Checked = True And JustShowedBlogImage = False And TeaseVideo = False And Not DomTask.Contains("@NewBlogImage") And NullResponse = False _
-                    And SlideshowLoaded = True And Not DomTask.Contains("@ShowButtImage") And Not DomTask.Contains("@ShowBoobsImage") And LockImage = False And CustomSlideshow = False And RapidFire = False _
-                    And UCase(DomTask) <> "<B>TEASE AI HAS BEEN RESET</B>" And JustShowedSlideshowImage = False Then
-                    If SubStroking = False Or SubEdging = True Or SubHoldingEdge = True Then
+				If FrmSettings.teaseRadio.Checked = True And JustShowedBlogImage = False And TeaseVideo = False And Not DomTask.Contains("@NewBlogImage") And NullResponse = False _
+					And SlideshowLoaded = True And Not DomTask.Contains("@ShowButtImage") And Not DomTask.Contains("@ShowBoobImage") And Not DomTask.Contains("@ShowButtsImage") And Not DomTask.Contains("@ShowBoobsImage") And LockImage = False And CustomSlideshow = False And RapidFire = False _
+					And UCase(DomTask) <> "<B>TEASE AI HAS BEEN RESET</B>" And JustShowedSlideshowImage = False Then
+					If SubStroking = False Or SubEdging = True Or SubHoldingEdge = True Then
                         ' Begin Next Button
 
                         ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 TryNextWithTease:
 
-                        Dim TeaseDirection As Integer = randomizer.Next(1, 101)
+						Dim TeaseDirection As Integer = randomizer.Next(1, 101)
 
                         'Debug.Print("TeaseDirection = " & TeaseDirection)
 
                         If TeaseDirection > FrmSettings.NBNextImageChance.Value Then
 
-                            FileCount -= 1
-                            If FileCount < 0 Then
-                                FileCount = 0
-                            End If
+							FileCount -= 1
+							If FileCount < 0 Then
+								FileCount = 0
+							End If
 
-                            If DomTask.Contains("@Contact1") Then
-                                Contact1PicsCount -= 1
-                                If Contact1PicsCount < 0 Then
-                                    Contact1PicsCount = 0
-                                End If
-                            End If
+							If DomTask.Contains("@Contact1") Then
+								Contact1PicsCount -= 1
+								If Contact1PicsCount < 0 Then
+									Contact1PicsCount = 0
+								End If
+							End If
 
-                            If DomTask.Contains("@Contact2") Then
-                                Contact2PicsCount -= 1
-                                If Contact2PicsCount < 0 Then
-                                    Contact2PicsCount = 0
-                                End If
-                            End If
+							If DomTask.Contains("@Contact2") Then
+								Contact2PicsCount -= 1
+								If Contact2PicsCount < 0 Then
+									Contact2PicsCount = 0
+								End If
+							End If
 
-                            If DomTask.Contains("@Contact3") Then
-                                Contact3PicsCount -= 1
-                                If Contact3PicsCount < 0 Then
-                                    Contact3PicsCount = 0
-                                End If
-                            End If
+							If DomTask.Contains("@Contact3") Then
+								Contact3PicsCount -= 1
+								If Contact3PicsCount < 0 Then
+									Contact3PicsCount = 0
+								End If
+							End If
 
-                        Else
+						Else
 
 
-                            FileCount += 1
-                            If FileCount > FileCountMax Then
-                                FileCount = FileCountMax
-                            End If
+							FileCount += 1
+							If FileCount > FileCountMax Then
+								FileCount = FileCountMax
+							End If
 
-                            If DomTask.Contains("@Contact1") Then
-                                Contact1PicsCount += 1
-                                Try
-                                    If Contact1PicsCount > Contact1Pics.Count - 1 Then
-                                        Contact1PicsCount = Contact1Pics.Count - 1
-                                    End If
-                                Catch
-                                End Try
-                            End If
+							If DomTask.Contains("@Contact1") Then
+								Contact1PicsCount += 1
+								Try
+									If Contact1PicsCount > Contact1Pics.Count - 1 Then
+										Contact1PicsCount = Contact1Pics.Count - 1
+									End If
+								Catch
+								End Try
+							End If
 
-                            If DomTask.Contains("@Contact2") Then
-                                Contact2PicsCount += 1
-                                Try
-                                    If Contact2PicsCount > Contact2Pics.Count - 1 Then
-                                        Contact2PicsCount = Contact2Pics.Count - 1
-                                    End If
-                                Catch
-                                End Try
-                            End If
+							If DomTask.Contains("@Contact2") Then
+								Contact2PicsCount += 1
+								Try
+									If Contact2PicsCount > Contact2Pics.Count - 1 Then
+										Contact2PicsCount = Contact2Pics.Count - 1
+									End If
+								Catch
+								End Try
+							End If
 
-                            If DomTask.Contains("@Contact3") Then
-                                Contact3PicsCount += 1
-                                Try
-                                    If Contact3PicsCount > Contact3Pics.Count - 1 Then
-                                        Contact3PicsCount = Contact3Pics.Count - 1
-                                    End If
-                                Catch
-                                End Try
-                            End If
+							If DomTask.Contains("@Contact3") Then
+								Contact3PicsCount += 1
+								Try
+									If Contact3PicsCount > Contact3Pics.Count - 1 Then
+										Contact3PicsCount = Contact3Pics.Count - 1
+									End If
+								Catch
+								End Try
+							End If
 
-                        End If
+						End If
 
                         ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
                         If _ImageFileNames(FileCount).Contains(".db") Then GoTo TryNextWithTease
 
-                        DomPic = _ImageFileNames(FileCount)
+						DomPic = _ImageFileNames(FileCount)
 
-                        If DomTask.Contains("@Contact1") Then
-                            Try
-                                DomPic = Contact1Pics(Contact1PicsCount)
-                            Catch
-                                DomPic = _ImageFileNames(FileCount)
-                            End Try
-                        End If
+						If DomTask.Contains("@Contact1") Then
+							Try
+								DomPic = Contact1Pics(Contact1PicsCount)
+							Catch
+								DomPic = _ImageFileNames(FileCount)
+							End Try
+						End If
 
-                        If DomTask.Contains("@Contact2") Then
-                            Try
-                                DomPic = Contact2Pics(Contact2PicsCount)
-                            Catch
-                                DomPic = _ImageFileNames(FileCount)
-                            End Try
-                        End If
+						If DomTask.Contains("@Contact2") Then
+							Try
+								DomPic = Contact2Pics(Contact2PicsCount)
+							Catch
+								DomPic = _ImageFileNames(FileCount)
+							End Try
+						End If
 
-                        If DomTask.Contains("@Contact3") Then
-                            Try
-                                DomPic = Contact3Pics(Contact3PicsCount)
-                            Catch
-                                DomPic = _ImageFileNames(FileCount)
-                            End Try
-                        End If
+						If DomTask.Contains("@Contact3") Then
+							Try
+								DomPic = Contact3Pics(Contact3PicsCount)
+							Catch
+								DomPic = _ImageFileNames(FileCount)
+							End Try
+						End If
 
-                    End If
+					End If
                     ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
                     If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
@@ -5975,118 +5975,118 @@ NullResponseLine:
                 If DomChat.Contains("@SlideshowLast") Then JustShowedSlideshowImage = True
 
 
-                If FrmSettings.teaseRadio.Checked = True And JustShowedBlogImage = False And TeaseVideo = False And Not DomTask.Contains("@NewBlogImage") And NullResponse = False _
-                    And SlideshowLoaded = True And Not DomTask.Contains("@ShowButtImage") And Not DomTask.Contains("@ShowBoobsImage") And LockImage = False And CustomSlideshow = False And RapidFire = False _
-                    And UCase(DomChat) <> "<B>TEASE AI HAS BEEN RESET</B>" And JustShowedSlideshowImage = False Then
-                    If SubStroking = False Or SubEdging = True Or SubHoldingEdge = True Then
+				If FrmSettings.teaseRadio.Checked = True And JustShowedBlogImage = False And TeaseVideo = False And Not DomTask.Contains("@NewBlogImage") And NullResponse = False _
+					And SlideshowLoaded = True And Not DomTask.Contains("@ShowButtImage") And Not DomTask.Contains("@ShowBoobImage") And Not DomTask.Contains("@ShowButtsImage") And Not DomTask.Contains("@ShowBoobsImage") And LockImage = False And CustomSlideshow = False And RapidFire = False _
+					And UCase(DomChat) <> "<B>TEASE AI HAS BEEN RESET</B>" And JustShowedSlideshowImage = False Then
+					If SubStroking = False Or SubEdging = True Or SubHoldingEdge = True Then
                         ' Begin Next Button
 
                         ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 TryNextWithTease:
 
-                        Dim TeaseDirection As Integer = randomizer.Next(1, 101)
+						Dim TeaseDirection As Integer = randomizer.Next(1, 101)
 
                         'Debug.Print("TeaseDirection = " & TeaseDirection)
 
                         If TeaseDirection > FrmSettings.NBNextImageChance.Value Then
 
-                            FileCount -= 1
-                            If FileCount < 0 Then
-                                FileCount = 0
-                            End If
+							FileCount -= 1
+							If FileCount < 0 Then
+								FileCount = 0
+							End If
 
-                            If DomTask.Contains("@Contact1") Then
-                                Contact1PicsCount -= 1
-                                If Contact1PicsCount < 0 Then
-                                    Contact1PicsCount = 0
-                                End If
-                            End If
+							If DomTask.Contains("@Contact1") Then
+								Contact1PicsCount -= 1
+								If Contact1PicsCount < 0 Then
+									Contact1PicsCount = 0
+								End If
+							End If
 
-                            If DomTask.Contains("@Contact2") Then
-                                Contact2PicsCount -= 1
-                                If Contact2PicsCount < 0 Then
-                                    Contact2PicsCount = 0
-                                End If
-                            End If
+							If DomTask.Contains("@Contact2") Then
+								Contact2PicsCount -= 1
+								If Contact2PicsCount < 0 Then
+									Contact2PicsCount = 0
+								End If
+							End If
 
-                            If DomTask.Contains("@Contact3") Then
-                                Contact3PicsCount -= 1
-                                If Contact3PicsCount < 0 Then
-                                    Contact3PicsCount = 0
-                                End If
-                            End If
+							If DomTask.Contains("@Contact3") Then
+								Contact3PicsCount -= 1
+								If Contact3PicsCount < 0 Then
+									Contact3PicsCount = 0
+								End If
+							End If
 
-                        Else
+						Else
 
 
-                            FileCount += 1
-                            If FileCount > FileCountMax Then
-                                FileCount = FileCountMax
-                            End If
+							FileCount += 1
+							If FileCount > FileCountMax Then
+								FileCount = FileCountMax
+							End If
 
-                            If DomTask.Contains("@Contact1") Then
-                                Contact1PicsCount += 1
-                                Try
-                                    If Contact1PicsCount > Contact1Pics.Count - 1 Then
-                                        Contact1PicsCount = Contact1Pics.Count - 1
-                                    End If
-                                Catch
-                                End Try
-                            End If
+							If DomTask.Contains("@Contact1") Then
+								Contact1PicsCount += 1
+								Try
+									If Contact1PicsCount > Contact1Pics.Count - 1 Then
+										Contact1PicsCount = Contact1Pics.Count - 1
+									End If
+								Catch
+								End Try
+							End If
 
-                            If DomTask.Contains("@Contact2") Then
-                                Contact2PicsCount += 1
-                                Try
-                                    If Contact2PicsCount > Contact2Pics.Count - 1 Then
-                                        Contact2PicsCount = Contact2Pics.Count - 1
-                                    End If
-                                Catch
-                                End Try
-                            End If
+							If DomTask.Contains("@Contact2") Then
+								Contact2PicsCount += 1
+								Try
+									If Contact2PicsCount > Contact2Pics.Count - 1 Then
+										Contact2PicsCount = Contact2Pics.Count - 1
+									End If
+								Catch
+								End Try
+							End If
 
-                            If DomTask.Contains("@Contact3") Then
-                                Contact3PicsCount += 1
-                                Try
-                                    If Contact3PicsCount > Contact3Pics.Count - 1 Then
-                                        Contact3PicsCount = Contact3Pics.Count - 1
-                                    End If
-                                Catch
-                                End Try
-                            End If
+							If DomTask.Contains("@Contact3") Then
+								Contact3PicsCount += 1
+								Try
+									If Contact3PicsCount > Contact3Pics.Count - 1 Then
+										Contact3PicsCount = Contact3Pics.Count - 1
+									End If
+								Catch
+								End Try
+							End If
 
-                        End If
+						End If
 
                         ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
                         If _ImageFileNames(FileCount).Contains(".db") Then GoTo TryNextWithTease
 
-                        DomPic = _ImageFileNames(FileCount)
+						DomPic = _ImageFileNames(FileCount)
 
-                        If DomChat.Contains("@Contact1") Then
-                            Try
-                                DomPic = Contact1Pics(Contact1PicsCount)
-                            Catch
-                                DomPic = _ImageFileNames(FileCount)
-                            End Try
-                        End If
+						If DomChat.Contains("@Contact1") Then
+							Try
+								DomPic = Contact1Pics(Contact1PicsCount)
+							Catch
+								DomPic = _ImageFileNames(FileCount)
+							End Try
+						End If
 
-                        If DomChat.Contains("@Contact2") Then
-                            Try
-                                DomPic = Contact2Pics(Contact2PicsCount)
-                            Catch
-                                DomPic = _ImageFileNames(FileCount)
-                            End Try
-                        End If
+						If DomChat.Contains("@Contact2") Then
+							Try
+								DomPic = Contact2Pics(Contact2PicsCount)
+							Catch
+								DomPic = _ImageFileNames(FileCount)
+							End Try
+						End If
 
-                        If DomChat.Contains("@Contact3") Then
-                            Try
-                                DomPic = Contact3Pics(Contact3PicsCount)
-                            Catch
-                                DomPic = _ImageFileNames(FileCount)
-                            End Try
-                        End If
+						If DomChat.Contains("@Contact3") Then
+							Try
+								DomPic = Contact3Pics(Contact3PicsCount)
+							Catch
+								DomPic = _ImageFileNames(FileCount)
+							End Try
+						End If
 
-                    End If
+					End If
                     ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
                     If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
@@ -6102,7 +6102,7 @@ TryNextWithTease:
                     ' End Next Button
                 End If
 
-                If DomChat.Contains("@WritingTask(") Then
+				If DomChat.Contains("@WritingTask(") Then
                     Dim WriteFlag As String = GetParentheses(DomChat, "@WritingTask(")
                     DomChat = DomChat.Replace(WriteFlag, PoundClean(WriteFlag))
                 End If
@@ -16920,20 +16920,20 @@ VTSkip:
         Do
             Application.DoEvents()
             PoundCount -= 1
-            If ListClean(PoundCount).Contains("@ShowLocalImage") Or ListClean(PoundCount).Contains("@ShowButtImage") Or ListClean(PoundCount).Contains("@ShowBoobsImage") Then
-                If CustomSlideshow = True Or LockImage = True Then
-                    If StrokeFilter = True Then
-                        For i As Integer = 0 To StrokeTauntCount - 1
-                            ListClean.Remove(ListClean(PoundCount))
-                            PoundLine -= 1
-                        Next
-                    Else
-                        ListClean.Remove(ListClean(PoundCount))
-                        PoundLine -= 1
-                    End If
-                End If
-            End If
-        Loop Until PoundCount = 0
+			If ListClean(PoundCount).Contains("@ShowLocalImage") Or ListClean(PoundCount).Contains("@ShowButtImage") Or ListClean(PoundCount).Contains("@ShowBoobImage") Or ListClean(PoundCount).Contains("@ShowButtsImage") Or ListClean(PoundCount).Contains("@ShowBoobsImage") Then
+				If CustomSlideshow = True Or LockImage = True Then
+					If StrokeFilter = True Then
+						For i As Integer = 0 To StrokeTauntCount - 1
+							ListClean.Remove(ListClean(PoundCount))
+							PoundLine -= 1
+						Next
+					Else
+						ListClean.Remove(ListClean(PoundCount))
+						PoundLine -= 1
+					End If
+				End If
+			End If
+		Loop Until PoundCount = 0
 
 
         PoundCount = PoundLine
