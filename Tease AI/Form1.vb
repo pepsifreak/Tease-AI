@@ -10415,28 +10415,30 @@ RinseLatherRepeat:
             For i As Integer = 0 To VarSplit.Count - 1
 
                 Debug.Print("Varsplit(" & i & ") = " & VarSplit(i))
-                If VarSplit(i).Contains("@ShowVar[") Then
+				If VarSplit(i).Contains("@ShowVar[") Then
 
-                    Dim CFIndex As Integer = VarSplit(i).IndexOf("@ShowVar[") + 9
-                    CheckFlag = VarSplit(i).Substring(CFIndex, VarSplit(i).Length - CFIndex).Replace("@ShowVar[", "")
+					Dim CFIndex As Integer = VarSplit(i).IndexOf("@ShowVar[") + 9
+					CheckFlag = VarSplit(i).Substring(CFIndex, VarSplit(i).Length - CFIndex).Replace("@ShowVar[", "")
 
-                    Dim VarValue As String
-                    Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & CheckFlag
-                    Debug.Print("VarCheck = " & VarCheck)
-                    If File.Exists(VarCheck) Then
-                        Dim VarReader As New StreamReader(VarCheck)
-                        VarValue = VarReader.ReadLine()
-                        VarReader.Close()
-                        VarReader.Dispose()
-                    Else
-                        VarValue = "0"
-                    End If
-                    Debug.Print("CheckFlag = " & CheckFlag)
-                    VarSplit(i) = VarSplit(i).Replace("@ShowVar[" & CheckFlag, VarValue)
-                    Debug.Print("Final Varsplit(" & i & ") = " & VarSplit(i))
-                End If
+					Dim VarValue As String
+					Dim VarCheck As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Variables\" & CheckFlag
+					Debug.Print("VarCheck = " & VarCheck)
+					If File.Exists(VarCheck) Then
+						Dim VarReader As New StreamReader(VarCheck)
+						VarValue = VarReader.ReadLine()
+						VarReader.Close()
+						VarReader.Dispose()
+					Else
+						VarValue = "0"
+					End If
+					Debug.Print("CheckFlag = " & CheckFlag)
+					VarSplit(i) = VarSplit(i).Replace("@ShowVar[" & CheckFlag, VarValue)
+					Debug.Print("Final Varsplit(" & i & ") = " & VarSplit(i))
+				Else
+					If Not i = VarSplit.Count - 1 Then VarSplit(i) += "]"
+				End If
 
-            Next
+			Next
 
             CheckFlag = Join(VarSplit, Nothing)
 
