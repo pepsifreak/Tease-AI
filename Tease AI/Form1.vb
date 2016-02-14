@@ -10582,17 +10582,17 @@ RinseLatherRepeat:
         End If
 
 
-        If StringClean.Contains("@ShowImage") Then
-            TempVal = randomizer.Next(1, 101)
-            If TempVal < 51 Then
-                GetBlogImage()
-            Else
-                GetLocalImage()
-            End If
-            StringClean = StringClean.Replace("@ShowImage", "")
-        End If
+		If StringClean.Contains("@ShowImage") And Not StringClean.Contains("@ShowImage[") Then
+			TempVal = randomizer.Next(1, 101)
+			If TempVal < 51 Then
+				GetBlogImage()
+			Else
+				GetLocalImage()
+			End If
+			StringClean = StringClean.Replace("@ShowImage", "")
+		End If
 
-        Debug.Print("SubStroking = " & SubStroking)
+		Debug.Print("SubStroking = " & SubStroking)
         Debug.Print("SubEdging = " & SubEdging)
         Debug.Print("SubHoldingEdge = " & SubHoldingEdge)
 
