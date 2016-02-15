@@ -1,6 +1,28 @@
 # Tease-AI
 Tease AI is adult-oriented software that aims to create an interactive tease and denial experience by emulating an online chat session with a domme. 
 
+# Changelog - Patch 48.4 UNOFFICIAL
+
+Fixed SetDate and CheckDate crashes
+
+Fixed resizing issue with a hidden media panel
+
+Prevented edging while in chastity, now points to EdgeNOT is Responses\System
+
+Fixed CallReturn starting the metronome and telling you to stroke in chastity
+
+Fixed Goto bug where it was checking whole lines for the target instead of just the start of them
+
+Reporting VitalSub now clears exercise assignments
+
+Fixed glitter text bug when changing themes
+
+Fixed bug where using "ShowButtsImage" and "ShowBoobImage" were being replaced with a domme pic
+
+Fixed bug where using ShowImage could wrongly display a random local/blog image instead
+
+Fixed bug where using ShowVar and ShowImage on the same line would break ShowImage
+
 # Changelog - Patch 48.3 UNOFFICIAL
 
 @PlayAudio now uses the correct directory (OxiKlein)
