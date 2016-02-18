@@ -5202,20 +5202,25 @@ TryNextWithTease:
 						End If
 
 					End If
-                    ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+					' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-                    If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
+					If FrmSettings.CBSlideshowRandom.Checked = True Then
+						FileCount = randomizer.Next(0, FileCountMax + 1)
+						Contact1PicsCount = randomizer.Next(0, Contact1Pics.Count - 1)
+						Contact2PicsCount = randomizer.Next(0, Contact2Pics.Count - 1)
+						Contact3PicsCount = randomizer.Next(0, Contact3Pics.Count - 1)
+					End If
 
 
-                    ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+					' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-                    ShowPicture = True
+					ShowPicture = True
 
-                    ' End Next Button
-                    'On Error GoTo TryNextWithTease
-                    'On Error Resume Next
-                    ' End Next Button
-                End If
+						' End Next Button
+						'On Error GoTo TryNextWithTease
+						'On Error Resume Next
+						' End Next Button
+					End If
 
 
 
@@ -6087,14 +6092,19 @@ TryNextWithTease:
 						End If
 
 					End If
-                    ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+					' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-                    If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
+					If FrmSettings.CBSlideshowRandom.Checked = True Then
+						FileCount = randomizer.Next(0, FileCountMax + 1)
+						Contact1PicsCount = randomizer.Next(0, Contact1Pics.Count - 1)
+						Contact2PicsCount = randomizer.Next(0, Contact2Pics.Count - 1)
+						Contact3PicsCount = randomizer.Next(0, Contact3Pics.Count - 1)
+					End If
 
 
-                    ' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+					' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-                    ShowPicture = True
+					ShowPicture = True
 
                     ' End Next Button
                     'On Error GoTo TryNextWithTease
