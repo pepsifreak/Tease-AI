@@ -22417,13 +22417,16 @@ GetDommeSlideshow:
 
     Public Sub ClearMainPictureBox()
 
+		If Not mainPictureBox Is Nothing Then
+			Try
+				mainPictureBox.Image.Dispose()
+				mainPictureBox.Image = Nothing
+				GC.Collect()
+			Catch
+			End Try
+		End If
 
-
-
-
-
-
-    End Sub
+	End Sub
 
     Public Function Txt2List(ByVal GetText As String) As List(Of String)
         If File.Exists(GetText) Then
