@@ -2711,9 +2711,8 @@ NoRepeatOFiles:
 
 			If SubStroking = True Then
 
-				FirstRound = False
-				ShowModule = True
-				StrokeTauntTimer.Stop()
+                FirstRound = False
+                StrokeTauntTimer.Stop()
 				StrokeTimer.Stop()
 
 
@@ -2747,60 +2746,10 @@ NoRepeatOFiles:
 					Return
 				End If
 
-				ShowModule = True
+                RunModuleScript(True)
 
 
-				If PlaylistFile.Count = 0 Then GoTo NoPlaylistModuleFile
-
-				If Playlist = False Or PlaylistFile(PlaylistCurrent).Contains("Random Module") Then
-
-NoPlaylistModuleFile:
-
-					Dim ModuleList As New List(Of String)
-					ModuleList.Clear()
-
-					For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text &
-																					"\Modules\", FileIO.SearchOption.SearchTopLevelOnly, "*.txt")
-						Dim TempModule As String = foundFile
-						TempModule = TempModule.Replace(".txt", "")
-						Do Until Not TempModule.Contains("\")
-							TempModule = TempModule.Remove(0, 1)
-						Loop
-						For x As Integer = 0 To FrmSettings.CLBModuleList.Items.Count - 1
-							If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And foundFile.Contains("_EDGING") Then
-								ModuleList.Add(foundFile)
-							End If
-						Next
-					Next
-
-
-					If ModuleList.Count < 1 Then
-						FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_EDGING.txt"
-					Else
-						FileText = ModuleList(randomizer.Next(0, ModuleList.Count))
-					End If
-
-				Else
-					If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
-						FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
-						FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
-						FileText = FileText & ".txt"
-					Else
-						FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
-					End If
-
-				End If
-
-				If Playlist = True Then PlaylistCurrent += 1
-
-
-				DomTask = DomTask.Replace("@Module", "")
-				StrokeTauntVal = -1
-				ScriptTick = 4
-				ScriptTimer.Start()
-
-
-			End If
+            End If
 
 
 			Return
@@ -5802,6 +5751,7 @@ NoResponse:
 
                     If TnASlides.Enabled = True Then TnASlides.Stop()
 
+                    Dim WasStroking As Boolean = SubStroking
 
                     StopEverything()
                     ModuleEnd = False
@@ -5825,6 +5775,8 @@ NoResponse:
 
                     If TeaseTick < 1 And Playlist = False Then
                         RunLastScript()
+                    ElseIf WasStroking Then
+                        RunModuleScript(False)
                     Else
                         RunLinkScript()
                     End If
@@ -6497,6 +6449,7 @@ NullResponseLine2:
 
                     If TnASlides.Enabled = True Then TnASlides.Stop()
 
+                    Dim WasStroking As Boolean = SubStroking
 
                     StopEverything()
                     ModuleEnd = False
@@ -6520,6 +6473,8 @@ NullResponseLine2:
 
                     If TeaseTick < 1 And Playlist = False Then
                         RunLastScript()
+                    ElseIf WasStroking Then
+                        RunModuleScript(False)
                     Else
                         RunLinkScript()
                     End If
@@ -6918,87 +6873,7 @@ TryPrevious:
                 ScriptTimer.Start()
             Else
 
-                ShowModule = True
-
-                Dim ModuleList As New List(Of String)
-                ModuleList.Clear()
-
-                Dim ChastityModuleCheck As String
-                If My.Settings.Chastity = True Then
-                    AskedToSpeedUp = False
-                    AskedToSlowDown = False
-                    SubStroking = False
-                    SubEdging = False
-                    SubHoldingEdge = False
-                    StrokeTimer.Stop()
-                    StrokeTauntTimer.Stop()
-                    EdgeTauntTimer.Stop()
-                    HoldEdgeTauntTimer.Stop()
-                    ChastityModuleCheck = "*_CHASTITY.txt"
-                Else
-                    ChastityModuleCheck = "*.txt"
-                End If
-
-                If PlaylistFile.Count = 0 Then GoTo NoPlaylistModuleFile
-
-                If Playlist = False Or PlaylistFile(PlaylistCurrent).Contains("Random Module") Then
-
-NoPlaylistModuleFile:
-
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text &
-                                                                                    "\Modules\", FileIO.SearchOption.SearchTopLevelOnly, ChastityModuleCheck)
-                        Dim TempModule As String = foundFile
-                        TempModule = Path.GetFileName(TempModule).Replace(".txt", "")
-                        For x As Integer = 0 To FrmSettings.CLBModuleList.Items.Count - 1
-                            If My.Settings.Chastity = True Then
-                                If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And Not foundFile.Contains("_EDGING") Then
-                                    ModuleList.Add(foundFile)
-                                End If
-                            Else
-                                If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And Not foundFile.Contains("_EDGING") And Not foundFile.Contains("_CHASTITY") Then
-                                    ModuleList.Add(foundFile)
-                                End If
-                            End If
-
-                        Next
-                    Next
-
-                    If ModuleList.Count < 1 Then
-                        If My.Settings.Chastity = True Then
-                            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_CHASTITY.txt"
-                        Else
-                            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module.txt"
-                        End If
-                    Else
-                        FileText = ModuleList(randomizer.Next(0, ModuleList.Count))
-                    End If
-
-                Else
-                    If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
-                        FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
-                        FileText = FileText & ".txt"
-                    Else
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
-                    End If
-
-                End If
-
-                DomTask = DomTask.Replace("@Module", "")
-                StrokeTauntVal = -1
-
-                If Playlist = True Then PlaylistCurrent += 1
-                If Playlist = True Then BookmarkModule = False
-
-                If BookmarkModule = True Then
-                    BookmarkModule = False
-                    FileText = BookmarkModuleFile
-                    StrokeTauntVal = BookmarkModuleLine
-                End If
-
-
-                ScriptTick = 3
-                ScriptTimer.Start()
+                RunModuleScript(False)
 
             End If
 
@@ -7047,87 +6922,7 @@ SkipTick:
                 ScriptTimer.Start()
             Else
 
-                ShowModule = True
-
-                Dim ModuleList As New List(Of String)
-                ModuleList.Clear()
-
-                Dim ChastityModuleCheck As String
-                If My.Settings.Chastity = True Then
-                    AskedToSpeedUp = False
-                    AskedToSlowDown = False
-                    SubStroking = False
-                    SubEdging = False
-                    SubHoldingEdge = False
-                    StrokeTimer.Stop()
-                    StrokeTauntTimer.Stop()
-                    EdgeTauntTimer.Stop()
-                    HoldEdgeTauntTimer.Stop()
-                    ChastityModuleCheck = "*_CHASTITY.txt"
-                Else
-                    ChastityModuleCheck = "*.txt"
-                End If
-
-                If PlaylistFile.Count = 0 Then GoTo NoPlaylistModuleFile
-
-                If Playlist = False Or PlaylistFile(PlaylistCurrent).Contains("Random Module") Then
-
-NoPlaylistModuleFile:
-
-                    For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text &
-                                                                                    "\Modules\", FileIO.SearchOption.SearchTopLevelOnly, ChastityModuleCheck)
-                        Dim TempModule As String = foundFile
-                        TempModule = Path.GetFileName(TempModule).Replace(".txt", "")
-                        For x As Integer = 0 To FrmSettings.CLBModuleList.Items.Count - 1
-                            If My.Settings.Chastity = True Then
-                                If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And Not foundFile.Contains("_EDGING") Then
-                                    ModuleList.Add(foundFile)
-                                End If
-                            Else
-                                If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And Not foundFile.Contains("_EDGING") And Not foundFile.Contains("_CHASTITY") Then
-                                    ModuleList.Add(foundFile)
-                                End If
-                            End If
-
-                        Next
-                    Next
-
-                    If ModuleList.Count < 1 Then
-                        If My.Settings.Chastity = True Then
-                            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_CHASTITY.txt"
-                        Else
-                            FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module.txt"
-                        End If
-                    Else
-                        FileText = ModuleList(randomizer.Next(0, ModuleList.Count))
-                    End If
-
-                Else
-                    If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
-                        FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
-                        FileText = FileText & ".txt"
-                    Else
-                        FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
-                    End If
-
-                End If
-
-                DomTask = DomTask.Replace("@Module", "")
-                StrokeTauntVal = -1
-
-                If Playlist = True Then PlaylistCurrent += 1
-                If Playlist = True Then BookmarkModule = False
-
-                If BookmarkModule = True Then
-                    BookmarkModule = False
-                    FileText = BookmarkModuleFile
-                    StrokeTauntVal = BookmarkModuleLine
-                End If
-
-
-                ScriptTick = 3
-                ScriptTimer.Start()
+                RunModuleScript(False)
 
             End If
 
@@ -19629,7 +19424,107 @@ AlreadySeen:
 
     End Sub
 
+    Public Sub RunModuleScript(IsEdging As Boolean)
 
+        ShowModule = True
+
+        Dim ModuleList As New List(Of String)
+        ModuleList.Clear()
+
+        Dim ChastityModuleCheck As String = "*.txt"
+        If My.Settings.Chastity = True And Not IsEdging Then
+            AskedToSpeedUp = False
+            AskedToSlowDown = False
+            SubStroking = False
+            SubEdging = False
+            SubHoldingEdge = False
+            StrokeTimer.Stop()
+            StrokeTauntTimer.Stop()
+            EdgeTauntTimer.Stop()
+            HoldEdgeTauntTimer.Stop()
+            ChastityModuleCheck = "*_CHASTITY.txt"
+        End If
+
+        If PlaylistFile.Count = 0 Then GoTo NoPlaylistModuleFile
+
+        If Playlist = False Or PlaylistFile(PlaylistCurrent).Contains("Random Module") Then
+
+NoPlaylistModuleFile:
+
+            For Each foundFile As String In My.Computer.FileSystem.GetFiles(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\", FileIO.SearchOption.SearchTopLevelOnly, ChastityModuleCheck)
+                Dim TempModule As String = foundFile
+                TempModule = Path.GetFileName(TempModule).Replace(".txt", "")
+
+                If IsEdging Then
+
+                    Do Until Not TempModule.Contains("\")
+                        TempModule = TempModule.Remove(0, 1)
+                    Loop
+                End If
+
+                For x As Integer = 0 To FrmSettings.CLBModuleList.Items.Count - 1
+                    If My.Settings.Chastity = True Then
+                        If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And Not foundFile.Contains("_EDGING") Then
+                            ModuleList.Add(foundFile)
+                        End If
+                    ElseIf IsEdging Then
+                        If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And foundFile.Contains("_EDGING") Then
+                            ModuleList.Add(foundFile)
+                        End If
+                    Else
+                        If FrmSettings.CLBModuleList.Items(x) = TempModule And FrmSettings.CLBModuleList.GetItemChecked(x) = True And Not foundFile.Contains("_EDGING") And Not foundFile.Contains("_CHASTITY") Then
+                            ModuleList.Add(foundFile)
+                        End If
+                    End If
+                Next
+            Next
+
+            If ModuleList.Count < 1 Then
+                If My.Settings.Chastity = True Then
+                    FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_CHASTITY.txt"
+                ElseIf IsEdging Then
+                    FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module_EDGING.txt"
+                Else
+                    FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Scripts\Module.txt"
+                End If
+            Else
+                FileText = ModuleList(randomizer.Next(0, ModuleList.Count))
+            End If
+
+        Else
+            If PlaylistFile(PlaylistCurrent).Contains("Regular-TeaseAI-Script") Then
+                FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Modules\" & PlaylistFile(PlaylistCurrent)
+                FileText = FileText.Replace(" Regular-TeaseAI-Script", "")
+                FileText = FileText & ".txt"
+            Else
+                FileText = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Playlist\Modules\" & PlaylistFile(PlaylistCurrent) & ".txt"
+            End If
+
+        End If
+
+        DomTask = DomTask.Replace("@Module", "")
+        StrokeTauntVal = -1
+
+        If Playlist = True Then PlaylistCurrent += 1
+
+        If Not IsEdging Then
+
+            If Playlist = True Then BookmarkModule = False
+
+            If BookmarkModule = True Then
+                BookmarkModule = False
+                FileText = BookmarkModuleFile
+                StrokeTauntVal = BookmarkModuleLine
+            End If
+
+            ScriptTick = 3
+
+        Else
+            ScriptTick = 4
+        End If
+
+        ScriptTimer.Start()
+    End Sub
 
     Public Sub RunLinkScript()
 
