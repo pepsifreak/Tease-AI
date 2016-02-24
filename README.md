@@ -1,6 +1,14 @@
 # Tease-AI
 Tease AI is adult-oriented software that aims to create an interactive tease and denial experience by emulating an online chat session with a domme. 
 
+# Changelog - Patch 48.5 UNOFFICIAL
+
+Fixed contact image randomization
+
+Fixed endless loop in some commands
+
+"Giving up" while stroking now takes you to a module instead of a link
+
 # Changelog - Patch 48.4 UNOFFICIAL
 
 Fixed SetDate and CheckDate crashes
