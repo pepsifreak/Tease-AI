@@ -9905,6 +9905,7 @@ Partial Class FrmSettings
 		'
 		'TabPage26
 		'
+		Me.TabPage26.BackColor = System.Drawing.Color.Silver
 		Me.TabPage26.Controls.Add(Me.Panel12)
 		Me.TabPage26.Location = New System.Drawing.Point(4, 22)
 		Me.TabPage26.Name = "TabPage26"
@@ -9912,7 +9913,6 @@ Partial Class FrmSettings
 		Me.TabPage26.Size = New System.Drawing.Size(720, 448)
 		Me.TabPage26.TabIndex = 19
 		Me.TabPage26.Text = "Themes"
-		Me.TabPage26.UseVisualStyleBackColor = True
 		'
 		'Panel12
 		'
