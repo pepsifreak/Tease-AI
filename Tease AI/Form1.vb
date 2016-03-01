@@ -5155,9 +5155,9 @@ TryNextWithTease:
 
 					If FrmSettings.CBSlideshowRandom.Checked = True Then
 						FileCount = randomizer.Next(0, FileCountMax + 1)
-						Contact1PicsCount = randomizer.Next(0, Contact1Pics.Count - 1)
-						Contact2PicsCount = randomizer.Next(0, Contact2Pics.Count - 1)
-						Contact3PicsCount = randomizer.Next(0, Contact3Pics.Count - 1)
+						If Contact1Pics.Count > 0 Then Contact1PicsCount = randomizer.Next(0, Contact1Pics.Count - 1)
+						If Contact2Pics.Count > 0 Then Contact2PicsCount = randomizer.Next(0, Contact2Pics.Count - 1)
+						If Contact3Pics.Count > 0 Then Contact3PicsCount = randomizer.Next(0, Contact3Pics.Count - 1)
 					End If
 
 
@@ -6048,9 +6048,9 @@ TryNextWithTease:
 
 					If FrmSettings.CBSlideshowRandom.Checked = True Then
 						FileCount = randomizer.Next(0, FileCountMax + 1)
-						Contact1PicsCount = randomizer.Next(0, Contact1Pics.Count - 1)
-						Contact2PicsCount = randomizer.Next(0, Contact2Pics.Count - 1)
-						Contact3PicsCount = randomizer.Next(0, Contact3Pics.Count - 1)
+						If Contact1Pics.Count > 0 Then Contact1PicsCount = randomizer.Next(0, Contact1Pics.Count - 1)
+						If Contact2Pics.Count > 0 Then Contact2PicsCount = randomizer.Next(0, Contact2Pics.Count - 1)
+						If Contact3Pics.Count > 0 Then Contact3PicsCount = randomizer.Next(0, Contact3Pics.Count - 1)
 					End If
 
 
