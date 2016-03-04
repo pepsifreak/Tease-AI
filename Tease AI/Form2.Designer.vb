@@ -771,6 +771,11 @@ Partial Class FrmSettings
 		Me.Label164 = New System.Windows.Forms.Label()
 		Me.TabPage4 = New System.Windows.Forms.TabPage()
 		Me.Panel6 = New System.Windows.Forms.Panel()
+		Me.GroupBox26 = New System.Windows.Forms.GroupBox()
+		Me.TypesSpeedVal = New System.Windows.Forms.Label()
+		Me.TimedWriting = New System.Windows.Forms.CheckBox()
+		Me.TypeSpeedLabel = New System.Windows.Forms.Label()
+		Me.TypeSpeedSlider = New System.Windows.Forms.TrackBar()
 		Me.GroupBox10 = New System.Windows.Forms.GroupBox()
 		Me.Label112 = New System.Windows.Forms.Label()
 		Me.NBNextImageChance = New System.Windows.Forms.NumericUpDown()
@@ -967,11 +972,6 @@ Partial Class FrmSettings
 		Me.BWValidateLocalFiles = New System.ComponentModel.BackgroundWorker()
 		Me.BWCreateURLFiles = New System.ComponentModel.BackgroundWorker()
 		Me.TTDir = New System.Windows.Forms.ToolTip(Me.components)
-		Me.GroupBox26 = New System.Windows.Forms.GroupBox()
-		Me.TypesSpeedVal = New System.Windows.Forms.Label()
-		Me.TimedWriting = New System.Windows.Forms.CheckBox()
-		Me.TypeSpeedLabel = New System.Windows.Forms.Label()
-		Me.TypeSpeedSlider = New System.Windows.Forms.TrackBar()
 		Me.SettingsPanel.SuspendLayout()
 		Me.SettingsTabs.SuspendLayout()
 		Me.TabPage1.SuspendLayout()
@@ -1146,6 +1146,8 @@ Partial Class FrmSettings
 		CType(Me.PBBackgroundPreview, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.TabPage4.SuspendLayout()
 		Me.Panel6.SuspendLayout()
+		Me.GroupBox26.SuspendLayout()
+		CType(Me.TypeSpeedSlider, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox10.SuspendLayout()
 		CType(Me.NBNextImageChance, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox57.SuspendLayout()
@@ -1199,8 +1201,6 @@ Partial Class FrmSettings
 		CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox21.SuspendLayout()
 		Me.GroupBox12.SuspendLayout()
-		Me.GroupBox26.SuspendLayout()
-		CType(Me.TypeSpeedSlider, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'SettingsPanel
@@ -2775,6 +2775,7 @@ Partial Class FrmSettings
 		Me.condescendingCheckBox.Size = New System.Drawing.Size(15, 14)
 		Me.condescendingCheckBox.TabIndex = 41
 		Me.condescendingCheckBox.UseVisualStyleBackColor = True
+		Me.condescendingCheckBox.Visible = False
 		'
 		'GBDomOrgasms
 		'
@@ -10365,6 +10366,59 @@ Partial Class FrmSettings
 		Me.Panel6.Size = New System.Drawing.Size(708, 437)
 		Me.Panel6.TabIndex = 91
 		'
+		'GroupBox26
+		'
+		Me.GroupBox26.Controls.Add(Me.TypesSpeedVal)
+		Me.GroupBox26.Controls.Add(Me.TimedWriting)
+		Me.GroupBox26.Controls.Add(Me.TypeSpeedLabel)
+		Me.GroupBox26.Controls.Add(Me.TypeSpeedSlider)
+		Me.GroupBox26.Location = New System.Drawing.Point(7, 286)
+		Me.GroupBox26.Name = "GroupBox26"
+		Me.GroupBox26.Size = New System.Drawing.Size(223, 115)
+		Me.GroupBox26.TabIndex = 171
+		Me.GroupBox26.TabStop = False
+		Me.GroupBox26.Text = "Writing Tasks"
+		'
+		'TypesSpeedVal
+		'
+		Me.TypesSpeedVal.Location = New System.Drawing.Point(184, 46)
+		Me.TypesSpeedVal.Name = "TypesSpeedVal"
+		Me.TypesSpeedVal.Size = New System.Drawing.Size(30, 13)
+		Me.TypesSpeedVal.TabIndex = 165
+		Me.TypesSpeedVal.Text = "10"
+		Me.TypesSpeedVal.TextAlign = System.Drawing.ContentAlignment.TopRight
+		'
+		'TimedWriting
+		'
+		Me.TimedWriting.AutoSize = True
+		Me.TimedWriting.ForeColor = System.Drawing.Color.Black
+		Me.TimedWriting.Location = New System.Drawing.Point(9, 19)
+		Me.TimedWriting.Name = "TimedWriting"
+		Me.TimedWriting.Size = New System.Drawing.Size(118, 17)
+		Me.TimedWriting.TabIndex = 162
+		Me.TimedWriting.TabStop = False
+		Me.TimedWriting.Text = "Timed Writing Task"
+		Me.TimedWriting.UseVisualStyleBackColor = True
+		'
+		'TypeSpeedLabel
+		'
+		Me.TypeSpeedLabel.AutoSize = True
+		Me.TypeSpeedLabel.Location = New System.Drawing.Point(9, 46)
+		Me.TypeSpeedLabel.Name = "TypeSpeedLabel"
+		Me.TypeSpeedLabel.Size = New System.Drawing.Size(76, 13)
+		Me.TypeSpeedLabel.TabIndex = 164
+		Me.TypeSpeedLabel.Text = "Typing Speed:"
+		'
+		'TypeSpeedSlider
+		'
+		Me.TypeSpeedSlider.Location = New System.Drawing.Point(12, 59)
+		Me.TypeSpeedSlider.Maximum = 100
+		Me.TypeSpeedSlider.Minimum = 33
+		Me.TypeSpeedSlider.Name = "TypeSpeedSlider"
+		Me.TypeSpeedSlider.Size = New System.Drawing.Size(202, 45)
+		Me.TypeSpeedSlider.TabIndex = 163
+		Me.TypeSpeedSlider.Value = 50
+		'
 		'GroupBox10
 		'
 		Me.GroupBox10.Controls.Add(Me.Label112)
@@ -12420,59 +12474,6 @@ Partial Class FrmSettings
 		'BWCreateURLFiles
 		'
 		'
-		'GroupBox26
-		'
-		Me.GroupBox26.Controls.Add(Me.TypesSpeedVal)
-		Me.GroupBox26.Controls.Add(Me.TimedWriting)
-		Me.GroupBox26.Controls.Add(Me.TypeSpeedLabel)
-		Me.GroupBox26.Controls.Add(Me.TypeSpeedSlider)
-		Me.GroupBox26.Location = New System.Drawing.Point(7, 286)
-		Me.GroupBox26.Name = "GroupBox26"
-		Me.GroupBox26.Size = New System.Drawing.Size(223, 115)
-		Me.GroupBox26.TabIndex = 171
-		Me.GroupBox26.TabStop = False
-		Me.GroupBox26.Text = "Writing Tasks"
-		'
-		'TypesSpeedVal
-		'
-		Me.TypesSpeedVal.Location = New System.Drawing.Point(184, 46)
-		Me.TypesSpeedVal.Name = "TypesSpeedVal"
-		Me.TypesSpeedVal.Size = New System.Drawing.Size(30, 13)
-		Me.TypesSpeedVal.TabIndex = 165
-		Me.TypesSpeedVal.Text = "10"
-		Me.TypesSpeedVal.TextAlign = System.Drawing.ContentAlignment.TopRight
-		'
-		'TimedWriting
-		'
-		Me.TimedWriting.AutoSize = True
-		Me.TimedWriting.ForeColor = System.Drawing.Color.Black
-		Me.TimedWriting.Location = New System.Drawing.Point(9, 19)
-		Me.TimedWriting.Name = "TimedWriting"
-		Me.TimedWriting.Size = New System.Drawing.Size(118, 17)
-		Me.TimedWriting.TabIndex = 162
-		Me.TimedWriting.TabStop = False
-		Me.TimedWriting.Text = "Timed Writing Task"
-		Me.TimedWriting.UseVisualStyleBackColor = True
-		'
-		'TypeSpeedLabel
-		'
-		Me.TypeSpeedLabel.AutoSize = True
-		Me.TypeSpeedLabel.Location = New System.Drawing.Point(9, 46)
-		Me.TypeSpeedLabel.Name = "TypeSpeedLabel"
-		Me.TypeSpeedLabel.Size = New System.Drawing.Size(76, 13)
-		Me.TypeSpeedLabel.TabIndex = 164
-		Me.TypeSpeedLabel.Text = "Typing Speed:"
-		'
-		'TypeSpeedSlider
-		'
-		Me.TypeSpeedSlider.Location = New System.Drawing.Point(12, 59)
-		Me.TypeSpeedSlider.Maximum = 100
-		Me.TypeSpeedSlider.Minimum = 33
-		Me.TypeSpeedSlider.Name = "TypeSpeedSlider"
-		Me.TypeSpeedSlider.Size = New System.Drawing.Size(202, 45)
-		Me.TypeSpeedSlider.TabIndex = 163
-		Me.TypeSpeedSlider.Value = 50
-		'
 		'FrmSettings
 		'
 		Me.AllowDrop = True
@@ -12715,6 +12716,9 @@ Partial Class FrmSettings
 		CType(Me.PBBackgroundPreview, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.TabPage4.ResumeLayout(False)
 		Me.Panel6.ResumeLayout(False)
+		Me.GroupBox26.ResumeLayout(False)
+		Me.GroupBox26.PerformLayout()
+		CType(Me.TypeSpeedSlider, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox10.ResumeLayout(False)
 		CType(Me.NBNextImageChance, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox57.ResumeLayout(False)
@@ -12781,9 +12785,6 @@ Partial Class FrmSettings
 		CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox21.ResumeLayout(False)
 		Me.GroupBox12.ResumeLayout(False)
-		Me.GroupBox26.ResumeLayout(False)
-		Me.GroupBox26.PerformLayout()
-		CType(Me.TypeSpeedSlider, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub

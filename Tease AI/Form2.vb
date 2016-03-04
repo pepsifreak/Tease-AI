@@ -3230,6 +3230,28 @@ NextURL:
 		'If RBGerman.Checked = True Then LBLGeneralSettingsDescription.Text = "Wenn dies aktiviert ist, wird der Lokale Dateipfad oder die URL-Adresse von jedem Bild in der oberen linken Ecke des Bildschirms angezeigt."
 	End Sub
 
+	Private Sub Button2_MouseHover(sender As System.Object, e As System.EventArgs) Handles Button2.MouseHover
+
+		If RBEnglish.Checked = True Then TTDir.SetToolTip(Button2, "Use this button to select a directory containing several image" & Environment.NewLine &
+																			 "set folders of the same model you're using as your contact.")
+		If RBGerman.Checked = True Then TTDir.SetToolTip(Button2, "Benutze diese Schaltfläche um einen Ordner zu wählen, welcher mehre" & Environment.NewLine &
+																			"Bildersets von dem selben Model enthält, die du als Kontakt benutzt.")
+	End Sub
+	Private Sub Button8_MouseHover(sender As System.Object, e As System.EventArgs) Handles Button8.MouseHover
+
+		If RBEnglish.Checked = True Then TTDir.SetToolTip(Button8, "Use this button to select a directory containing several image" & Environment.NewLine &
+																			 "set folders of the same model you're using as your contact.")
+		If RBGerman.Checked = True Then TTDir.SetToolTip(Button8, "Benutze diese Schaltfläche um einen Ordner zu wählen, welcher mehre" & Environment.NewLine &
+																			"Bildersets von dem selben Model enthält, die du als Kontakt benutzt.")
+	End Sub
+	Private Sub Button10_MouseHover(sender As System.Object, e As System.EventArgs) Handles Button10.MouseHover
+
+		If RBEnglish.Checked = True Then TTDir.SetToolTip(Button10, "Use this button to select a directory containing several image" & Environment.NewLine &
+																			 "set folders of the same model you're using as your contact.")
+		If RBGerman.Checked = True Then TTDir.SetToolTip(Button10, "Benutze diese Schaltfläche um einen Ordner zu wählen, welcher mehre" & Environment.NewLine &
+																			"Bildersets von dem selben Model enthält, die du als Kontakt benutzt.")
+	End Sub
+
 	Private Sub BTNDomImageDir_MouseHover(sender As System.Object, e As System.EventArgs) Handles BTNDomImageDir.MouseHover
 
 		If RBEnglish.Checked = True Then TTDir.SetToolTip(BTNDomImageDir, "Use this button to select a directory containing several image" & Environment.NewLine &
