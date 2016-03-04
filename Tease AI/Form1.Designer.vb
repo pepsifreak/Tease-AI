@@ -486,7 +486,7 @@ Partial Class Form1
 		Me.LBLImageInfo.BackColor = System.Drawing.Color.Black
 		Me.LBLImageInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.LBLImageInfo.ForeColor = System.Drawing.Color.White
-		Me.LBLImageInfo.Location = New System.Drawing.Point(0, 0)
+		Me.LBLImageInfo.Location = New System.Drawing.Point(2, 2)
 		Me.LBLImageInfo.Name = "LBLImageInfo"
 		Me.LBLImageInfo.Size = New System.Drawing.Size(0, 17)
 		Me.LBLImageInfo.TabIndex = 95
@@ -2111,7 +2111,7 @@ Partial Class Form1
 		Me.Label19.BackColor = System.Drawing.Color.Transparent
 		Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label19.ForeColor = System.Drawing.Color.White
-		Me.Label19.Location = New System.Drawing.Point(-2, 131)
+		Me.Label19.Location = New System.Drawing.Point(-2, 133)
 		Me.Label19.Name = "Label19"
 		Me.Label19.Size = New System.Drawing.Size(245, 28)
 		Me.Label19.TabIndex = 9
@@ -2123,7 +2123,7 @@ Partial Class Form1
 		Me.Label18.BackColor = System.Drawing.Color.Transparent
 		Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label18.ForeColor = System.Drawing.Color.White
-		Me.Label18.Location = New System.Drawing.Point(-2, 227)
+		Me.Label18.Location = New System.Drawing.Point(-2, 230)
 		Me.Label18.Name = "Label18"
 		Me.Label18.Size = New System.Drawing.Size(245, 28)
 		Me.Label18.TabIndex = 8
@@ -2136,7 +2136,7 @@ Partial Class Form1
 		Me.BTNRandomRLGL.FlatAppearance.BorderSize = 2
 		Me.BTNRandomRLGL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.BTNRandomRLGL.ForeColor = System.Drawing.Color.Black
-		Me.BTNRandomRLGL.Location = New System.Drawing.Point(6, 335)
+		Me.BTNRandomRLGL.Location = New System.Drawing.Point(6, 338)
 		Me.BTNRandomRLGL.Name = "BTNRandomRLGL"
 		Me.BTNRandomRLGL.Size = New System.Drawing.Size(228, 28)
 		Me.BTNRandomRLGL.TabIndex = 7
@@ -2149,7 +2149,7 @@ Partial Class Form1
 		Me.BTNRandomAtE.FlatAppearance.BorderSize = 2
 		Me.BTNRandomAtE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.BTNRandomAtE.ForeColor = System.Drawing.Color.Black
-		Me.BTNRandomAtE.Location = New System.Drawing.Point(6, 296)
+		Me.BTNRandomAtE.Location = New System.Drawing.Point(6, 299)
 		Me.BTNRandomAtE.Name = "BTNRandomAtE"
 		Me.BTNRandomAtE.Size = New System.Drawing.Size(228, 28)
 		Me.BTNRandomAtE.TabIndex = 6
@@ -2162,7 +2162,7 @@ Partial Class Form1
 		Me.BTNRandomCS.FlatAppearance.BorderSize = 2
 		Me.BTNRandomCS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.BTNRandomCS.ForeColor = System.Drawing.Color.Black
-		Me.BTNRandomCS.Location = New System.Drawing.Point(6, 257)
+		Me.BTNRandomCS.Location = New System.Drawing.Point(6, 260)
 		Me.BTNRandomCS.Name = "BTNRandomCS"
 		Me.BTNRandomCS.Size = New System.Drawing.Size(228, 28)
 		Me.BTNRandomCS.TabIndex = 5
@@ -2175,7 +2175,7 @@ Partial Class Form1
 		Me.BTNRandomCH.FlatAppearance.BorderSize = 2
 		Me.BTNRandomCH.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.BTNRandomCH.ForeColor = System.Drawing.Color.Black
-		Me.BTNRandomCH.Location = New System.Drawing.Point(6, 200)
+		Me.BTNRandomCH.Location = New System.Drawing.Point(6, 202)
 		Me.BTNRandomCH.Name = "BTNRandomCH"
 		Me.BTNRandomCH.Size = New System.Drawing.Size(228, 28)
 		Me.BTNRandomCH.TabIndex = 4
@@ -2188,7 +2188,7 @@ Partial Class Form1
 		Me.BTNRandomJOI.FlatAppearance.BorderSize = 2
 		Me.BTNRandomJOI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.BTNRandomJOI.ForeColor = System.Drawing.Color.Black
-		Me.BTNRandomJOI.Location = New System.Drawing.Point(6, 161)
+		Me.BTNRandomJOI.Location = New System.Drawing.Point(6, 163)
 		Me.BTNRandomJOI.Name = "BTNRandomJOI"
 		Me.BTNRandomJOI.Size = New System.Drawing.Size(228, 28)
 		Me.BTNRandomJOI.TabIndex = 3
