@@ -5559,7 +5559,6 @@ EndSysMes:
 				If ShowPicture = True Then
 
 
-					ClearMainPictureBox()
 					CheckDommeTags()
 
 					Try
@@ -5597,6 +5596,7 @@ EndSysMes:
 						CheckDommeTags()
 
 					Catch
+						ClearMainPictureBox()
 						' GoTo TryNextWithTease
 					End Try
 					If FrmSettings.landscapeCheckBox.Checked = True Then
@@ -6326,8 +6326,6 @@ EndSysMes:
 				If ShowPicture = True Then
 
 
-					ClearMainPictureBox()
-
 					CheckDommeTags()
 
 
@@ -6364,6 +6362,7 @@ EndSysMes:
 						CheckDommeTags()
 
 					Catch
+						ClearMainPictureBox()
 						' GoTo TryNextWithTease
 					End Try
 					If FrmSettings.landscapeCheckBox.Checked = True Then
@@ -6650,8 +6649,6 @@ NullResponseLine2:
 			' Begin Next Button
 			FileCount = 0
 
-			ClearMainPictureBox()
-
 
 			If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
 
@@ -6709,13 +6706,12 @@ TryNext:
 
 		If File.Exists(_ImageFileNames(FileCount)) Then
 		Else
+			ClearMainPictureBox()
 			Return
 		End If
 
 		If _ImageFileNames(FileCount).Contains(".db") Then GoTo TryNext
 
-
-		ClearMainPictureBox()
 
 		If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
 
@@ -6778,10 +6774,14 @@ TryPrevious:
 			FileCount = FileCountMax
 		End If
 
+		If File.Exists(_ImageFileNames(FileCount)) Then
+		Else
+			ClearMainPictureBox()
+			Return
+		End If
+
 		If _ImageFileNames(FileCount).Contains(".db") Then GoTo TryPrevious
 
-
-		ClearMainPictureBox()
 
 		If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
 
@@ -10401,7 +10401,6 @@ RinseLatherRepeat:
 			Dim ImageS As String() = ImageClean.Split("]")
 			ImageClean = Application.StartupPath & "\Images\" & ImageS(0)
 			ImageClean = ImageClean.Replace("\\", "\")
-			ClearMainPictureBox()
 
 			If ImageClean.Contains("*") Then
 
@@ -10415,6 +10414,7 @@ RinseLatherRepeat:
 					ShowImage(ImageList(randomizer.Next(0, ImageList.Count)))
 					JustShowedBlogImage = True
 				Else
+					ClearMainPictureBox()
 					MessageBox.Show(Me, "No images matching " & Path.GetFileName(ImageClean) & " were found in " & Path.GetDirectoryName(ImageClean) & "!" & Environment.NewLine & Environment.NewLine &
 							   "Please make sure that valid files exist and that the wildcards are applied correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
 				End If
@@ -10425,6 +10425,7 @@ RinseLatherRepeat:
 					ShowImage(ImageClean)
 					JustShowedBlogImage = True
 				Catch
+					ClearMainPictureBox()
 					MessageBox.Show(Me, "\" & ImageS(0) & " was not found in " & Application.StartupPath & "\Images!" & Environment.NewLine & Environment.NewLine & "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
 				End Try
 
@@ -11320,7 +11321,6 @@ OrgasmDecided:
 		If StringClean.Contains("@ShowButtImage") Or StringClean.Contains("@ShowButtsImage") Then
 			JustShowedBlogImage = True
 			GetTnAList()
-			ClearMainPictureBox()
 			Dim ButtPic As String = AssList(randomizer.Next(0, AssList.Count))
 
 			If ButtPic.Contains("\") Then
@@ -11346,7 +11346,6 @@ OrgasmDecided:
 		If StringClean.Contains("@ShowBoobsImage") Or StringClean.Contains("@ShowBoobImage") Then
 			JustShowedBlogImage = True
 			GetTnAList()
-			ClearMainPictureBox()
 			Dim BoobPic As String = BoobList(randomizer.Next(0, BoobList.Count))
 
 			If BoobPic.Contains("\") Then
@@ -12004,8 +12003,6 @@ OrgasmDecided:
 			End If
 
 			JustShowedBlogImage = True
-
-			ClearMainPictureBox()
 
 			ShowImage(FoundString)
 			'ImageLocation = FoundString
@@ -14791,8 +14788,6 @@ VTSkip:
 		JustShowedBlogImage = True
 
 
-		ClearMainPictureBox()
-
 		If FoundString.Contains("/") Then
 			Try
 				ShowImage(FoundString)
@@ -14803,6 +14798,7 @@ VTSkip:
 				'DisplayImage(New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(FoundString))))
 				'mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(FoundString)))
 			Catch
+				ClearMainPictureBox()
 				MessageBox.Show(Me, "Failed to load image!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 			End Try
 		Else
@@ -14813,9 +14809,6 @@ VTSkip:
 			'mainPictureBox.Image = Image.FromFile(FoundString)
 			DeleteLocalImageFilePath = FoundString
 		End If
-
-
-
 
 	End Sub
 
@@ -19259,11 +19252,6 @@ AlreadySeen:
 		'End If
 
 
-		ClearMainPictureBox()
-
-
-
-
 		Try
 
 			JustShowedBlogImage = True
@@ -19277,6 +19265,7 @@ AlreadySeen:
 					'ImageThread.Start()
 					'mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(FoundString)))
 				Catch
+					ClearMainPictureBox()
 					MessageBox.Show(Me, "Failed to load image!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 				End Try
 			Else
@@ -19287,7 +19276,6 @@ AlreadySeen:
 				'mainPictureBox.Image = Image.FromFile(FoundString)
 				DeleteLocalImageFilePath = FoundString
 			End If
-
 
 
 			mainPictureBox.Refresh()
@@ -19337,8 +19325,6 @@ AlreadySeen:
 	Public Sub GetBlogImageTest()
 
 		Dim TempURL As String = "http://38.media.tumblr.com/edb7f636b5cb0fe60b58bcede48207c0/tumblr_nrye15neo21u4yrcfo1_500.gif"
-		ClearMainPictureBox()
-
 
 		If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif") Then
 			My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\System\Temp\Temp.gif")
@@ -19438,9 +19424,6 @@ AlreadySeen:
 		PictureStrip.Items(4).Enabled = True
 		PictureStrip.Items(5).Enabled = False
 
-
-
-		ClearMainPictureBox()
 
 		' ### 0000000000000000000
 
@@ -20754,6 +20737,7 @@ TryNext:
 
 			If File.Exists(_ImageFileNames(FileCount)) Then
 			Else
+				ClearMainPictureBox()
 				Return
 			End If
 
@@ -20762,8 +20746,6 @@ TryNext:
 
 
 			If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
-
-			ClearMainPictureBox()
 
 			CheckDommeTags()
 
@@ -20995,8 +20977,6 @@ TryNext:
 
 		Dim TnARandom As Integer = randomizer.Next(1, 101)
 
-		ClearMainPictureBox()
-
 		If TnARandom < 51 Then
 			Dim BoobString As String = BoobList(randomizer.Next(0, BoobList.Count))
 			ShowImage(BoobString)
@@ -21147,9 +21127,6 @@ TryNext:
 
 			' Begin Next Button
 			FileCount = 0
-
-			ClearMainPictureBox()
-
 
 
 			If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
@@ -21319,9 +21296,6 @@ TryNext:
 
 				' Begin Next Button
 				FileCount = 0
-
-				ClearMainPictureBox()
-
 
 
 				If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
@@ -21539,7 +21513,6 @@ TryNext:
 		Dim ImageS As String() = ImageClean.Split("]")
 		ImageClean = Application.StartupPath & "\Images\" & ImageS(0)
 		ImageClean = ImageClean.Replace("\\", "\")
-		ClearMainPictureBox()
 		Try
 			ShowImage(ImageClean)
 			'ImageLocation = ImageClean
@@ -21547,6 +21520,7 @@ TryNext:
 			'DisplayImage(Image.FromFile(ImageClean))
 			'mainPictureBox.Image = Image.FromFile(ImageClean)
 		Catch
+			ClearMainPictureBox()
 			MessageBox.Show(Me, "\" & ImageS(0) & " was not found in " & Application.StartupPath & "\Images!" & Environment.NewLine & Environment.NewLine & "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
 		End Try
 
@@ -22284,9 +22258,6 @@ GetDommeSlideshow:
 			NewSlideshowAttempts += 1
 			If _ImageFileNames(0) = OriginalDommeSlideshow And NewSlideshowAttempts < 6 Then GoTo GetDommeSlideshow
 		End If
-
-
-		ClearMainPictureBox()
 
 		If FrmSettings.CBSlideshowRandom.Checked = True Then FileCount = randomizer.Next(0, FileCountMax + 1)
 
@@ -27061,24 +27032,31 @@ SkipNew:
 
 		Control.CheckForIllegalCrossThreadCalls = False
 
+		Dim OldImage As Image = mainPictureBox.Image
+
 		'Try
 		'mainPictureBox.Image.Dispose()
 		'Catch
 		'End Try
 
 		'mainPictureBox.Image = Nothing
-		GC.Collect()
 
-		If PBImage.Contains("/") And PBImage.Contains("://") Then
-			mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(PBImage)))
-		Else
-			mainPictureBox.Image = Image.FromFile(PBImage)
-		End If
+		mainPictureBox.Load(PBImage)
+
+		'If PBImage.Contains("/") And PBImage.Contains("://") Then
+		'	mainPictureBox.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(PBImage)))
+		'Else
+		'	mainPictureBox.Image = Image.FromFile(PBImage)
+		'End If
 
 		LBLImageInfo.Text = ImageLocation
 
-		Debug.Print("PBImageThread")
+		If Not OldImage Is Nothing Then
+			OldImage.Dispose()
+		End If
+		GC.Collect()
 
+		Debug.Print("PBImageThread")
 
 	End Sub
 
