@@ -18,6 +18,8 @@ Imports System.Drawing.Drawing2D
 
 Public Class Form1
 
+	Public WritingTaskEndTime As Single
+	Public WritingTaskCurrentTime As Single
 	Public Chat As String
 	Public randomizer As New Random
 	Public ScriptOperator As String
@@ -1120,6 +1122,12 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 			FrmSettings.CBImageInfo.Checked = False
 		End If
 
+		If My.Settings.TimedWriting = True Then
+			FrmSettings.TimedWriting.Checked = True
+		Else
+			FrmSettings.TimedWriting.Checked = False
+		End If
+
 		FrmSplash.PBSplash.Value += 1
 		FrmSplash.LBLSplash.Text = "Loading Domme settings..."
 		FrmSplash.Refresh()
@@ -1752,6 +1760,9 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 		FrmSettings.NBEmpathy.Value = My.Settings.DomEmpathy
 
 		BTNPlaylist.Enabled = True
+
+		If PNLWritingTask.Visible Then CloseApp()
+
 	End Sub
 
 
@@ -2153,12 +2164,27 @@ WritingTaskLine:
 
 
 				If WritingTaskLinesRemaining = 0 Then
-					WritingTaskFlag = False
-					chatBox.ShortcutsEnabled = True
-					ScriptTick = 3
-					ScriptTimer.Start()
+					If My.Settings.TimedWriting = True Then
+						If WritingTaskCurrentTime < WritingTaskEndTime Then
+							ClearWriteTask()
+							ScriptTick = 3
+							ScriptTimer.Start()
+						End If
+					Else
+						ClearWriteTask()
+						ScriptTick = 3
+						ScriptTimer.Start()
+					End If
 				End If
 
+				If WritingTaskCurrentTime >= WritingTaskEndTime And My.Settings.TimedWriting = True And WritingTaskFlag = True Then
+					ClearWriteTask()
+					SkipGotoLine = True
+					FileGoto = "Failed Writing Task"
+					GetGoto()
+					ScriptTick = 4
+					ScriptTimer.Start()
+				End If
 
 			Else
 
@@ -2202,9 +2228,7 @@ WritingTaskLine:
 				LBLMistakesMade.Text = WritingTaskMistakesMade
 
 				If WritingTaskMistakesMade = WritingTaskMistakesAllowed Then
-					WritingTaskFlag = False
-					'FrmWritingTask.Visible = False
-					chatBox.ShortcutsEnabled = True
+					ClearWriteTask()
 					SkipGotoLine = True
 					FileGoto = "Failed Writing Task"
 					GetGoto()
@@ -2212,6 +2236,14 @@ WritingTaskLine:
 					ScriptTimer.Start()
 				End If
 
+				If WritingTaskCurrentTime >= WritingTaskEndTime And My.Settings.TimedWriting = True And WritingTaskFlag = True Then
+					ClearWriteTask()
+					SkipGotoLine = True
+					FileGoto = "Failed Writing Task"
+					GetGoto()
+					ScriptTick = 4
+					ScriptTimer.Start()
+				End If
 
 			End If
 
@@ -11113,10 +11145,19 @@ OrgasmDecided:
 				WritingTaskLinesAmount = WritingTaskVal
 				LBLWritingTaskText.Text = LBLWritingTaskText.Text.Replace(WritingTaskVal, "")
 			End If
+			Dim secs As Single
 
 
-			LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times:"
-			LBLWritingTask.Text = LBLWritingTask.Text.Replace("line 1 times", "line 1 time")
+			'LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times:"
+			'LBLWritingTask.Text = LBLWritingTask.Text.Replace("line 1 times", "line 1 time")
+
+			'determines how many secs are given for writing each line, depending on line length and typespeed value selected by the user in the settings
+			'(between 0,54 and 0,75 secs per character in the sentence at slowest typingspeed and between 0.18 and 0.25 at fastest typing speed)
+			secs = (randomizer.Next(18, 25) / My.Settings.TypeSpeed) * LBLWritingTaskText.Text.Length
+			'determines how much time is given (in seconds) to complete the @WritingTask() depending on how many lines you have to write and a small bonus to give some
+			'more time for very short lines
+			WritingTaskEndTime = 5 + secs * WritingTaskLinesAmount
+
 			LBLLinesWritten.Text = "0"
 			LBLLinesRemaining.Text = WritingTaskLinesAmount
 
@@ -11131,15 +11172,28 @@ OrgasmDecided:
 				OpenApp()
 				PNLWritingTask.Visible = True
 			End If
-			WritingTaskMistakesAllowed = randomizer.Next(3, 11)
+			WritingTaskMistakesAllowed = randomizer.Next(3, 9)
 			LBLMistakesAllowed.Text = WritingTaskMistakesAllowed
 			LBLMistakesMade.Text = "0"
 			StringClean = StringClean.Replace("@WritingTask", "")
-			LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times."
+			'LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times."
 			WritingTaskLinesRemaining = WritingTaskLinesAmount
 			WritingTaskLinesWritten = 0
 			WritingTaskMistakesMade = 0
 			chatBox.ShortcutsEnabled = False
+
+			If My.Settings.TimedWriting = True Then
+				LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times" & vbCrLf & "In " & Convert.ToInt32(WritingTaskEndTime) & " seconds"
+				LBLWritingTask.Text = LBLWritingTask.Text.Replace("line 1 times", "line 1 time")
+			Else
+				LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times"
+				LBLWritingTask.Text = LBLWritingTask.Text.Replace("line 1 times", "line 1 time")
+			End If
+
+			If My.Settings.TimedWriting = True Then
+				WritingTaskCurrentTime = 0
+				WritingTaskTimer.Start()
+			End If
 
 		End If
 
@@ -23152,6 +23206,10 @@ GetDommeSlideshow:
 		SettingsList.Add("LocalImageSTR: " & LocalImageSTR)
 		SettingsList.Add("ImageLocation: " & ImageLocation)
 
+		SettingsList.Add("WritingTaskTimer Enabled: " & WritingTaskTimer.Enabled)
+		SettingsList.Add("WritingTaskCurrentTime: " & WritingTaskCurrentTime)
+		SettingsList.Add("WritingTaskEndTime: " & WritingTaskEndTime)
+		SettingsList.Add("WritingTaskString: " & LBLWritingTaskText.Text)
 
 
 		' WMPLib.WMPPlayState.wmppsStopped)
@@ -23753,6 +23811,10 @@ GetDommeSlideshow:
 		DommeImageSTR = SettingsList(370).Replace("DommeImageSTR: ", "")
 		LocalImageSTR = SettingsList(371).Replace("LocalImageSTR: ", "")
 		ImageLocation = SettingsList(372).Replace("ImageLocation: ", "")
+		WritingTaskTimer.Enabled = SettingsList(373).Replace("WritingTaskTimer Enabled: ", "")
+		WritingTaskCurrentTime = SettingsList(374).Replace("WritingTaskCurrentTime: ", "")
+		WritingTaskEndTime = SettingsList(375).Replace("WritingTaskEndTime: ", "")
+		Dim WritingTaskString As String = SettingsList(376).Replace("WritingTaskString: ", "")
 
 
 		If File.Exists(SettingsPath & ResumePrefix & "PlayListFile.txt") Then PlaylistFile = Txt2List(SettingsPath & ResumePrefix & "PlayListFile.txt")
@@ -23787,7 +23849,19 @@ GetDommeSlideshow:
 		End While
 		ScrollChatDown()
 
+		If WritingTaskFlag Then
+			CloseApp()
+			OpenApp()
+			PNLWritingTask.Visible = True
 
+			If Not My.Settings.TimedWriting Then WritingTaskTimer.Stop() 'In case the setting changes
+			LBLMistakesMade.Text = WritingTaskMistakesMade
+			LBLMistakesAllowed.Text = WritingTaskMistakesAllowed
+			LBLLinesRemaining.Text = WritingTaskLinesRemaining
+			LBLWritingTaskText.Text = WritingTaskString
+			LBLWritingTask.Text = "Write the following line " & WritingTaskLinesRemaining & " times"
+			LBLLinesWritten.Text = WritingTaskLinesWritten
+		End If
 
 		ScrollChatDown()
 
@@ -26999,5 +27073,23 @@ SkipNew:
 			ChatText.Location = New Point(2, 0)
 			ChatText.Height = SplitContainer1.Panel2.Height - 34
 		End If
+	End Sub
+
+	Private Sub WritingTaskTimer_Tick(sender As Object, e As EventArgs) Handles WritingTaskTimer.Tick
+		If WritingTaskCurrentTime > 0 Then
+			If WritingTaskCurrentTime < WritingTaskEndTime Then
+				LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times" & vbCrLf & "You have " & Convert.ToInt32(WritingTaskEndTime - WritingTaskCurrentTime) & " seconds left"
+			Else
+				LBLWritingTask.Text = "Write the following line " & WritingTaskLinesAmount & " times" & vbCrLf & "YOUR TIME IS UP"
+			End If
+		End If
+		WritingTaskCurrentTime += 1
+	End Sub
+
+	Public Sub ClearWriteTask()
+		WritingTaskTimer.Stop()
+		WritingTaskFlag = False
+		chatBox.ShortcutsEnabled = True
+		CloseApp()
 	End Sub
 End Class
