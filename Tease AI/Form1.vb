@@ -6194,8 +6194,11 @@ TryNextWithTease:
 
 				If SysMes = False And EmoMes = False Then
 
-					Dim UCASELine As String = UCase(DomChat.Substring(0, 1))
-					DomChat = DomChat.Remove(0, 1).Insert(0, UCASELine)
+					Try
+						Dim UCASELine As String = UCase(DomChat.Substring(0, 1))
+						DomChat = DomChat.Remove(0, 1).Insert(0, UCASELine)
+					Catch
+					End Try
 
 					If FrmSettings.LCaseCheckBox.Checked = True Then DomChat = LCase(DomChat)
 					If FrmSettings.CBMeMyMine.Checked = True Then
