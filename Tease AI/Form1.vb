@@ -4434,17 +4434,17 @@ ReturnCalled:
 					If ReturnSubState = "Edging" Then
 						If SubEdging = False Then
 							DomTask = "Start getting yourself to the edge again @Edge"
-							SubStroking = True
+							'SubStroking = True
 							TypingDelayGeneric()
 						Else
 							EdgeTauntTimer.Start()
 							EdgeCountTimer.Start()
 						End If
 					End If
-					If ReturnSubState = "HoldingTheEdge" Then
+					If ReturnSubState = "Holding The Edge" Then
 						If SubEdging = False Then
 							DomTask = "Start getting yourself to the edge again @EdgeHold"
-							SubStroking = True
+							'SubStroking = True
 							TypingDelayGeneric()
 						Else
 							HoldEdgeTimer.Start()
@@ -5781,9 +5781,12 @@ NoResponse:
 
 					SubGaveUp = False
 
+					AskedToGiveUpSection = False
 					If TnASlides.Enabled = True Then TnASlides.Stop()
 
 					Dim WasStroking As Boolean = SubStroking
+					Dim WasEdging As Boolean = SubEdging
+					Dim WasHolding As Boolean = SubHoldingEdge
 
 					StopEverything()
 					ModuleEnd = False
@@ -5803,13 +5806,17 @@ NoResponse:
 
 					'FrmSettings.LBLOrgasmCountdown.Text = LastScriptCountdown
 
-					StrokeTauntVal = -1
-
-					If TeaseTick < 1 And Playlist = False Then
+					If ReturnFlag Then
+						ShowModule = True
+						ScriptTimer.Start()
+					ElseIf TeaseTick < 1 And Playlist = False Then
+						StrokeTauntVal = -1
 						RunLastScript()
-					ElseIf WasStroking Then
+					ElseIf WasStroking And Not WasEdging And Not WasHolding Then
+						StrokeTauntVal = -1
 						RunModuleScript(False)
 					Else
+						StrokeTauntVal = -1
 						RunLinkScript()
 					End If
 
@@ -6479,9 +6486,12 @@ NullResponseLine2:
 
 					SubGaveUp = False
 
+					AskedToGiveUpSection = False
 					If TnASlides.Enabled = True Then TnASlides.Stop()
 
 					Dim WasStroking As Boolean = SubStroking
+					Dim WasEdging As Boolean = SubEdging
+					Dim WasHolding As Boolean = SubHoldingEdge
 
 					StopEverything()
 					ModuleEnd = False
@@ -6501,13 +6511,17 @@ NullResponseLine2:
 
 					'FrmSettings.LBLOrgasmCountdown.Text = LastScriptCountdown
 
-					StrokeTauntVal = -1
-
-					If TeaseTick < 1 And Playlist = False Then
+					If ReturnFlag Then
+						ShowModule = True
+						ScriptTimer.Start()
+					ElseIf TeaseTick < 1 And Playlist = False Then
+						StrokeTauntVal = -1
 						RunLastScript()
-					ElseIf WasStroking Then
+					ElseIf WasStroking And Not WasEdging And Not WasHolding Then
+						StrokeTauntVal = -1
 						RunModuleScript(False)
 					Else
+						StrokeTauntVal = -1
 						RunLinkScript()
 					End If
 
@@ -11254,7 +11268,6 @@ OrgasmDecided:
 				Else
 					ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpREPEAT.txt"
 				End If
-				StringClean = ResponseClean(StringClean)
 
 			Else
 
@@ -11271,7 +11284,7 @@ OrgasmDecided:
 
 				Dim GiveUpVal As Integer = randomizer.Next(1, 101)
 
-				If GiveUpVal > GiveUpCheck Then
+				If GiveUpVal > GiveUpCheck And Not LastScript Then
 					' you can give up
 					ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpALLOWED.txt"
 					LockImage = False
@@ -11282,10 +11295,8 @@ OrgasmDecided:
 					ResponseFile = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Vocabulary\Responses\System\GiveUpDENIED.txt"
 				End If
 
-				StringClean = ResponseClean(StringClean)
-
 			End If
-
+			StringClean = ResponseClean(StringClean)
 
 		End If
 
@@ -13549,6 +13560,11 @@ VTSkip:
 			CBTBothActive = False
 			CBTBothFlag = False
 			CustomTaskActive = False
+
+			If Not SubGaveUp Then
+				SubEdging = False
+				SubHoldingEdge = False
+			End If
 
 			'StopEverything()
 			ReturnFlag = True
@@ -19482,6 +19498,7 @@ AlreadySeen:
 
 		ShowModule = True
 
+		AskedToGiveUpSection = False
 		Dim ModuleList As New List(Of String)
 		ModuleList.Clear()
 
