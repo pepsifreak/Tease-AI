@@ -22544,6 +22544,12 @@ GetDommeSlideshow:
 				End Try
 			Next
 
+			If Contact1Folder.Count < 1 Then
+				MessageBox.Show(Me, "There are no directories in the specified Contact 1 Images Directory folder." & Environment.NewLine & Environment.NewLine &
+							"Please make sure the Contact 1 Images Directory points to a location containing at least one subdirectory of images.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+				Return
+			End If
+
 			If Contact1Folder.Count <> 0 Then
 
 				ContactFolder = Contact1Folder(randomizer.Next(0, Contact1Folder.Count))
@@ -22557,6 +22563,11 @@ GetDommeSlideshow:
 						Contact1Pics.Add(fi)
 					End If
 				Next
+
+				If Contact1Pics.Count < 0 Then
+					MessageBox.Show(Me, "There are no images in the specified Contact 1 Image folder!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+					Return
+				End If
 			End If
 		End If
 
@@ -22582,6 +22593,12 @@ GetDommeSlideshow:
 				End Try
 			Next
 
+			If Contact2Folder.Count < 1 Then
+				MessageBox.Show(Me, "There are no directories in the specified Contact 2 Images Directory folder." & Environment.NewLine & Environment.NewLine &
+							"Please make sure the Contact 2 Images Directory points to a location containing at least one subdirectory of images.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+				Return
+			End If
+
 			If Contact2Folder.Count <> 0 Then
 
 				ContactFolder = Contact2Folder(randomizer.Next(0, Contact2Folder.Count))
@@ -22595,6 +22612,11 @@ GetDommeSlideshow:
 						Contact2Pics.Add(fi)
 					End If
 				Next
+
+				If Contact2Pics.Count < 0 Then
+					MessageBox.Show(Me, "There are no images in the specified Contact 2 Image folder!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+					Return
+				End If
 			End If
 		End If
 
@@ -22619,6 +22641,12 @@ GetDommeSlideshow:
 				End Try
 			Next
 
+			If Contact3Folder.Count < 1 Then
+				MessageBox.Show(Me, "There are no directories in the specified Contact 3 Images Directory folder." & Environment.NewLine & Environment.NewLine &
+							"Please make sure the Contact 3 Images Directory points to a location containing at least one subdirectory of images.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+				Return
+			End If
+
 			If Contact3Folder.Count <> 0 Then
 
 				ContactFolder = Contact3Folder(randomizer.Next(0, Contact3Folder.Count))
@@ -22632,6 +22660,11 @@ GetDommeSlideshow:
 						Contact3Pics.Add(fi)
 					End If
 				Next
+
+				If Contact3Pics.Count < 0 Then
+					MessageBox.Show(Me, "There are no images in the specified Contact 3 Image folder!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+					Return
+				End If
 			End If
 		End If
 
