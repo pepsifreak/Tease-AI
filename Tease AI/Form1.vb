@@ -3860,7 +3860,7 @@ AcceptAnswer:
 
 
 
-			ScriptTick = randomizer.Next(5, 7)
+			ScriptTick = randomizer.Next(4, 7)
 
 			RunFileText()
 
@@ -4419,11 +4419,11 @@ ReturnCalled:
 					StrokeTauntVal = ReturnStrokeTauntVal
 					If ReturnSubState = "Stroking" Then
 						If My.Settings.Chastity = True Then
-							DomTask = "Now as I was saying @StartTaunts"
+							DomTask = "#Return_Chastity"
 							TypingDelayGeneric()
 						Else
 							If SubStroking = False Then
-								DomTask = "Get back to stroking @StartStroking"
+								DomTask = "#Return_Stroking"
 								TypingDelayGeneric()
 							Else
 								StrokeTimer.Start()
@@ -4433,7 +4433,7 @@ ReturnCalled:
 					End If
 					If ReturnSubState = "Edging" Then
 						If SubEdging = False Then
-							DomTask = "Start getting yourself to the edge again @Edge"
+							DomTask = "#Return_Edging"
 							'SubStroking = True
 							TypingDelayGeneric()
 						Else
@@ -4443,7 +4443,7 @@ ReturnCalled:
 					End If
 					If ReturnSubState = "Holding The Edge" Then
 						If SubEdging = False Then
-							DomTask = "Start getting yourself to the edge again @EdgeHold"
+							DomTask = "#Return_Holding"
 							'SubStroking = True
 							TypingDelayGeneric()
 						Else
@@ -4452,20 +4452,20 @@ ReturnCalled:
 						End If
 					End If
 					If ReturnSubState = "CBTBalls" Then
-						DomTask = "Now let's get back to busting those #Balls @CBTBalls"
+						DomTask = "#Return_CBTBalls"
 						CBTBallsFirst = False
 						TypingDelayGeneric()
 					End If
 					If ReturnSubState = "CBTCock" Then
-						DomTask = "Now let's get back to abusing that #Cock @CBTCock"
+						DomTask = "#Return_CBTCock"
 						CBTCockFirst = False
 						TypingDelayGeneric()
 					End If
 					If ReturnSubState = "Rest" Then
 						DomTypeCheck = True
-						ScriptTick = 5
+						ScriptTick = 2
 						ScriptTimer.Start()
-						DomTask = "Now as I was saying"
+						DomTask = "#Return_Rest"
 						TypingDelayGeneric()
 						Return
 					End If
