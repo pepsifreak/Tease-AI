@@ -3860,7 +3860,7 @@ AcceptAnswer:
 
 
 
-			ScriptTick = randomizer.Next(5, 8)
+			ScriptTick = randomizer.Next(5, 7)
 
 			RunFileText()
 
@@ -4463,7 +4463,7 @@ ReturnCalled:
 					End If
 					If ReturnSubState = "Rest" Then
 						DomTypeCheck = True
-						ScriptTick = 7
+						ScriptTick = 5
 						ScriptTimer.Start()
 						DomTask = "Now as I was saying"
 						TypingDelayGeneric()
@@ -5760,7 +5760,7 @@ NoResponse:
 					If RapidCode = True Then
 						RunFileText()
 					Else
-						ScriptTick = randomizer.Next(4, 9)
+						ScriptTick = randomizer.Next(4, 7)
 						If RapidFire = True Then ScriptTick = 1
 						If RiskyDeal = True Then ScriptTick = 2
 						ScriptTimer.Start()
@@ -6477,7 +6477,7 @@ NullResponseLine2:
 				End If
 
 				If YesOrNo = False And Responding = False Then
-					ScriptTick = randomizer.Next(4, 9)
+					ScriptTick = randomizer.Next(4, 7)
 					If RiskyDeal = True Then ScriptTick = 2
 					ScriptTimer.Start()
 				End If
@@ -13589,7 +13589,7 @@ VTSkip:
 				StrokeTauntVal = -1
 
 			End If
-			ScriptTick = 4
+			ScriptTick = 2
 			ScriptTimer.Start()
 
 			StringClean = StringClean.Replace("@CallReturn(" & CallReplace & ")", "")
