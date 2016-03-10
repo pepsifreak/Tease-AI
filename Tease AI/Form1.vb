@@ -5721,7 +5721,7 @@ NoResponse:
 				NullResponse = False
 				DomTypeCheck = False
 				DomTyping = False
-				StringLength = 20
+				StringLength = randomizer.Next(8, 16)
 
 				If SubStroking = False Then StopMetronome = True
 				If SubHoldingEdge = True Then
@@ -5895,6 +5895,7 @@ NoResponse:
 
 		' Toggle switch to let the program know when to display "Domme is typing..." and when to remove it and display what she wrote
 		If TypeToggle = 0 Then
+			Debug.Print("TypeDelay = " & TypeDelay)
 			If TypeDelay > 0 Then
 				TypeDelay -= 1
 			Else
@@ -6429,7 +6430,7 @@ NullResponseLine2:
 
 				NullResponse = False
 				DomTypeCheck = False
-				StringLength = 20
+				StringLength = randomizer.Next(8, 16)
 
 				If SubStroking = False Then StopMetronome = True
 
