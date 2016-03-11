@@ -4063,6 +4063,12 @@ ReturnCalled:
 		Dim lines As New List(Of String)
 		lines = Txt2List(FileText)
 
+		If lines(StrokeTauntVal).Substring(0, 1) = "(" Then
+			Do
+				StrokeTauntVal += 1
+			Loop Until lines(StrokeTauntVal).Substring(0, 1) <> "("
+		End If
+
 		Try
 			If RunningScript = False And AvoidTheEdgeGame = False And ReturnFlag = False Then
 				Debug.Print("End Check StrokeTauntVal = " & StrokeTauntVal)
@@ -4478,13 +4484,6 @@ ReturnCalled:
 				End If
 				ScriptTimer.Stop()
 				Return
-			End If
-
-			If lines(line).Substring(0, 1) = "(" Then
-				Do
-					line += 1
-					StrokeTauntVal += 1
-				Loop Until lines(line).Substring(0, 1) <> "("
 			End If
 
 			If lines(line + 1).Substring(0, 1) = "[" Then
