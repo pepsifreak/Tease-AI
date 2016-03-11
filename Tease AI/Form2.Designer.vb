@@ -972,6 +972,8 @@ Partial Class FrmSettings
 		Me.BWValidateLocalFiles = New System.ComponentModel.BackgroundWorker()
 		Me.BWCreateURLFiles = New System.ComponentModel.BackgroundWorker()
 		Me.TTDir = New System.Windows.Forms.ToolTip(Me.components)
+		Me.GBGiveUp = New System.Windows.Forms.GroupBox()
+		Me.giveupCheckBox = New System.Windows.Forms.CheckBox()
 		Me.SettingsPanel.SuspendLayout()
 		Me.SettingsTabs.SuspendLayout()
 		Me.TabPage1.SuspendLayout()
@@ -1201,6 +1203,7 @@ Partial Class FrmSettings
 		CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox21.SuspendLayout()
 		Me.GroupBox12.SuspendLayout()
+		Me.GBGiveUp.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'SettingsPanel
@@ -1905,6 +1908,7 @@ Partial Class FrmSettings
 		'
 		Me.Panel3.BackColor = System.Drawing.Color.LightGray
 		Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.Panel3.Controls.Add(Me.GBGiveUp)
 		Me.Panel3.Controls.Add(Me.BTNLoadDomSet)
 		Me.Panel3.Controls.Add(Me.BTNSaveDomSet)
 		Me.Panel3.Controls.Add(Me.Label127)
@@ -12474,6 +12478,26 @@ Partial Class FrmSettings
 		'BWCreateURLFiles
 		'
 		'
+		'GBGiveUp
+		'
+		Me.GBGiveUp.Controls.Add(Me.giveupCheckBox)
+		Me.GBGiveUp.Location = New System.Drawing.Point(440, 299)
+		Me.GBGiveUp.Name = "GBGiveUp"
+		Me.GBGiveUp.Size = New System.Drawing.Size(257, 51)
+		Me.GBGiveUp.TabIndex = 154
+		Me.GBGiveUp.TabStop = False
+		Me.GBGiveUp.Text = "Give Up"
+		'
+		'giveupCheckBox
+		'
+		Me.giveupCheckBox.AutoSize = True
+		Me.giveupCheckBox.Location = New System.Drawing.Point(15, 20)
+		Me.giveupCheckBox.Name = "giveupCheckBox"
+		Me.giveupCheckBox.Size = New System.Drawing.Size(189, 17)
+		Me.giveupCheckBox.TabIndex = 0
+		Me.giveupCheckBox.Text = "Giving Up Always Continues Script"
+		Me.giveupCheckBox.UseVisualStyleBackColor = True
+		'
 		'FrmSettings
 		'
 		Me.AllowDrop = True
@@ -12785,6 +12809,8 @@ Partial Class FrmSettings
 		CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox21.ResumeLayout(False)
 		Me.GroupBox12.ResumeLayout(False)
+		Me.GBGiveUp.ResumeLayout(False)
+		Me.GBGiveUp.PerformLayout()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -13736,4 +13762,6 @@ Partial Class FrmSettings
 	Friend WithEvents TimedWriting As CheckBox
 	Friend WithEvents TypeSpeedLabel As Label
 	Friend WithEvents TypeSpeedSlider As TrackBar
+	Friend WithEvents GBGiveUp As GroupBox
+	Friend WithEvents giveupCheckBox As CheckBox
 End Class

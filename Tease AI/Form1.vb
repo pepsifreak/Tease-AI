@@ -1263,6 +1263,12 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 		FrmSettings.NBSubAgeMin.Value = My.Settings.SubAgeMin
 		FrmSettings.NBSubAgeMax.Value = My.Settings.SubAgeMax
 
+		If My.Settings.GiveUpReturn = True Then
+			FrmSettings.giveupCheckBox.Checked = True
+		Else
+			FrmSettings.giveupCheckBox.Checked = False
+		End If
+
 
 		Debug.Print("Find Exception end")
 
@@ -5781,7 +5787,6 @@ NoResponse:
 
 					SubGaveUp = False
 
-					AskedToGiveUpSection = False
 					If TnASlides.Enabled = True Then TnASlides.Stop()
 
 					Dim WasStroking As Boolean = SubStroking
@@ -5808,6 +5813,7 @@ NoResponse:
 
 					If ReturnFlag Then
 						ShowModule = True
+						AskedToGiveUpSection = False
 						ScriptTimer.Start()
 					ElseIf TeaseTick < 1 And Playlist = False Then
 						StrokeTauntVal = -1
@@ -5815,6 +5821,10 @@ NoResponse:
 					ElseIf WasStroking And Not WasEdging And Not WasHolding Then
 						StrokeTauntVal = -1
 						RunModuleScript(False)
+					ElseIf My.Settings.GiveUpReturn Then
+						ShowModule = True
+						AskedToGiveUpSection = False
+						ScriptTimer.Start()
 					Else
 						StrokeTauntVal = -1
 						RunLinkScript()
@@ -6489,7 +6499,6 @@ NullResponseLine2:
 
 					SubGaveUp = False
 
-					AskedToGiveUpSection = False
 					If TnASlides.Enabled = True Then TnASlides.Stop()
 
 					Dim WasStroking As Boolean = SubStroking
@@ -6516,6 +6525,7 @@ NullResponseLine2:
 
 					If ReturnFlag Then
 						ShowModule = True
+						AskedToGiveUpSection = False
 						ScriptTimer.Start()
 					ElseIf TeaseTick < 1 And Playlist = False Then
 						StrokeTauntVal = -1
@@ -6523,6 +6533,10 @@ NullResponseLine2:
 					ElseIf WasStroking And Not WasEdging And Not WasHolding Then
 						StrokeTauntVal = -1
 						RunModuleScript(False)
+					ElseIf My.Settings.GiveUpReturn Then
+						ShowModule = True
+						AskedToGiveUpSection = False
+						ScriptTimer.Start()
 					Else
 						StrokeTauntVal = -1
 						RunLinkScript()

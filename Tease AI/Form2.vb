@@ -721,6 +721,8 @@ Public Class FrmSettings
 		LBLVRate.Text = SliderVRate.Value
 		TypesSpeedVal.Text = TypeSpeedSlider.Value
 
+		giveupCheckBox.Checked = My.Settings.GiveUpReturn
+
 		FrmSettingsLoading = False
 
 		Me.Visible = False
@@ -9488,6 +9490,8 @@ WhyUMakeMeDoDis:
 
 			SettingsList.Add("Typo Chance: " & NBTypoChance.Value)
 
+			SettingsList.Add("GiveUpReturn: " & giveupCheckBox.Checked)
+
 			Dim SettingsString As String = ""
 
 			For i As Integer = 0 To SettingsList.Count - 1
@@ -9577,6 +9581,8 @@ WhyUMakeMeDoDis:
 				degradingCheckBox.Checked = SettingsList(46).Replace("Degrading: ", "")
 
 				NBTypoChance.Value = SettingsList(47).Replace("Typo Chance: ", "")
+
+				giveupCheckBox.Checked = SettingsList(48).Replace("GiveUpReturn: ", "")
 
 
 				SaveDommeSettings()
@@ -14194,4 +14200,14 @@ NextURL:
 		My.Settings.Save()
 	End Sub
 
+	Private Sub giveupCheckBox_LostFocus(sender As Object, e As System.EventArgs) Handles giveupCheckBox.LostFocus
+		My.Settings.GiveUpReturn = giveupCheckBox.Checked
+		My.Settings.Save()
+	End Sub
+
+	Private Sub giveupCheckBox_MouseHover(sender As System.Object, e As System.EventArgs) Handles giveupCheckBox.MouseHover
+		TTDir.SetToolTip(giveupCheckBox, "If this box is checked, and you ask to stop, the Domme will stop the current edge or cbt command and continue on with the script." & Environment.NewLine &
+			"If it is unchecked, and you ask to stop, she will end the current script and start the next one." & Environment.NewLine & Environment.NewLine &
+			"This setting does not affect give up responses containing a @CallReturn which will always return to the last command.")
+	End Sub
 End Class
