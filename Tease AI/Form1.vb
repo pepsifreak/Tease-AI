@@ -11134,6 +11134,29 @@ OrgasmDecided:
 			StringClean = StringClean.Replace("@DecideOrgasm", "")
 		End If
 
+		If StringClean.Contains("@OrgasmRuin") Then
+			FileGoto = "Orgasm Ruin"
+			OrgasmRuined = True
+			SkipGotoLine = True
+			GetGoto()
+			StringClean = StringClean.Replace("@OrgasmRuin", "")
+		End If
+
+		If StringClean.Contains("@OrgasmDeny") Then
+			FileGoto = "Orgasm Deny"
+			OrgasmDenied = True
+			SkipGotoLine = True
+			GetGoto()
+			StringClean = StringClean.Replace("@OrgasmDeny", "")
+		End If
+
+		If StringClean.Contains("@OrgasmAllow") Then
+			FileGoto = "Orgasm Allow"
+			OrgasmAllowed = True
+			SkipGotoLine = True
+			GetGoto()
+			StringClean = StringClean.Replace("@OrgasmAllow", "")
+		End If
 
 		' The @Glitter Command allows to specify a specfic script from the domme's Apps\Glitter\Script directory, which will then immediately play out in the Glitter app. For example, @Glitter(About to Ruin)
 		' would run the Glitter script in Apps\Glitter\Script\About to Ruin.txt.
