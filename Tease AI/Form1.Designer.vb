@@ -349,6 +349,7 @@ Partial Class Form1
 		Me.Panel4 = New System.Windows.Forms.Panel()
 		Me.TimeoutTimer = New System.Windows.Forms.Timer(Me.components)
 		Me.WritingTaskTimer = New System.Windows.Forms.Timer(Me.components)
+		Me.RefreshRandomizerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		CType(Me.mainPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.domAvatar, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1993,7 +1994,7 @@ Partial Class Form1
 		'
 		'DebugToolStripMenuItem
 		'
-		Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunScriptToolStripMenuItem})
+		Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunScriptToolStripMenuItem, Me.RefreshRandomizerToolStripMenuItem})
 		Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
 		Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
 		Me.DebugToolStripMenuItem.Text = "Debug"
@@ -2001,7 +2002,7 @@ Partial Class Form1
 		'RunScriptToolStripMenuItem
 		'
 		Me.RunScriptToolStripMenuItem.Name = "RunScriptToolStripMenuItem"
-		Me.RunScriptToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+		Me.RunScriptToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
 		Me.RunScriptToolStripMenuItem.Text = "Run Script"
 		'
 		'AboutToolStripMenuItem
@@ -3464,6 +3465,12 @@ Partial Class Form1
 		'
 		Me.WritingTaskTimer.Interval = 1000
 		'
+		'RefreshRandomizerToolStripMenuItem
+		'
+		Me.RefreshRandomizerToolStripMenuItem.Name = "RefreshRandomizerToolStripMenuItem"
+		Me.RefreshRandomizerToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+		Me.RefreshRandomizerToolStripMenuItem.Text = "Refresh Randomizer"
+		'
 		'Form1
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3866,4 +3873,5 @@ Partial Class Form1
 	Friend WithEvents TimeoutTimer As System.Windows.Forms.Timer
 	Friend WithEvents ThemesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents WritingTaskTimer As Timer
+	Friend WithEvents RefreshRandomizerToolStripMenuItem As ToolStripMenuItem
 End Class

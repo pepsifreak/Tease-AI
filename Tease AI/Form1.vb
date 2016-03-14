@@ -27160,4 +27160,8 @@ SkipNew:
 		chatBox.ShortcutsEnabled = True
 		CloseApp()
 	End Sub
+
+	Private Sub RefreshRandomizerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshRandomizerToolStripMenuItem.Click
+		randomizer = New Random(System.DateTime.Now.Ticks Mod System.Int32.MaxValue)
+	End Sub
 End Class
