@@ -1311,7 +1311,7 @@ Partial Class Form1
 		'PBFileTransfer
 		'
 		Me.PBFileTransfer.Location = New System.Drawing.Point(22, 123)
-		Me.PBFileTransfer.Maximum = 3
+		Me.PBFileTransfer.Maximum = 10
 		Me.PBFileTransfer.Name = "PBFileTransfer"
 		Me.PBFileTransfer.Size = New System.Drawing.Size(200, 13)
 		Me.PBFileTransfer.TabIndex = 0
@@ -1338,7 +1338,7 @@ Partial Class Form1
 		'
 		'StupidTimer
 		'
-		Me.StupidTimer.Interval = 1000
+		Me.StupidTimer.Interval = 300
 		'
 		'VideoTauntTimer
 		'

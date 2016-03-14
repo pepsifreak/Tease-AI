@@ -20600,52 +20600,7 @@ AtNext:
 		LBLFileTransfer.Text = domName.Text & " is sending you a file!"
 		PNLFileTransfer.Visible = True
 
-
-		StupidTick = 1
 		StupidTimer.Start()
-
-		Do
-			Application.DoEvents()
-		Loop Until StupidFlag = True
-		'Delay(1)
-
-		PBFileTransfer.Value = 1
-
-		StupidFlag = False
-		StupidTick = 1
-		StupidTimer.Start()
-
-		Do
-			Application.DoEvents()
-		Loop Until StupidFlag = True
-		'Delay(1)
-
-		PBFileTransfer.Value = 2
-
-		StupidFlag = False
-		StupidTick = 1
-		StupidTimer.Start()
-
-		Do
-			Application.DoEvents()
-		Loop Until StupidFlag = True
-		'Delay(1)
-
-		PBFileTransfer.Value = 3
-
-		StupidFlag = False
-		StupidTick = 1
-		StupidTimer.Start()
-
-		Do
-			Application.DoEvents()
-		Loop Until StupidFlag = True
-		'Delay(1)
-
-		LBLFileTransfer.Text = "Download complete!"
-		BTNFileTransferOpen.Visible = True
-		BTNFIleTransferDismiss.Visible = True
-
 
 	End Sub
 
@@ -21585,14 +21540,15 @@ TryNext:
 	End Sub
 
 	Private Sub StupidTimer_Tick(sender As System.Object, e As System.EventArgs) Handles StupidTimer.Tick
-		StupidTick -= 1
+		If PBFileTransfer.Value = PBFileTransfer.Maximum Then
+			StupidTimer.Enabled = False
 
-		If StupidTick < 1 Then
-			StupidTimer.Stop()
-			StupidFlag = True
+			LBLFileTransfer.Text = "Download complete!"
+			BTNFileTransferOpen.Visible = True
+			BTNFIleTransferDismiss.Visible = True
+			Exit Sub
 		End If
-
-
+		PBFileTransfer.Value += 1
 	End Sub
 
 	Private Sub PNLAppHome_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs)
