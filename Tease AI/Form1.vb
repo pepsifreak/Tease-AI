@@ -4063,11 +4063,14 @@ ReturnCalled:
 		Dim lines As New List(Of String)
 		lines = Txt2List(FileText)
 
-		If lines(StrokeTauntVal).Substring(0, 1) = "(" Then
-			Do
-				StrokeTauntVal += 1
-			Loop Until lines(StrokeTauntVal).Substring(0, 1) <> "("
-		End If
+		Try
+			If lines(StrokeTauntVal).Substring(0, 1) = "(" Then
+				Do
+					StrokeTauntVal += 1
+				Loop Until lines(StrokeTauntVal).Substring(0, 1) <> "("
+			End If
+		Catch
+		End Try
 
 		Try
 			If RunningScript = False And AvoidTheEdgeGame = False And ReturnFlag = False Then
