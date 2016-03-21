@@ -3587,13 +3587,7 @@ NullSkip:
 							End If
 							If FrmSettings.CBHonorificCapitalized.Checked = True Then
 								If Not ChatString.Contains(FrmSettings.TBHonorific.Text) Then
-									TempVal = randomizer.Next(1, 6)
-									TempVal = 1
-									If TempVal = 1 Then DomChat = "Your shift key had better be broken"
-									If TempVal = 2 Then DomChat = "That's not the proper way to address me"
-									If TempVal = 3 Then DomChat = "Check your typing and try again"
-									If TempVal = 4 Then DomChat = "You better answer me again correctly"
-									If TempVal = 5 Then DomChat = "Look at what's wrong with what you just typed and try again"
+									DomChat = "#DomHonorific"
 									TypingDelay()
 									Return
 								End If
