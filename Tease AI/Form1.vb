@@ -14040,7 +14040,7 @@ VTSkip:
 
 
 		If StringClean.Contains("@CheckStrokingState") Then
-			If SubStroking = True Then
+			If SubStroking = True Or SubEdging = True Or SubHoldingEdge = True Then
 				FileGoto = "(Sub Stroking)"
 			Else
 				FileGoto = "(Sub Not Stroking)"
