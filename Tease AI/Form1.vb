@@ -5221,23 +5221,27 @@ NullResponse:
 				Dim TypeColor As String = DomColor
 				Dim TypeFont As String = FrmSettings.FontComboBoxD.Text
 				Dim TypeSize As String = FrmSettings.NBFontSizeD.Value
+				Dim LineSpeaker As String = ""
 				If DomTask.Contains("@Contact1") Then
 					TypeName = FrmSettings.TBGlitter1.Text
 					TypeColor = Color2Html(FrmSettings.LBLGlitterNC1.ForeColor)
 					TypeFont = "Cambria"
 					TypeSize = "3"
+					LineSpeaker = "@Contact1 "
 				End If
 				If DomTask.Contains("@Contact2") Then
 					TypeName = FrmSettings.TBGlitter2.Text
 					TypeColor = Color2Html(FrmSettings.LBLGlitterNC2.ForeColor)
 					TypeFont = "Cambria"
 					TypeSize = "3"
+					LineSpeaker = "@Contact2 "
 				End If
 				If DomTask.Contains("@Contact3") Then
 					TypeName = FrmSettings.TBGlitter3.Text
 					TypeColor = Color2Html(FrmSettings.LBLGlitterNC3.ForeColor)
 					TypeFont = "Cambria"
 					TypeSize = "3"
+					LineSpeaker = "@Contact3 "
 				End If
 
 
@@ -5672,7 +5676,7 @@ NoResponse:
 
 				If CorrectedTypo = True Then
 					CorrectedTypo = False
-					DomTask = "*" & CorrectedWord
+					DomTask = LineSpeaker & "*" & CorrectedWord
 					TypingDelayGeneric()
 					Return
 				End If
