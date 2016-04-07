@@ -27121,4 +27121,9 @@ SkipNew:
 	Private Sub RefreshRandomizerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshRandomizerToolStripMenuItem.Click
 		randomizer = New Random(System.DateTime.Now.Ticks Mod System.Int32.MaxValue)
 	End Sub
+
+	Private Sub DommeTagCreatorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DommeTagCreatorToolStripMenuItem.Click
+		If Form8.Visible = False Then Form8.Show()
+		Form8.Focus()
+	End Sub
 End Class
