@@ -225,6 +225,7 @@ Partial Class Form1
 		Me.ForumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.RunScriptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.RefreshRandomizerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.PNLDate = New System.Windows.Forms.Panel()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -349,7 +350,7 @@ Partial Class Form1
 		Me.Panel4 = New System.Windows.Forms.Panel()
 		Me.TimeoutTimer = New System.Windows.Forms.Timer(Me.components)
 		Me.WritingTaskTimer = New System.Windows.Forms.Timer(Me.components)
-		Me.RefreshRandomizerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.DommeTagCreatorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		CType(Me.mainPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.domAvatar, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1769,7 +1770,7 @@ Partial Class Form1
 		'DommeTagsToolStripMenuItem
 		'
 		Me.DommeTagsToolStripMenuItem.Name = "DommeTagsToolStripMenuItem"
-		Me.DommeTagsToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+		Me.DommeTagsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
 		Me.DommeTagsToolStripMenuItem.Text = "Domme Tags"
 		'
 		'LocalTagsToolStripMenuItem
@@ -1855,6 +1856,7 @@ Partial Class Form1
 		Me.DommeTagsToolStripMenuItem2.Name = "DommeTagsToolStripMenuItem2"
 		Me.DommeTagsToolStripMenuItem2.Size = New System.Drawing.Size(157, 22)
 		Me.DommeTagsToolStripMenuItem2.Text = "Domme Tags"
+		Me.DommeTagsToolStripMenuItem2.Visible = False
 		'
 		'LazySubToolStripMenuItem
 		'
@@ -1944,7 +1946,7 @@ Partial Class Form1
 		'
 		'ToolsToolStripMenuItem
 		'
-		Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AIBoxesToolStripMenuItem, Me.CommandGuideToolStripMenuItem})
+		Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AIBoxesToolStripMenuItem, Me.CommandGuideToolStripMenuItem, Me.DommeTagCreatorToolStripMenuItem})
 		Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
 		Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
 		Me.ToolsToolStripMenuItem.Text = "Tools"
@@ -2004,6 +2006,12 @@ Partial Class Form1
 		Me.RunScriptToolStripMenuItem.Name = "RunScriptToolStripMenuItem"
 		Me.RunScriptToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
 		Me.RunScriptToolStripMenuItem.Text = "Run Script"
+		'
+		'RefreshRandomizerToolStripMenuItem
+		'
+		Me.RefreshRandomizerToolStripMenuItem.Name = "RefreshRandomizerToolStripMenuItem"
+		Me.RefreshRandomizerToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+		Me.RefreshRandomizerToolStripMenuItem.Text = "Refresh Randomizer"
 		'
 		'AboutToolStripMenuItem
 		'
@@ -3465,11 +3473,11 @@ Partial Class Form1
 		'
 		Me.WritingTaskTimer.Interval = 1000
 		'
-		'RefreshRandomizerToolStripMenuItem
+		'DommeTagCreatorToolStripMenuItem
 		'
-		Me.RefreshRandomizerToolStripMenuItem.Name = "RefreshRandomizerToolStripMenuItem"
-		Me.RefreshRandomizerToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-		Me.RefreshRandomizerToolStripMenuItem.Text = "Refresh Randomizer"
+		Me.DommeTagCreatorToolStripMenuItem.Name = "DommeTagCreatorToolStripMenuItem"
+		Me.DommeTagCreatorToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+		Me.DommeTagCreatorToolStripMenuItem.Text = "Domme Tag Creator"
 		'
 		'Form1
 		'
@@ -3874,4 +3882,5 @@ Partial Class Form1
 	Friend WithEvents ThemesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents WritingTaskTimer As Timer
 	Friend WithEvents RefreshRandomizerToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents DommeTagCreatorToolStripMenuItem As ToolStripMenuItem
 End Class
