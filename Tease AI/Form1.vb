@@ -14673,36 +14673,36 @@ retry_NextStage:
                             Select Case ___retryStage
                                 Case 0, 6
                                     ' Remove View-Tag
-                                    ___matchpattern = "(?:\bCloseUP[,\s]*)|(?:\bSideview[,\s]*)"
+                                    ___matchpattern = "(?:\bCloseUP\b)|(?:\bSideview\b)"
                                     ___replacementstring = ""
                                 Case 1, 7
                                     ' Increase Clothing
-                                    ___matchpattern = "\bNaked[,\s]*"
+                                    ___matchpattern = "\bNaked\b"
                                     ___replacementstring = "GarmentCovering"
                                 Case 2, 8
                                     ' Increase Clothing
-                                    ___matchpattern = "\bGarmentCovering[,\s]*"
+                                    ___matchpattern = "\bGarmentCovering\b"
                                     ___replacementstring = "HalfDressed"
                                 Case 3, 9
                                     ' Increase Clothing
-                                    ___matchpattern = "\bHalfDressed[,\s]*"
+                                    ___matchpattern = "\bHalfDressed\b"
                                     ___replacementstring = "FullyDressed"
                                 Case 4, 10
                                     ' Increase Clothing
-                                    ___matchpattern = "\bHandsCovering[,\s]*"
+                                    ___matchpattern = "\bHandsCovering\b"
                                     ___replacementstring = "GarmentCovering"
                                 Case 5
                                     ' Use BaseTags, remove Exclusions and Start again
                                     ___DomTag_Work = ___DomTag_Base
-                                    ___matchpattern = "\bNot[\w]*[,\s]*"
+                                    ___matchpattern = "\bNot[\w]*\b"
                                     ___replacementstring = ""
                                 Case 11
                                     ' Decrease Clothing
-                                    ___matchpattern = "\bFullyDressed[,\s]*"
+                                    ___matchpattern = "\bFullyDressed\b"
                                     ___replacementstring = "HalfDressed"
                                 Case 12
                                     ' Decrease Clothing
-                                    ___matchpattern = "\bHalfDressed[,\s]*"
+                                    ___matchpattern = "\bHalfDressed\b"
                                     ___replacementstring = "GarmentCovering"
                             End Select
                             ___retryStage += 1
@@ -14714,7 +14714,7 @@ retry_NextStage:
                             ' IF:    actual Stage is remove excluded Tags
                             ' And:   there are none
                             ' Then:  Set Stage to 11 to skip unnecessary searches
-                            If ___retryStage = 5 _
+                            If ___retryStage = 6 _
                             AndAlso ___DomTag_Work = ___DomTag_Temp _
                             Then ___retryStage = 11
 
