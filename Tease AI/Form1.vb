@@ -769,8 +769,8 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 		End If
 
 
-		FrmSettings.Show()
-		FrmSettings.FrmSettingsLoading = True
+        'FrmSettings.Show()
+        FrmSettings.FrmSettingsLoading = True
 
 		FrmSettings.FrmSettingStartUp()
 
